@@ -4,7 +4,7 @@ class ProjectPage extends Component {
   render() {
     return (
       <div>
-        This is the project page component :)
+        -This is the project page component :)
         {/* TODO: Fill in the project page content */}
       </div>
     );
