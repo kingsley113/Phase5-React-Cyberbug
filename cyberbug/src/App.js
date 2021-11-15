@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 import SplashScreen from "./components/splashScreen";
-import PageContent from "./containers/pageContent";
+import AppContent from "./containers/appContent";
 
 // function App() {
 //   return (
@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div>
         <SplashScreen />
-        <PageContent />
+        <AppContent />
       </div>
       // App content tree goes here
       // Splash screen if not logged in

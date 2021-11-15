@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import PageHeader from "../components/pageHeader";
+import Dashboard from "./pages/dashboard";
+import ProjectPage from "./pages/projectPage";
+import SettingsPage from "./pages/settingsPage";
 
 class PageContent extends Component {
   render() {
     return (
       <div>
-        {/* Header */}
-        <PageHeader />
-        {/* Sidebar */}
-        {/* Content */}
+        This is the page content component :)
+        {/* TODO: Fill in page content meat and potatos here */}
+        <Dashboard />
+        <ProjectPage />
+        <SettingsPage />
       </div>
     );
   }
