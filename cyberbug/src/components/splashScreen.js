@@ -46,3 +46,4 @@ class SplashScreen extends Component {
 }
 
 export default SplashScreen;
+// TODO: Add styling
