@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import UserInfo from "../../components/settings/userInfo";
+import UserForm from "../../components/settings/userForm";
 
 class SettingsPage extends Component {
   render() {
@@ -6,6 +8,8 @@ class SettingsPage extends Component {
       <div>
         -This is the settings component :)
         {/* TODO: Fill in the settings content */}
+        <UserInfo />
+        <UserForm />
       </div>
     );
   }
