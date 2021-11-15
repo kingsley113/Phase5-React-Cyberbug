@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ActiveProjectSelector from "./pageHeader/activeProjectSelector";
+import CurrentUserPanel from "./pageHeader/currentUserPanel";
 
 class PageHeader extends Component {
   render() {
@@ -6,6 +8,8 @@ class PageHeader extends Component {
       <div>
         {/* TODO: Add header content here */}
         This is the page header component :)
+        <ActiveProjectSelector />
+        <CurrentUserPanel />
       </div>
     );
   }
