@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
+import SplashScreen from "./components/splashScreen";
 
 // function App() {
 //   return (
@@ -25,10 +26,15 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    return null; //TODO: Placeholder null
-    // App content tree goes here
-    // Splash screen if not logged in
-    // Content Container if logged in
+    return (
+      <div>
+        <SplashScreen />
+        <PageContent />
+      </div>
+      // App content tree goes here
+      // Splash screen if not logged in
+      // Content Container if logged in
+    );
   }
 }
 
