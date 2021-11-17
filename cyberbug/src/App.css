@@ -1,3 +1,8 @@
+body,
+html {
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -43,7 +48,7 @@
   /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
-  min-height: 45px;
+  height: 45px;
   line-height: 45px;
   padding: 0px 10px 0px 10px;
 }
@@ -68,4 +73,52 @@ select {
 #current-user-panel {
   color: white;
   font-size: 14pt;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 65px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 0, 234);
+  height: 100%;
+}
+
+.sidebar-icon {
+  width: 45px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.sidebar-icon:hover {
+  background: rgb(252, 92, 238);
+  border-radius: 5px;
+}
+
+.btm-icon {
+  margin-bottom: 10px;
+}
+
+.separator-icon {
+  margin-top: auto;
+}
+/* Page Content Styles */
+.page-main {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 45px);
+  /* margin: auto; */
+  /* flex: 1; */
+  background: chartreuse;
+  /* border: 3px solid red; */
+}
+
+.main-content {
+  height: 100vh;
+  /* border: 2px solid blue; */
+  background: blue;
+}
+#root {
+  height: 100%;
 }

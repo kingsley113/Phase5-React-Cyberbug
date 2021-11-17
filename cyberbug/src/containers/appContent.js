@@ -12,11 +12,15 @@ class AppContent extends Component {
         {/* <ModalWindow /> */}
         {/* Only need modal window component for forms, should this be within form components? TODO: */}
         {/* Header */}
-        <PageHeader />
-        {/* Sidebar */}
-        <PageSidebar />
-        {/* Content */}
-        <PageContent />
+        <div>
+          <PageHeader />
+        </div>
+        <div className="page-main">
+          {/* Sidebar */}
+          <PageSidebar />
+          {/* Content */}
+          <PageContent />
+        </div>
       </div>
     );
   }
