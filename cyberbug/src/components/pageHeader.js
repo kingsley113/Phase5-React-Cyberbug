@@ -5,9 +5,9 @@ import CurrentUserPanel from "./pageHeader/currentUserPanel";
 class PageHeader extends Component {
   render() {
     return (
-      <div>
+      <div className="page-header">
         {/* TODO: Add header content here */}
-        This is the page header component :)
+        <img src="cyberbugLogoQuick.png" alt="Cyberbug Logo" className="logo" />
         <ActiveProjectSelector />
         <CurrentUserPanel />
       </div>

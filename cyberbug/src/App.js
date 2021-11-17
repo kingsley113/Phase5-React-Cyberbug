@@ -29,7 +29,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SplashScreen />
+        {/* <SplashScreen /> */}
+        {/* TODO: Comment out splash screen for now, eventually will be checking for user logged in */}
         <AppContent />
       </div>
       // App content tree goes here

@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.page-header {
+  background-color: rgb(122, 3, 158);
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  min-height: 45px;
+  line-height: 45px;
+  padding: 0px 10px 0px 10px;
+}
+
+.logo {
+  /* max-width: 80px; */
+  max-height: 43px;
+}
