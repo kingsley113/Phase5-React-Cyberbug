@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
-import SplashScreen from "./components/splashScreen";
+// import SplashScreen from "./components/splashScreen";
 import AppContent from "./containers/appContent";
 
 // function App() {

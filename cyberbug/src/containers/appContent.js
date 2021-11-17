@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PageHeader from "../components/pageHeader";
 import PageSidebar from "../components/pageSidebar";
-import ModalWindow from "./modalWindow";
+// import ModalWindow from "./modalWindow";
 import PageContent from "./pageContent";
 
 class AppContent extends Component {

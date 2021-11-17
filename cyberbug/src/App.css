@@ -64,3 +64,8 @@ select {
   border: none;
   border-bottom: 2px solid white;
 }
+
+#current-user-panel {
+  color: white;
+  font-size: 14pt;
+}
