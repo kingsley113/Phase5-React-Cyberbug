@@ -37,6 +37,7 @@
   }
 }
 
+/* Header Styles */
 .page-header {
   background-color: rgb(122, 3, 158);
   /* border: 1px solid black; */
@@ -50,4 +51,16 @@
 .logo {
   /* max-width: 80px; */
   max-height: 43px;
+}
+
+#active-project-dropdown {
+  text-decoration: none;
+}
+
+select {
+  background: transparent;
+  color: white;
+  font-size: 14pt;
+  border: none;
+  border-bottom: 2px solid white;
 }
