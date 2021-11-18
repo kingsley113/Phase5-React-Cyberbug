@@ -36,7 +36,7 @@ class App extends Component {
         </div>
         <div className="page-main">
           {/* Sidebar */}
-          <PageSidebar />
+          {/* <PageSidebar /> */}
           {/* Content */}
           <PageContent />
         </div>

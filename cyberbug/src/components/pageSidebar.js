@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { useNavigate as navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class PageSidebar extends Component {
   logout = () => {
@@ -9,49 +9,66 @@ class PageSidebar extends Component {
   render() {
     return (
       <div className="sidebar">
-        {/* TODO: Fill in sidebar content here */}
         {/* New bug button  */}
-        <img
-          src="icons/new-bug.png"
-          alt="new bug icon"
-          className="sidebar-icon"
-          // onClick={() => navigate("/newBug")}
-        />
+        <Link to="/newBug" className="sidebar-icon-container" exact>
+          <img
+            src="icons/new-bug.png"
+            alt="new bug icon"
+            className="sidebar-icon"
+          />
+        </Link>
+        {/* view project button */}
+        <Link to="/projects" className="sidebar-icon-container" exact>
+          {/* TODO:Add logic to go to active project id */}
+          <img
+            src="icons/view-project.png"
+            alt="project icon"
+            className="sidebar-icon"
+          />
+        </Link>
         {/* home button  */}
-        <img
-          src="icons/home.png"
-          alt="home icon"
-          className="sidebar-icon"
-          // onClick={() => navigate("/dashboard")}
-        />
+        <Link to="/" className="sidebar-icon-container" exact>
+          <img src="icons/home.png" alt="home icon" className="sidebar-icon" />
+        </Link>
         {/* all projects button */}
-        <img
-          src="icons/projects-list.png"
-          alt="project list icon"
-          className="sidebar-icon"
-          // onClick={() => navigate("/projects")}
-        />
+        <Link to="/projects" className="sidebar-icon-container" exact>
+          <img
+            src="icons/projects-list.png"
+            alt="project list icon"
+            className="sidebar-icon"
+          />
+        </Link>
         {/* new project button */}
-        <img
-          src="icons/new-project.png"
-          alt="new project icon"
-          className="sidebar-icon separator-icon"
-          // onClick={() => navigate("/newProject")}
-        />
+        <Link
+          to="/newProject"
+          className="sidebar-icon-container separator-icon"
+          exact
+        >
+          <img
+            src="icons/new.png"
+            alt="new project icon"
+            className="sidebar-icon"
+            // onClick={() => navigate("/newProject")}
+          />
+        </Link>
         {/* settings button  */}
-        <img
-          src="icons/settings.png"
-          alt="settings icon"
-          className="sidebar-icon"
-          // onClick={() => navigate("/settings")}
-        />
+        <Link to="/settings" className="sidebar-icon-container">
+          <img
+            src="icons/settings.png"
+            alt="settings icon"
+            className="sidebar-icon"
+            // onClick={() => navigate("/settings")}
+          />
+        </Link>
         {/* logout button */}
-        <img
-          src="icons/logout.png"
-          alt="logout icon"
-          className="sidebar-icon btm-icon"
-          // onClick={() => logout()}
-        />
+        <Link to="/login" className="sidebar-icon-container">
+          <img
+            src="icons/logout.png"
+            alt="logout icon"
+            className="sidebar-icon btm-icon"
+            onClick={() => this.logout()}
+          />
+        </Link>
       </div>
     );
   }

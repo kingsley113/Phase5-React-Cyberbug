@@ -3,7 +3,8 @@ import ProjectStatus from "../../components/dashboard/projectStatus";
 import ProjectsChart from "../../components/dashboard/projectsChart";
 import PriorityTasks from "../../components/dashboard/priorityTasks";
 import DailyInfoPanel from "../../components/dashboard/dailyInfoPanel";
-import PageSidebar from "../../components/pageSidebar";
+import ProjectsList from "../../components/dashboard/projectList";
+// import PageSidebar from "../../components/pageSidebar";
 
 class Dashboard extends Component {
   render() {
@@ -15,6 +16,7 @@ class Dashboard extends Component {
         <ProjectsChart />
         <PriorityTasks />
         <DailyInfoPanel />
+        <ProjectsList />
       </div>
     );
   }
