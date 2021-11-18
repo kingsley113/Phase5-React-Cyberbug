@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
-// import SplashScreen from "./components/splashScreen";
-import AppContent from "./containers/appContent";
+
+import PageHeader from "./components/pageHeader";
+import PageContent from "./containers/pageContent";
+import PageSidebar from "./components/pageSidebar";
 
 // function App() {
 //   return (
@@ -29,13 +31,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/* <SplashScreen /> */}
-        {/* TODO: Comment out splash screen for now, eventually will be checking for user logged in */}
-        <AppContent />
+        <div>
+          <PageHeader />
+        </div>
+        <div className="page-main">
+          {/* Sidebar */}
+          <PageSidebar />
+          {/* Content */}
+          <PageContent />
+        </div>
       </div>
-      // App content tree goes here
-      // Splash screen if not logged in
-      // Content Container if logged in
+      // TODO: Add logic to determine if user is logged in or not and show splash screen if not
     );
   }
 }

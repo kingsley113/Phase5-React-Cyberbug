@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import PageSidebar from "./pageSidebar";
 
 class SplashScreen extends Component {
   state = {

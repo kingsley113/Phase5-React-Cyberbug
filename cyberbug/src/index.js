@@ -3,22 +3,16 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 // import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { createStore } from "redux";
 import rootReducer from "./reducers/index";
 import { Provider } from "react-redux";
 
-import SplashScreen from "./components/splashScreen";
-
 let store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <Route path="/" component={App} />
-      <Route exact path="/login" component={SplashScreen} />
-    </Router>
+    <App />
   </Provider>,
   document.getElementById("root")
 );
