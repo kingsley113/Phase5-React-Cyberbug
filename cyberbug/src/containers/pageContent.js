@@ -12,12 +12,7 @@ class PageContent extends Component {
   render() {
     return (
       <Router>
-        <Route
-          path="/"
-          render={() => (
-            <h1>This is the home page, please add something here!"</h1>
-          )}
-        />
+        <Route exact path="/" component={Dashboard} />
         <Route exact path="/login" component={SplashScreen} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/project" component={ProjectPage} />

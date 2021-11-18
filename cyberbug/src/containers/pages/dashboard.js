@@ -8,7 +8,7 @@ import PageSidebar from "../../components/pageSidebar";
 class Dashboard extends Component {
   render() {
     return (
-      <div className="page-main">
+      <div>
         -This is the dashboard component :)
         {/* TODO: Fill in the dashboard content here */}
         <ProjectStatus />
