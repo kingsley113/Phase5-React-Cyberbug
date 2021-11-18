@@ -54,7 +54,6 @@ html {
 }
 
 .logo {
-  /* max-width: 80px; */
   max-height: 43px;
 }
 
@@ -92,9 +91,6 @@ select {
 
 .sidebar-icon {
   width: 45px;
-  /* margin-left: auto;
-  margin-right: auto;
-  margin-top: 15px; */
 }
 
 .sidebar-icon:hover {
