@@ -124,3 +124,30 @@ select {
 #root {
   height: 100%;
 }
+
+/* Debug Styles */
+.test-border {
+  border: 2px solid red;
+}
+
+.test-border-blue {
+  border: 2px solid blue;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dashboard-stats-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  min-height: 40%;
+}
+
+.full-width {
+  width: 100%;
+}

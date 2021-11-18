@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class PriorityTasks extends Component {
   render() {
     return (
-      <div>
+      <div className="test-border">
         --This is the priority tasks component :)
         {/* TODO: fill in content */}
       </div>

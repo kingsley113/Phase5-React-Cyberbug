@@ -10,7 +10,7 @@ import ProjectsPage from "./pages/projectsPage";
 class PageContent extends Component {
   render() {
     return (
-      <div>
+      <div className="full-width">
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/login" component={SplashScreen} />
         <Route exact path="/dashboard" component={Dashboard} />

@@ -9,12 +9,13 @@ import ProjectsList from "../../components/dashboard/projectList";
 class Dashboard extends Component {
   render() {
     return (
-      <div>
-        -This is the dashboard component :)
+      <div className="test-border dashboard">
         {/* TODO: Fill in the dashboard content here */}
-        <PriorityTasks />
-        <ProjectsChart />
-        <DailyInfoPanel />
+        <div className="test-border-blue dashboard-stats-container">
+          <PriorityTasks />
+          <ProjectsChart />
+          <DailyInfoPanel />
+        </div>
         {/* <ProjectStatus /> */}
         <ProjectsList />
       </div>
