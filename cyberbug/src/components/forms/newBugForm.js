@@ -57,6 +57,14 @@ class NewBugForm extends Component {
             </select>
             <label htmlFor="bug-due-date">Due Date: </label>
             <input type="date" name="bug-due-date" />
+            <label htmlFor="bug-team-member">Assign Team Member:</label>
+            <select name="bug-team-member">
+              <option value="dummy-member-1">Dummy Team Member 1</option>
+              <option value="dummy-member-2">Dummy Team Member 2</option>
+              <option value="dummy-member-3">Dummy Team Member 3</option>
+              <option value="dummy-member-4">Dummy Team Member 4</option>
+              <option value="dummy-member-5">Dummy Team Member 5</option>
+            </select>
           </div>
           <div className="row">
             <input type="submit" value="Ew, bugs! (Save)" />
