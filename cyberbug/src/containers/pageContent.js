@@ -6,6 +6,8 @@ import SplashScreen from "../components/splashScreen";
 import ProjectPage from "./pages/projectPage";
 import SettingsPage from "./pages/settingsPage";
 import ProjectsPage from "./pages/projectsPage";
+import NewProjectForm from "../components/forms/newProjectForm";
+import NewBugForm from "../components/forms/newBugForm";
 
 class PageContent extends Component {
   render() {
@@ -17,6 +19,9 @@ class PageContent extends Component {
         <Route exact path="/projects" component={ProjectsPage} />
         <Route exact path="/projects/:id" component={ProjectPage} />
         <Route exact path="/settings" component={SettingsPage} />
+
+        <Route exact path="/newProject" component={NewProjectForm} />
+        <Route exact path="/newBugForm" component={NewBugForm} />
       </div>
       /* Modal window for forms */
       /* <ModalWindow /> */
