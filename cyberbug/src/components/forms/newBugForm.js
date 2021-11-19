@@ -70,10 +70,12 @@ class NewBugForm extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     // TODO: submit form logic, store in state and post fetch to API
+    console.log("Das bug has been createth, now it is your job to deleteth!");
   };
 
   handleOnClick = (event) => {
     window.history.back();
+    // TODO: better way to implement this? this feels wrong...
   };
 }
 
