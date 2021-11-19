@@ -10,7 +10,7 @@ class PageSidebar extends Component {
     return (
       <div className="sidebar">
         {/* New bug button  */}
-        <Link to="/newBug" className="sidebar-icon-container" exact>
+        <Link to="/newBug" className="sidebar-icon-container" exact="true">
           <img
             src="icons/new-bug.png"
             alt="new bug icon"
@@ -18,7 +18,7 @@ class PageSidebar extends Component {
           />
         </Link>
         {/* view project button */}
-        <Link to="/projects" className="sidebar-icon-container" exact>
+        <Link to="/projects" className="sidebar-icon-container" exact="true">
           {/* TODO:Add logic to go to active project id */}
           <img
             src="icons/view-project.png"
@@ -27,11 +27,11 @@ class PageSidebar extends Component {
           />
         </Link>
         {/* home button  */}
-        <Link to="/" className="sidebar-icon-container" exact>
+        <Link to="/" className="sidebar-icon-container" exact="true">
           <img src="icons/home.png" alt="home icon" className="sidebar-icon" />
         </Link>
         {/* all projects button */}
-        <Link to="/projects" className="sidebar-icon-container" exact>
+        <Link to="/projects" className="sidebar-icon-container" exact="true">
           <img
             src="icons/projects-list.png"
             alt="project list icon"
@@ -42,7 +42,7 @@ class PageSidebar extends Component {
         <Link
           to="/newProject"
           className="sidebar-icon-container separator-icon"
-          exact
+          exact="true"
         >
           <img
             src="icons/new.png"
@@ -52,7 +52,7 @@ class PageSidebar extends Component {
           />
         </Link>
         {/* settings button  */}
-        <Link to="/settings" className="sidebar-icon-container">
+        <Link to="/settings" className="sidebar-icon-container" exact="true">
           <img
             src="icons/settings.png"
             alt="settings icon"
@@ -61,7 +61,7 @@ class PageSidebar extends Component {
           />
         </Link>
         {/* logout button */}
-        <Link to="/login" className="sidebar-icon-container">
+        <Link to="/login" className="sidebar-icon-container" exact="true">
           <img
             src="icons/logout.png"
             alt="logout icon"
