@@ -11,3 +11,5 @@ function bugsReducer(state = [], action) {
       return state;
   }
 }
+
+export default bugsReducer;
