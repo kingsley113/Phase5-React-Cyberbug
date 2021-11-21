@@ -10,6 +10,8 @@ function projectsReducer(state = [], action) {
       return state;
     case "REMOVE_BUG_FROM_PROJECT":
       return state;
+    case "SET_ACTIVE_PROJECT":
+      return state;
     default:
       return state;
   }
