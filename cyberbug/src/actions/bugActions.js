@@ -2,16 +2,16 @@ export const createBug = (bugObject) => {
   return (dispatch) => {
     // dispatch({ type: "ADD_BUG" }) TODO: add loading action;
     // const formData = bugObject
-    console.log(JSON.stringify({ bug: bugObject }));
+    console.log(bugObject);
     const configurationObject = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ bug: bugObject }),
+      body: JSON.stringify(bugObject),
     };
-    fetch("localhost3000/createBug", configurationObject) //TODO: get correct url for fetch and set up post
+    fetch(`http://localhost:3000/bugs`, configurationObject) //TODO: get correct url for fetch and set up post
       .then((response) => {
         return response.json();
       })

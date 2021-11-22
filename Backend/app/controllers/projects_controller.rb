@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 	# Create
 	def create
 		project = Project.new(project_Params)
-
+		
 		if project.save?
 			render json: project
 			# TODO: create serializer for this json
