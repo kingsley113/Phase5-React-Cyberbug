@@ -1,6 +1,20 @@
 import React, { Component } from "react";
+import { createBug } from "../../actions/bugActions";
+import { connect } from "react-redux";
 
 class NewBugForm extends Component {
+  state = {
+    bugId: "",
+    bugTitle: "",
+    bugDescription: "",
+    bugTags: "",
+    bugDetails: "",
+    bugLineNo: "",
+    bugPriority: "",
+    bugDueDate: "",
+    bugTeamMember: "",
+  };
+
   render() {
     return (
       <div>
@@ -8,57 +22,100 @@ class NewBugForm extends Component {
         {/* TODO: fill in an create form content */}
         <form onSubmit={this.handleOnSubmit}>
           <div className="row">
-            <label htmlFor="bug-id" className="col-sm-1 right-align-text">
+            <label htmlFor="bugId" className="col-sm-1 right-align-text">
               Bug ID:{" "}
             </label>
-            <input type="text" name="bug-id" className="col-sm-1" />
-            <label htmlFor="bug-title" className="col-sm-1 right-align-text">
+            <input
+              type="text"
+              name="bugId"
+              className="col-sm-1"
+              value={this.state.bugId}
+              onChange={this.handleOnChange}
+            />
+            <label htmlFor="bugTitle" className="col-sm-1 right-align-text">
               Title:{" "}
             </label>
-            <input type="text" name="bug-title" className="col-lg-3" />
+            <input
+              type="text"
+              name="bugTitle"
+              className="col-lg-3"
+              value={this.state.bugTitle}
+              onChange={this.handleOnChange}
+            />
           </div>
           <div className="row">
             <label
-              htmlFor="bug-description"
+              htmlFor="bugDescription"
               className="col-sm-1 right-align-text"
             >
               Description:{" "}
             </label>
-            <textarea name="bug-description"></textarea>
+            <textarea
+              name="bugDescription"
+              value={this.state.bugDescription}
+              onChange={this.handleOnChange}
+            ></textarea>
           </div>
           <div className="row">
-            <label htmlFor="bug-tags" className="col-sm-1 right-align-text">
+            <label htmlFor="bugTags" className="col-sm-1 right-align-text">
               Tags:{" "}
             </label>
-            <textarea name="bug-tags"></textarea>
+            <textarea
+              name="bugTags"
+              value={this.state.bugTags}
+              onChange={this.handleOnChange}
+            ></textarea>
           </div>
           <div className="row">
-            <label htmlFor="bug-details" className="col-sm-1 right-align-text">
+            <label htmlFor="bugDetails" className="col-sm-1 right-align-text">
               Details:{" "}
             </label>
-            <textarea name="bug-details"></textarea>
+            <textarea
+              name="bugDetails"
+              value={this.state.bugDetails}
+              onChange={this.handleOnChange}
+            ></textarea>
           </div>
           <div className="row">
-            <label htmlFor="bug-line-no" className="col-sm-1 right-align-text">
+            <label htmlFor="bugLineNo" className="col-sm-1 right-align-text">
               File/Line No:{" "}
             </label>
-            <input type="text" name="bug-line-no" className="col-lg-4" />
+            <input
+              type="text"
+              name="bugLineNo"
+              className="col-lg-4"
+              value={this.state.bugLineNo}
+              onChange={this.handleOnChange}
+            />
           </div>
           <div className="row">
-            <label htmlFor="bug-priority" className="col-sm-1 right-align-text">
+            <label htmlFor="bugPriority" className="col-sm-1 right-align-text">
               Priority:{" "}
             </label>
-            <select name="bug-priority">
+            <select
+              name="bugPriority"
+              value={this.state.bugPriority}
+              onChange={this.handleOnChange}
+            >
               <option value="low">Low</option>
               <option value="medium">Medium</option>
               <option value="high">High</option>
               <option value="critical">Critical</option>
               <option value="roadblock">Roadblock</option>
             </select>
-            <label htmlFor="bug-due-date">Due Date: </label>
-            <input type="date" name="bug-due-date" />
-            <label htmlFor="bug-team-member">Assign Team Member:</label>
-            <select name="bug-team-member">
+            <label htmlFor="bugDueDate">Due Date: </label>
+            <input
+              type="date"
+              name="bugDueDate"
+              value={this.state.bugDueDate}
+              onChange={this.handleOnChange}
+            />
+            <label htmlFor="bugTeamMember">Assign Team Member:</label>
+            <select
+              name="bugTeamMember"
+              value={this.state.bugTeamMember}
+              onChange={this.handleOnChange}
+            >
               <option value="dummy-member-1">Dummy Team Member 1</option>
               <option value="dummy-member-2">Dummy Team Member 2</option>
               <option value="dummy-member-3">Dummy Team Member 3</option>
@@ -78,7 +135,15 @@ class NewBugForm extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     // TODO: submit form logic, store in state and post fetch to API
-    console.log("Das bug has been createth, now it is your job to deleteth!");
+    // console.log("Das bug has been createth, now it is your job to deleteth!");
+    // console.log(this.state);
+    this.props.createBug({ bug: this.state });
+  };
+
+  handleOnChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   };
 
   handleOnClick = (event) => {
@@ -87,4 +152,10 @@ class NewBugForm extends Component {
   };
 }
 
-export default NewBugForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createBug: (bugObject) => dispatch(createBug(bugObject)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(NewBugForm);
