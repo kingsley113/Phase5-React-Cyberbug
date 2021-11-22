@@ -13,6 +13,7 @@ class NewBugForm extends Component {
     bugPriority: "",
     bugDueDate: "",
     bugTeamMember: "",
+    bugProjectId: "", //TODO: make this auto fill the active project ID
   };
 
   // FORM

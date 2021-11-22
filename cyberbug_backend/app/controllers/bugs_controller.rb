@@ -2,9 +2,9 @@ class BugsController < ApplicationController
 	# Create
 	def create 
 		bug = Bug.new(bug_params)
-		binding.pry
+		# binding.pry
 
-		if bug.save?
+		if bug.save
 			render json: bug
 			# TODO: this definitely needs a serializer
 		else
@@ -47,7 +47,7 @@ class BugsController < ApplicationController
 		Bug.find_by(id: bug_params[:id])
 	end
 
-	def bug_params(params)
-		params.require(:bug).permit(:id, :title, :description, :details, :user_id, :project_id, :bug_id, :priorirty, :due_date, :completed_date, :complete)
+	def bug_params
+		params.require(:bug).permit(:bugId, :bugTitle, :bugDescription, :bugDetails, :bugTags, :bugTeamMember, :bugLineNo, :bugProjectId, :bugPriority, :bugDueDate, :bugCompletedDate, :bugComplete)
 	end
 end

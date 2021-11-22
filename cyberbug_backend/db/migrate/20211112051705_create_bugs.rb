@@ -1,16 +1,18 @@
 class CreateBugs < ActiveRecord::Migration[6.1]
   def change
     create_table :bugs do |t|
-      t.string :title
-      t.text :description
-      t.text :details
-      t.integer :user_id
-      t.integer :project_id
-      t.string :bug_id
-      t.string :priority
-      t.date :due_date
-      t.date :completed_date
-      t.boolean :complete
+      t.string :bugTitle
+      t.text :bugDescription
+      t.text :bugDetails
+			t.text :bugTags
+      t.integer :bugTeamMember
+			t.string :bugLineNo
+      t.integer :bugProjectId
+      t.string :bugId
+      t.string :bugPriority
+      t.date :bugDueDate
+      t.date :bugCompletedDate
+      t.boolean :bugComplete
 
       t.timestamps
     end
