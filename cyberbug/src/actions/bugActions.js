@@ -11,12 +11,15 @@ export const createBug = (bugObject) => {
       },
       body: JSON.stringify({ bug: bugObject }),
     };
-    // fetch("localhost3000/createBug", configurationObject) //TODO: get correct url for fetch and set up post
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then((json) => {
-    //     dispatch({ type: "ADD_BUG", bug: json.bug });
-    //   });
+    fetch("localhost3000/createBug", configurationObject) //TODO: get correct url for fetch and set up post
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        dispatch({ type: "ADD_BUG", bug: json.bug });
+      })
+      .catch((response) => {
+        alert("Woops, something went wrong creating the bug", response);
+      });
   };
 };

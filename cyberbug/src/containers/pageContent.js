@@ -28,9 +28,6 @@ class PageContent extends Component {
           <ModalWindow component={<NewBugForm />} />
         </Route>
       </div>
-      /* Modal window for forms */
-      /* <ModalWindow /> */
-      /* Only need modal window component for forms, should this be within form components? TODO: */
     );
   }
 }
