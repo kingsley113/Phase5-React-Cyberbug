@@ -10,7 +10,6 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="test-border dashboard">
-        {/* TODO: Fill in the dashboard content here */}
         <div className="test-border-blue dashboard-stats-container">
           <PriorityTasks />
           <ProjectsChart />
