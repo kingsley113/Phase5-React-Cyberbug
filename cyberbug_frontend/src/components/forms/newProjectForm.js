@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { showToggle, hideToggle } from "../../actions/toggleActions";
 
 class NewProjectForm extends Component {
   render() {
@@ -44,8 +47,17 @@ class NewProjectForm extends Component {
   };
 
   handleOnClick = (event) => {
-    window.history.back();
+    this.props.hideToggle("newProjectFormToggle");
   };
 }
 
-export default NewProjectForm;
+// export default NewProjectForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // createProject: (projectObject) => dispatch(createProject(projectObject)), TODO: Create this action
+    showToggle: (id) => dispatch(showToggle(id)),
+    hideToggle: (id) => dispatch(hideToggle(id)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(NewProjectForm);

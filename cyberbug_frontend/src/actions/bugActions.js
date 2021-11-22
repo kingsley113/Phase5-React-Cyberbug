@@ -1,8 +1,8 @@
+// import { withRouter, browserHistory, useHistory } from "react-router-dom";
+// import { push } from "react-router-redux";
 export const createBug = (bugObject) => {
   return (dispatch) => {
     // dispatch({ type: "ADD_BUG" }) TODO: add loading action;
-    // const formData = bugObject
-    // console.log(bugObject);
     const configurationObject = {
       method: "POST",
       headers: {
@@ -16,11 +16,11 @@ export const createBug = (bugObject) => {
         return response.json();
       })
       .then((json) => {
-        // console.log(json);
         dispatch({ type: "ADD_BUG", bug: json });
       })
       .catch((response) => {
-        alert("Woops, something went wrong creating the bug", response);
+        alert("Woops, something went wrong creating the bug");
+        console.log(response);
       });
   };
 };

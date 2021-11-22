@@ -1,9 +1,9 @@
-function bugsReducer(state = [], action) {
+function bugsReducer(state = { bugs: [] }, action) {
   // TODO: Build this reducer
   switch (action.type) {
     case "ADD_BUG":
-      console.log("Woo! Im in the ADD_BUG action!");
-      return state;
+      // TODO: double check this action and state return value, is it mutating state?
+      return [state.bugs, action.bug];
     case "EDIT_BUG":
       return state;
     case "DELETE_BUG":

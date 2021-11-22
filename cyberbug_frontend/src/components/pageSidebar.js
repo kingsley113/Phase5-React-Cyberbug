@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { showToggle, hideToggle } from "../actions/toggleActions";
 
 class PageSidebar extends Component {
-  logout = () => {
-    // TODO: Fill in logout process here
-  };
-
   render() {
     return (
       <div className="sidebar">
         {/* New bug button  */}
-        <Link to="/newBug" className="sidebar-icon-container" exact="true">
+        <div
+          className="sidebar-icon-container"
+          onClick={() => this.props.showToggle("newBugFormToggle")}
+        >
           <img
             src="icons/new-bug.png"
             alt="new bug icon"
             className="sidebar-icon"
           />
-        </Link>
+        </div>
         {/* view project button */}
         <Link to="/projects" className="sidebar-icon-container" exact="true">
           {/* TODO:Add logic to go to active project id */}
@@ -39,25 +40,22 @@ class PageSidebar extends Component {
           />
         </Link>
         {/* new project button */}
-        <Link
-          to="/newProject"
+        <div
           className="sidebar-icon-container separator-icon"
-          exact="true"
+          onClick={() => this.props.showToggle("newProjectFormToggle")}
         >
           <img
             src="icons/new.png"
             alt="new project icon"
             className="sidebar-icon"
-            // onClick={() => navigate("/newProject")}
           />
-        </Link>
+        </div>
         {/* settings button  */}
         <Link to="/settings" className="sidebar-icon-container" exact="true">
           <img
             src="icons/settings.png"
             alt="settings icon"
             className="sidebar-icon"
-            // onClick={() => navigate("/settings")}
           />
         </Link>
         {/* logout button */}
@@ -72,6 +70,17 @@ class PageSidebar extends Component {
       </div>
     );
   }
+
+  logout = () => {
+    // TODO: Fill in logout process here
+  };
 }
 
-export default PageSidebar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    showToggle: (id) => dispatch(showToggle(id)),
+    hideToggle: (id) => dispatch(hideToggle(id)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(PageSidebar);

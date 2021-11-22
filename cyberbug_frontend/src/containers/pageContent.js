@@ -9,6 +9,7 @@ import ProjectsPage from "./pages/projectsPage";
 import NewProjectForm from "../components/forms/newProjectForm";
 import NewBugForm from "../components/forms/newBugForm";
 import ModalWindow from "./modalWindow";
+import Toggle from "./toggle";
 
 class PageContent extends Component {
   render() {
@@ -21,12 +22,13 @@ class PageContent extends Component {
         <Route exact path="/projects/:id" component={ProjectPage} />
         <Route exact path="/settings" component={SettingsPage} />
 
-        <Route exact path="/newProject">
+        <Toggle id={"newProjectFormToggle"}>
           <ModalWindow component={<NewProjectForm />} />
-        </Route>
-        <Route exact path="/newBug">
+        </Toggle>
+
+        <Toggle id={"newBugFormToggle"}>
           <ModalWindow component={<NewBugForm />} />
-        </Route>
+        </Toggle>
       </div>
     );
   }

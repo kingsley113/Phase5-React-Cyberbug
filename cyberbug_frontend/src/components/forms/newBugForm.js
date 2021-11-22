@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { createBug } from "../../actions/bugActions";
 import { connect } from "react-redux";
 
+import { showToggle, hideToggle } from "../../actions/toggleActions";
+
 class NewBugForm extends Component {
   state = {
     bugId: "",
@@ -147,8 +149,7 @@ class NewBugForm extends Component {
   };
 
   handleOnClick = (event) => {
-    window.history.back();
-    // TODO: better way to implement this? this feels wrong...
+    this.props.hideToggle("newBugFormToggle");
   };
 }
 
@@ -156,6 +157,8 @@ class NewBugForm extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     createBug: (bugObject) => dispatch(createBug(bugObject)),
+    showToggle: (id) => dispatch(showToggle(id)),
+    hideToggle: (id) => dispatch(hideToggle(id)),
   };
 };
 
