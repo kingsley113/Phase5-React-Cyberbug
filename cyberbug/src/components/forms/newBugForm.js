@@ -15,6 +15,7 @@ class NewBugForm extends Component {
     bugTeamMember: "",
   };
 
+  // FORM
   render() {
     return (
       <div>
@@ -132,11 +133,9 @@ class NewBugForm extends Component {
     );
   }
 
+  // EVENTS
   handleOnSubmit = (event) => {
     event.preventDefault();
-    // TODO: submit form logic, store in state and post fetch to API
-    // console.log("Das bug has been createth, now it is your job to deleteth!");
-    // console.log(this.state);
     this.props.createBug({ bug: this.state });
   };
 
@@ -152,6 +151,7 @@ class NewBugForm extends Component {
   };
 }
 
+// REDUX
 const mapDispatchToProps = (dispatch) => {
   return {
     createBug: (bugObject) => dispatch(createBug(bugObject)),
