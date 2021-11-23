@@ -1,3 +1,5 @@
+import { hideToggle } from "./toggleActions";
+
 export const createProject = (projectObject) => {
   return (dispatch) => {
     const configurationObject = {
@@ -15,6 +17,7 @@ export const createProject = (projectObject) => {
       .then((json) => {
         // console.log(json);
         dispatch({ type: "ADD_PROJECT", project: json });
+        dispatch(hideToggle("newProjectFormToggle"));
       })
       .catch((error) => {
         alert("Error occured creating project");
