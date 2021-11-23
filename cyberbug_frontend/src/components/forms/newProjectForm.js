@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import { createProject } from "../../actions/projectActions";
 import { showToggle, hideToggle } from "../../actions/toggleActions";
 
+import RandomIdGenerator from "../../helpers/randomIdGenerator";
+
 class NewProjectForm extends Component {
   state = {
-    projectId: "",
+    projectId: RandomIdGenerator.createBase36(6),
     projectTitle: "",
     projectDescription: "",
   };
@@ -19,13 +21,16 @@ class NewProjectForm extends Component {
             <label htmlFor="projectId" className="col-sm-1 right-align-text">
               Project ID:
             </label>
-            <input
+            {/* <input
               type="text"
               name="projectId"
               className="col-sm-1"
               value={this.state.projectId}
               onChange={this.handleOnChange}
-            />
+            /> */}
+            <span name="projectId" className="col-sm-1">
+              {this.state.projectId}
+            </span>
             <label htmlFor="projectTitle" className="col-sm-1 right-align-text">
               Title:
             </label>
