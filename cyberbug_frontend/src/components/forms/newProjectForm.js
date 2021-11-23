@@ -1,35 +1,55 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import { createProject } from "../../actions/projectActions";
 import { showToggle, hideToggle } from "../../actions/toggleActions";
 
 class NewProjectForm extends Component {
+  state = {
+    projectId: "",
+    projectTitle: "",
+    projectDescription: "",
+    // activeProject: false,
+  };
+
   render() {
     return (
       <div>
         <h2>Create a new project:</h2>
         <form onSubmit={this.handleOnSubmit}>
           <div className="row">
-            <label htmlFor="project-id" className="col-sm-1 right-align-text">
+            <label htmlFor="projectId" className="col-sm-1 right-align-text">
               Project ID:
             </label>
-            <input type="text" name="project-id" className="col-sm-1" />
-            <label
-              htmlFor="project-title"
-              className="col-sm-1 right-align-text"
-            >
+            <input
+              type="text"
+              name="projectId"
+              className="col-sm-1"
+              value={this.state.projectId}
+              onChange={this.handleOnChange}
+            />
+            <label htmlFor="projectTitle" className="col-sm-1 right-align-text">
               Title:
             </label>
-            <input type="text" name="project-title" className="col-lg-3" />
+            <input
+              type="text"
+              name="projectTitle"
+              className="col-lg-3"
+              value={this.state.projectTitle}
+              onChange={this.handleOnChange}
+            />
           </div>
           <div className="row">
             <label
-              htmlFor="project-description"
+              htmlFor="projectDescription"
               className="col-sm-1 right-align-text"
             >
               Description:
             </label>
-            <textarea name="project-description"></textarea>
+            <textarea
+              name="projectDescription"
+              value={this.state.projectDescription}
+              onChange={this.handleOnChange}
+            ></textarea>
           </div>
           <div className="row">
             <input type="submit" value="Create Project" />
@@ -43,7 +63,14 @@ class NewProjectForm extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     // TODO:Handle submitting project to API and saving to state
-    console.log("New project form has been submitted");
+    // console.log("New project form has been submitted");
+    this.props.createProject(this.state);
+  };
+
+  handleOnChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   };
 
   handleOnClick = (event) => {
@@ -51,10 +78,9 @@ class NewProjectForm extends Component {
   };
 }
 
-// export default NewProjectForm;
 const mapDispatchToProps = (dispatch) => {
   return {
-    // createProject: (projectObject) => dispatch(createProject(projectObject)), TODO: Create this action
+    createProject: (projectObject) => dispatch(createProject(projectObject)),
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
   };

@@ -1,13 +1,14 @@
 class ProjectsController < ApplicationController
 	# Create
 	def create
-		project = Project.new(project_Params)
-		
-		if project.save?
+		project = Project.new(project_params)
+		# binding.pry
+
+		if project.save
 			render json: project
-			# TODO: create serializer for this json
+			# TODO: create serializer 
 		else
-			render json: status: :unprocessable_entity
+			render text: "error", status: :unprocessable_entity
 		end
 	end
 	# Read
@@ -22,12 +23,14 @@ class ProjectsController < ApplicationController
 			render_error()
 			# TODO: verify this is correct and render plain text message or error satus
 		end
+	end
 
 	# Update
 	def update
 		project = set_project()
 	# TODO: fill in update method
 	end
+	
 	# Destroy
 	def destroy
 		project = set_project()
@@ -50,7 +53,7 @@ class ProjectsController < ApplicationController
 		Project.find_by(project_id: project_params[:project_id])
 	end
 
-	def project_params(params)
-		params.require(:project).permit(:name, :project_id)
+	def project_params
+		params.require(:project).permit(:projectId, :projectTitle, :projectDescription)
 	end
 end

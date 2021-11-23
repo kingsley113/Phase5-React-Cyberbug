@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(version: 2021_11_12_051734) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "name"
-    t.string "project_id"
+    t.string "projectTitle"
+    t.string "projectId"
+    t.text "projectDescription"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

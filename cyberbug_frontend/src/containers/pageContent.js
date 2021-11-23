@@ -38,13 +38,13 @@ class PageContent extends Component {
 
   componentDidMount() {
     // TODO: fetch initial set of data for state
-    this.props.preloadData();
+    // this.props.preloadData();
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    preloadData: dispatch(preloadData()),
+    preloadData: dispatch(preloadData),
   };
 };
 
