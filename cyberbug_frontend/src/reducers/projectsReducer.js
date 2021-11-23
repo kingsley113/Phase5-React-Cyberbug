@@ -1,9 +1,9 @@
-function projectsReducer(state = { projects: [] }, action) {
+function projects(state = { projects: [] }, action) {
   switch (action.type) {
     case "ADD_PROJECT":
-      return state.concat(action.project);
+      return { allProjects: state.concat(action.project) };
     case "LOAD_PROJECTS":
-      return state.projects.concat(action.projects);
+      return { allProjects: state.projects.concat(action.projects) };
     case "EDIT_PROJECT":
       return state;
     case "DELETE_PROJECT":
@@ -13,17 +13,20 @@ function projectsReducer(state = { projects: [] }, action) {
     case "REMOVE_BUG_FROM_PROJECT":
       return state;
     case "SET_ACTIVE_PROJECT":
-      const updatedProjects = [...state].map((project) => {
+      let activeProject = null;
+      // console.log(state);
+      const updatedProjects = [...state.allProjects].map((project) => {
         project.activeProject = false;
         if (project.id === parseInt(action.id)) {
           project.activeProject = true;
+          activeProject = project;
         }
         return project;
       });
-      return updatedProjects;
+      return { allProjects: updatedProjects, activeProject: activeProject };
     default:
       return state;
   }
 }
 
-export default projectsReducer;
+export default projects;

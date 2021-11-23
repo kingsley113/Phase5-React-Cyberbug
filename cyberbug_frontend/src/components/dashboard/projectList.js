@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class ProjectsList extends Component {
   renderProjects() {
-    if (this.props.projects.length > 0) {
+    if (this.props.projects) {
       return this.props.projects.map((project) => {
         return (
           <li
@@ -18,9 +18,17 @@ class ProjectsList extends Component {
     }
   }
 
+  renderActiveProject() {
+    return this.props.activeProject
+      ? this.props.activeProject.projectTitle
+      : "No Project Selected";
+  }
+
   render() {
     return (
       <div>
+        <p>Active Project: {this.renderActiveProject()}</p>
+
         <h1>All Projects:</h1>
         <ul>{this.renderProjects()}</ul>
       </div>

@@ -7,7 +7,10 @@ class ProjectsPage extends Component {
   render() {
     return (
       <div>
-        <ProjectsList projects={this.props.projects} />
+        <ProjectsList
+          projects={this.props.projects}
+          activeProject={this.props.activeProject}
+        />
         <BugList />
         {/* TODO: This is here temporarily jsut to look at all the bugs */}
       </div>
@@ -17,7 +20,8 @@ class ProjectsPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    projects: state.projects,
+    projects: state.projects.allProjects,
+    activeProject: state.projects.activeProject,
   };
 };
 

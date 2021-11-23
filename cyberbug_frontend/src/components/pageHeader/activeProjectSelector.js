@@ -8,8 +8,8 @@ class ActiveProjectSelector extends Component {
   };
 
   renderProjectOptions() {
-    if (this.props.projects.length > 0) {
-      return this.props.projects.map((project) => {
+    if (this.props.projects.allProjects) {
+      return this.props.projects.allProjects.map((project) => {
         return (
           <option value={project.id} key={project.id}>
             {project.projectId} - {project.projectTitle}
