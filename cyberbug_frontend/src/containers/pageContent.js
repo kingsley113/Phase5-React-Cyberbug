@@ -38,7 +38,6 @@ class PageContent extends Component {
 
   componentDidMount() {
     // TODO: fetch initial set of data for state
-    // console.log("Inside component did mount function");
     this.props.loadProjects();
   }
 }
