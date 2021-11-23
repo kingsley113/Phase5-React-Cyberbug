@@ -8,7 +8,7 @@ import { showToggle, hideToggle } from "../../actions/toggleActions";
 
 class NewBugForm extends Component {
   state = {
-    id: RandomIdGenerator.createBase36(6),
+    bugId: RandomIdGenerator.createBase36(6),
     bugTitle: "",
     bugDescription: "",
     bugTags: "",
@@ -39,7 +39,7 @@ class NewBugForm extends Component {
               onChange={this.handleOnChange}
             /> */}
             <span name="bugId" className="col-sm-1">
-              {this.state.id}
+              {this.state.bugId}
             </span>
             <label htmlFor="bugTitle" className="col-sm-1 right-align-text">
               Title:{" "}

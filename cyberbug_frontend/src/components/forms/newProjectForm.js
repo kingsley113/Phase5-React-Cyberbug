@@ -7,7 +7,7 @@ import RandomIdGenerator from "../../helpers/randomIdGenerator";
 
 class NewProjectForm extends Component {
   state = {
-    id: RandomIdGenerator.createBase36(6),
+    projectId: RandomIdGenerator.createBase36(6),
     projectTitle: "",
     projectDescription: "",
   };
@@ -29,7 +29,7 @@ class NewProjectForm extends Component {
               onChange={this.handleOnChange}
             /> */}
             <span name="projectId" className="col-sm-1">
-              {this.state.id}
+              {this.state.projectId}
             </span>
             <label htmlFor="projectTitle" className="col-sm-1 right-align-text">
               Title:
