@@ -8,7 +8,6 @@ class NewProjectForm extends Component {
     projectId: "",
     projectTitle: "",
     projectDescription: "",
-    // activeProject: false,
   };
 
   render() {
@@ -62,8 +61,6 @@ class NewProjectForm extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    // TODO:Handle submitting project to API and saving to state
-    // console.log("New project form has been submitted");
     this.props.createProject(this.state);
   };
 

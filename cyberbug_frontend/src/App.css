@@ -208,3 +208,8 @@ textarea {
   width: 82%;
   height: 100px;
 }
+
+/* Active Project */
+.active {
+  color: red;
+}

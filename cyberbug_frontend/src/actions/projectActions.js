@@ -26,17 +26,12 @@ export const createProject = (projectObject) => {
 };
 
 export const loadProjects = () => {
-  // console.log("Inside load projects action");
   return (dispatch) => {
     fetch("http://localhost:8000/projects")
       .then((response) => {
         return response.json();
       })
       .then((json) => {
-        // console.log(
-        // "Inside successful server response and load projects action"
-        // );
-        // console.log(json);
         dispatch({ type: "LOAD_PROJECTS", projects: json });
       })
       .catch((error) => {
@@ -48,6 +43,6 @@ export const loadProjects = () => {
 
 export const setActiveProject = (id) => {
   return (dispatch) => {
-    dispatch({ type: "SET_ACTIVE_PROJECT", projectId: id });
+    dispatch({ type: "SET_ACTIVE_PROJECT", id: id });
   };
 };

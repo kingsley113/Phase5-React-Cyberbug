@@ -1,6 +1,4 @@
 function projectsReducer(state = { projects: [] }, action) {
-  // const projects = state.projects;
-
   switch (action.type) {
     case "ADD_PROJECT":
       return state.concat(action.project);
@@ -16,9 +14,10 @@ function projectsReducer(state = { projects: [] }, action) {
       return state;
     case "SET_ACTIVE_PROJECT":
       const updatedProjects = [...state].map((project) => {
-        project.id === action.id
-          ? (project.activeProject = true)
-          : (project.activeProject = false);
+        project.activeProject = false;
+        if (project.id === parseInt(action.id)) {
+          project.activeProject = true;
+        }
         return project;
       });
       return updatedProjects;
