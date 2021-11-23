@@ -45,3 +45,9 @@ export const loadProjects = () => {
       });
   };
 };
+
+export const setActiveProject = (id) => {
+  return (dispatch) => {
+    dispatch({ type: "SET_ACTIVE_PROJECT", projectId: id });
+  };
+};

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ActiveProjectSelector from "./pageHeader/activeProjectSelector";
 import CurrentUserPanel from "./pageHeader/currentUserPanel";
+import { connect } from "react-redux";
 
 class PageHeader extends Component {
   render() {
@@ -8,11 +9,17 @@ class PageHeader extends Component {
       <div className="page-header">
         {/* TODO: Add header content here */}
         <img src="cyberbugLogoQuick.png" alt="Cyberbug Logo" className="logo" />
-        <ActiveProjectSelector />
+        <ActiveProjectSelector projects={this.props.projects} />
         <CurrentUserPanel />
       </div>
     );
   }
 }
 
-export default PageHeader;
+const mapStateToProps = (state) => {
+  return {
+    projects: state.projects,
+  };
+};
+
+export default connect(mapStateToProps)(PageHeader);

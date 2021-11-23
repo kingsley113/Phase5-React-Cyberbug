@@ -15,6 +15,8 @@ function projectsReducer(state = { projects: [] }, action) {
     case "REMOVE_BUG_FROM_PROJECT":
       return state;
     case "SET_ACTIVE_PROJECT":
+      console.log("inside set active project reducer!");
+      console.log(action.projectId);
       return state;
     default:
       return state;
