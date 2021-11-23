@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { createBug } from "../../actions/bugActions";
 import { connect } from "react-redux";
 
+import RandomIdGenerator from "../../helpers/randomIdGenerator";
+
 import { showToggle, hideToggle } from "../../actions/toggleActions";
 
 class NewBugForm extends Component {
   state = {
-    bugId: "",
+    id: RandomIdGenerator.createBase36(6),
     bugTitle: "",
     bugDescription: "",
     bugTags: "",
@@ -29,13 +31,16 @@ class NewBugForm extends Component {
             <label htmlFor="bugId" className="col-sm-1 right-align-text">
               Bug ID:{" "}
             </label>
-            <input
+            {/* <input
               type="text"
               name="bugId"
               className="col-sm-1"
               value={this.state.bugId}
               onChange={this.handleOnChange}
-            />
+            /> */}
+            <span name="bugId" className="col-sm-1">
+              {this.state.id}
+            </span>
             <label htmlFor="bugTitle" className="col-sm-1 right-align-text">
               Title:{" "}
             </label>
