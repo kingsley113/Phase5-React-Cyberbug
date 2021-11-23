@@ -1,5 +1,3 @@
-// import { withRouter, browserHistory, useHistory } from "react-router-dom";
-// import { push } from "react-router-redux";
 export const createBug = (bugObject) => {
   return (dispatch) => {
     // dispatch({ type: "ADD_BUG" }) TODO: add loading action;

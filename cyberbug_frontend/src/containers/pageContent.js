@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Dashboard from "./pages/dashboard";
 import SplashScreen from "../components/splashScreen";
@@ -10,6 +11,8 @@ import NewProjectForm from "../components/forms/newProjectForm";
 import NewBugForm from "../components/forms/newBugForm";
 import ModalWindow from "./modalWindow";
 import Toggle from "./toggle";
+
+import { preloadData } from "../actions/preloadActions";
 
 class PageContent extends Component {
   render() {
@@ -32,6 +35,17 @@ class PageContent extends Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    // TODO: fetch initial set of data for state
+    this.props.preloadData();
+  }
 }
 
-export default PageContent;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    preloadData: dispatch(preloadData()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(PageContent);

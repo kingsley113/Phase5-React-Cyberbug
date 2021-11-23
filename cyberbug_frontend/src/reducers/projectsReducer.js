@@ -2,6 +2,11 @@ function projectsReducer(state = [], action) {
   switch (action.type) {
     case "ADD_PROJECT":
       return state;
+    case "LOAD_PROJECTS":
+      const projects = action.projects.map((project) => {
+        return project; //TODO:
+      });
+      return { projects: [...state.projects, projects] };
     case "EDIT_PROJECT":
       return state;
     case "DELETE_PROJECT":
