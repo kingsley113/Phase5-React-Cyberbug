@@ -12,7 +12,7 @@ import NewBugForm from "../components/forms/newBugForm";
 import ModalWindow from "./modalWindow";
 import Toggle from "./toggle";
 
-import { preloadData } from "../actions/preloadActions";
+import { loadProjects } from "../actions/projectActions";
 
 class PageContent extends Component {
   render() {
@@ -38,13 +38,14 @@ class PageContent extends Component {
 
   componentDidMount() {
     // TODO: fetch initial set of data for state
-    // this.props.preloadData();
+    // console.log("Inside component did mount function");
+    this.props.loadProjects();
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    preloadData: dispatch(preloadData),
+    loadProjects: () => dispatch(loadProjects()),
   };
 };
 

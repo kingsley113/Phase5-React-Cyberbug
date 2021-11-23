@@ -4,9 +4,7 @@ import BugLineItem from "./bugLineItem";
 
 class BugList extends Component {
   renderBugs = () => {
-    // console.log(this.props.bugs.bugs);
     return this.props.bugs.bugs.map((bug, id) => {
-      // console.log(bug);
       return <BugLineItem key={id} bug={bug} />;
     });
   };
