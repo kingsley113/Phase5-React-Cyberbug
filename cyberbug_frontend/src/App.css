@@ -76,7 +76,7 @@ select {
 
 /* Sidebar Styles */
 .sidebar {
-  width: 65px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   background: rgb(255, 0, 234);

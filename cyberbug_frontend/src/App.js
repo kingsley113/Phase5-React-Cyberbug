@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
+import { connect } from "react-redux";
+import { loadProjects } from "./actions/projectActions";
 
 import PageHeader from "./components/pageHeader";
 import PageContent from "./containers/pageContent";
@@ -25,6 +27,16 @@ class App extends Component {
       // TODO: Add logic to determine if user is logged in or not and show splash screen if not
     );
   }
+
+  componentDidMount() {
+    this.props.loadProjects();
+  }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadProjects: () => dispatch(loadProjects()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);

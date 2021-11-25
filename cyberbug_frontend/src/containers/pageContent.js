@@ -12,8 +12,6 @@ import NewBugForm from "../components/forms/newBugForm";
 import ModalWindow from "./modalWindow";
 import Toggle from "./toggle";
 
-import { loadProjects } from "../actions/projectActions";
-
 class PageContent extends Component {
   render() {
     return (
@@ -41,11 +39,6 @@ class PageContent extends Component {
       </div>
     );
   }
-
-  componentDidMount() {
-    // TODO: fetch initial set of data for state
-    this.props.loadProjects();
-  }
 }
 
 const mapStateToProps = (state) => {
@@ -54,10 +47,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadProjects: () => dispatch(loadProjects()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PageContent);
+export default connect(mapStateToProps)(PageContent);

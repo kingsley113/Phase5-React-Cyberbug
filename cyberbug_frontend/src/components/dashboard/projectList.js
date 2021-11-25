@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class ProjectsList extends Component {
   renderProjects() {
@@ -31,8 +32,6 @@ class ProjectsList extends Component {
   render() {
     return (
       <div className="scroll-container">
-        <p>Active Project: {this.renderActiveProject()}</p>
-
         <h1>All Projects:</h1>
         <ul>{this.renderProjects()}</ul>
       </div>
@@ -40,4 +39,11 @@ class ProjectsList extends Component {
   }
 }
 
-export default ProjectsList;
+const mapStateToProps = (state) => {
+  return {
+    projects: state.projects.allProjects,
+    activeProject: state.projects.activeProject,
+  };
+};
+
+export default connect(mapStateToProps)(ProjectsList);
