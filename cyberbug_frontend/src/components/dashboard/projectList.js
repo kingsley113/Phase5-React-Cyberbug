@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class ProjectsList extends Component {
   renderProjects() {
@@ -9,7 +10,10 @@ class ProjectsList extends Component {
             key={project.id}
             className={project.activeProject ? "active" : ""}
           >
-            {project.projectId} - {project.projectTitle}
+            <Link key={project.projectId} to={`/projects/${project.projectId}`}>
+              {project.projectId}
+            </Link>{" "}
+            - {project.projectTitle}
           </li>
         );
       });
@@ -26,7 +30,7 @@ class ProjectsList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="scroll-container">
         <p>Active Project: {this.renderActiveProject()}</p>
 
         <h1>All Projects:</h1>

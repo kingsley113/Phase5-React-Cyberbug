@@ -22,7 +22,13 @@ class PageContent extends Component {
         <Route exact path="/login" component={SplashScreen} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/projects" component={ProjectsPage} />
-        <Route exact path="/projects/:id" component={ProjectPage} />
+        <Route
+          exact
+          path="/projects/:id"
+          render={(routerProps) => (
+            <ProjectPage {...routerProps} projects={this.props.projects} />
+          )}
+        />
         <Route exact path="/settings" component={SettingsPage} />
 
         <Toggle id={"newProjectFormToggle"}>
@@ -42,10 +48,16 @@ class PageContent extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    projects: state.projects.allProjects,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     loadProjects: () => dispatch(loadProjects()),
   };
 };
 
-export default connect(null, mapDispatchToProps)(PageContent);
+export default connect(mapStateToProps, mapDispatchToProps)(PageContent);

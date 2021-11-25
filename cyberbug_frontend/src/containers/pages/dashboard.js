@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 // import ProjectStatus from "../../components/project/projectStatus";
 import ProjectsChart from "../../components/dashboard/projectsChart";
 import PriorityTasks from "../../components/dashboard/priorityTasks";
@@ -16,10 +17,20 @@ class Dashboard extends Component {
           <DailyInfoPanel />
         </div>
         {/* <ProjectStatus /> */}
-        <ProjectsList />
+        <ProjectsList
+          projects={this.props.projects}
+          activeProject={this.props.activeProject}
+        />
       </div>
     );
   }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    projects: state.projects.allProjects,
+    activeProject: state.projects.activeProject,
+  };
+};
+
+export default connect(mapStateToProps)(Dashboard);

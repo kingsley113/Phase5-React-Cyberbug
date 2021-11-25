@@ -148,6 +148,10 @@ select {
   min-height: 40%;
 }
 
+.scroll-container {
+  overflow-y: auto;
+}
+
 .full-width {
   width: 100%;
 }
