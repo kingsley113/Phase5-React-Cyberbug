@@ -1,3 +1,5 @@
+/* General Styles: */
+
 body,
 html {
   height: 100%;
@@ -40,6 +42,12 @@ html {
   to {
     transform: rotate(360deg);
   }
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 10px;
+  /* padding-inline-end: 5px; */
 }
 
 /* Header Styles */
@@ -223,4 +231,35 @@ textarea {
 /* Active Project */
 .active {
   color: red;
+  background-color: chartreuse;
 }
+
+/* Project List Summary Styles */
+.summary-item {
+  display: flex;
+  /* margin-right: 10px; */
+  height: 25px;
+}
+
+.Open-Bug-Count {
+  margin-left: auto;
+  width: 25px;
+  text-align: center;
+  padding-right: 5px;
+}
+
+.id-container {
+  width: 70px;
+  text-align: center;
+}
+
+.project-title {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  line-height: 25px;
+  max-width: calc(100% - 70px - 30px);
+}
+
+/* .project-summary-list {
+  max-height: 100%;
+} */

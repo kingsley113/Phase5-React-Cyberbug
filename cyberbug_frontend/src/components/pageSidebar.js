@@ -9,6 +9,9 @@ class PageSidebar extends Component {
     return (
       <div className="sidebar">
         <div>
+          <h3>All Projects:</h3>
+        </div>
+        <div className="scroll-container">
           <ProjectListSummary />
         </div>
         <div className="sidebar-button-container">

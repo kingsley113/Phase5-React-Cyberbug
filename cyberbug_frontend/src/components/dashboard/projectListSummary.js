@@ -9,12 +9,23 @@ class ProjectListSummary extends Component {
         return (
           <li
             key={project.id}
-            className={project.activeProject ? "active" : ""}
+            className={
+              project.activeProject ? "active summary-item" : "summary-item"
+            }
           >
-            <Link key={project.projectId} to={`/projects/${project.projectId}`}>
-              {project.projectId}
-            </Link>{" "}
-            - {project.projectTitle}
+            <div className="id-container">
+              <Link
+                key={project.projectId}
+                to={`/projects/${project.projectId}`}
+              >
+                {project.projectId}
+              </Link>{" "}
+            </div>
+            <div className="project-title">{project.projectTitle}</div>
+            <div className="Open-Bug-Count">
+              13
+              {/* TODO: Add this open bug count function */}
+            </div>
           </li>
         );
       });
@@ -31,9 +42,10 @@ class ProjectListSummary extends Component {
 
   render() {
     return (
-      <div className="scroll-container">
-        <h1>All Projects:</h1>
-        <ul>{this.renderProjects()}</ul>
+      <div>
+        <div className="scroll-container">
+          <ul>{this.renderProjects()}</ul>
+        </div>
       </div>
     );
   }
