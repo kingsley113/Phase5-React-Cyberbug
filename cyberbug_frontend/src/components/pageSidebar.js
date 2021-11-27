@@ -2,19 +2,16 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { showToggle, hideToggle } from "../actions/toggleActions";
-import ProjectsList from "./dashboard/projectList";
+import ProjectListSummary from "./dashboard/projectListSummary";
 
 class PageSidebar extends Component {
   render() {
     return (
       <div className="sidebar">
         <div>
-          <ProjectsList
-          // projects={this.props.projects}
-          // activeProject={this.props.activeProject}
-          />
+          <ProjectListSummary />
         </div>
-        <div className="button-container">
+        <div className="sidebar-button-container">
           {/* home button  */}
           <Link to="/" className="sidebar-icon-container" exact="true">
             <img
@@ -60,13 +57,6 @@ class PageSidebar extends Component {
     // TODO: Fill in logout process here
   };
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     projects: state.projects.allProjects,
-//     activeProject: state.projects.activeProject,
-//   };
-// };
 
 const mapDispatchToProps = (dispatch) => {
   return {
