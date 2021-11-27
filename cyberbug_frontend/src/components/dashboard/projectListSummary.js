@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-class ProjectsList extends Component {
+class ProjectListSummary extends Component {
   renderProjects() {
     if (this.props.projects) {
       return this.props.projects.map((project) => {
@@ -46,4 +46,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ProjectsList);
+export default connect(mapStateToProps)(ProjectListSummary);

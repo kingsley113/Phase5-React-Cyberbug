@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import ProjectsList from "../../components/dashboard/projectList";
+import ProjectListSummary from "../../components/dashboard/projectListSummary";
 import BugList from "../../components/project/bugList";
 
 class ProjectsPage extends Component {
   render() {
     return (
       <div>
-        <ProjectsList />
+        <ProjectListSummary />
         <BugList />
         {/* TODO: This is here temporarily jsut to look at all the bugs */}
       </div>
