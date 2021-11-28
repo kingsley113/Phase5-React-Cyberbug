@@ -18,7 +18,7 @@ class PageSidebar extends Component {
           {/* home button  */}
           <Link to="/" className="sidebar-icon-container" exact="true">
             <img
-              src="icons/home.png"
+              src="/icons/home.png"
               alt="home icon"
               className="sidebar-icon"
             />
@@ -29,7 +29,7 @@ class PageSidebar extends Component {
             onClick={() => this.props.showToggle("newProjectFormToggle")}
           >
             <img
-              src="icons/new.png"
+              src="/icons/new.png"
               alt="new project icon"
               className="sidebar-icon"
             />
@@ -37,7 +37,7 @@ class PageSidebar extends Component {
           {/* settings button  */}
           <Link to="/settings" className="sidebar-icon-container" exact="true">
             <img
-              src="icons/settings.png"
+              src="/icons/settings.png"
               alt="settings icon"
               className="sidebar-icon"
             />
@@ -45,7 +45,7 @@ class PageSidebar extends Component {
           {/* logout button */}
           <Link to="/login" className="sidebar-icon-container" exact="true">
             <img
-              src="icons/logout.png"
+              src="/icons/logout.png"
               alt="logout icon"
               className="sidebar-icon"
               onClick={() => this.logout()}
