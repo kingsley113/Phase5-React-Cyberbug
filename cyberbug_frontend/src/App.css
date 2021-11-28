@@ -264,6 +264,7 @@ table {
   position: relative;
   border-collapse: collapse;
   width: 100%;
+  background-color: rgb(1, 165, 230);
 }
 
 th {
