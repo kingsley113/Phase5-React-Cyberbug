@@ -280,3 +280,28 @@ tr {
 td {
   overflow: hidden;
 }
+
+/* Random Quote Component Styles */
+.quote-container {
+  display: flex;
+  max-width: 60%;
+  color: rgb(248, 167, 241);
+}
+
+.center-align-text {
+  display: flex;
+  align-items: center;
+}
+
+.quote-author-text {
+  padding-bottom: 10px;
+}
+
+.center-align-text p {
+  line-height: 18px;
+  text-align: center;
+}
+
+#quote-text {
+  max-width: 75%;
+}
