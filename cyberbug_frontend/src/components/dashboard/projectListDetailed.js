@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 // import { useTable } from "react-table";
 
 class ProjectListDetailed extends Component {
@@ -25,8 +26,19 @@ class ProjectListDetailed extends Component {
       return this.props.projects.map((project) => {
         return (
           <tr key={project.id}>
-            <td>Edit </td>
-            {/* TODO: make this a link with edit or view icon */}
+            <td>
+              <Link
+                to={`/projects/${project.projectId}`}
+                className="sidebar-icon-container"
+                exact="true"
+              >
+                <img
+                  src="/icons/view-project.png"
+                  alt="view project icon"
+                  className="list-icon"
+                />
+              </Link>
+            </td>
             <td>{project.projectId}</td>
             <td>{project.projectTitle}</td>
             <td>13</td>
