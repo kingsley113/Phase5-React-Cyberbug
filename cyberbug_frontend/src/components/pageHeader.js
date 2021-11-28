@@ -9,7 +9,11 @@ class PageHeader extends Component {
     return (
       <div className="page-header">
         {/* TODO: Add header content here */}
-        <img src="cyberbugLogoQuick.png" alt="Cyberbug Logo" className="logo" />
+        <img
+          src="/cyberbugLogoQuick.png"
+          alt="Cyberbug Logo"
+          className="logo"
+        />
         {/* <ActiveProjectSelector projects={this.props.projects} /> */}
         <RandomQuote />
         <CurrentUserPanel />
