@@ -1,12 +1,32 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+// import { useTable } from "react-table";
 
 class ProjectListDetailed extends Component {
   renderDetailedProjectList() {
     if (this.props.projects) {
+      // TODO: Revisit the react-table implementation later
+      // const columns = React.useMemo(
+      //   () => [
+      //     {
+      //       Header: "Id",
+      //       accessor: "projectId",
+      //     },
+      //     { Header: "Title", accessor: "projectTitle" },
+      //     { Header: "Open Bugs", accessor: "openBugs" },
+      //     { Header: "Overdue Bugs", accessor: "overdueBugs" },
+      //     { Header: "TotalBugs", accessor: "totalOpenBugs" },
+      //     { Header: "Project Health", accessor: "projectHealth" },
+      //     { Header: "Last Updated", accessor: "updated" },
+      //   ],
+      //   []
+      // );
+
       return this.props.projects.map((project) => {
         return (
           <tr key={project.id}>
+            <td>Edit </td>
+            {/* TODO: make this a link with edit or view icon */}
             <td>{project.projectId}</td>
             <td>{project.projectTitle}</td>
             <td>13</td>
@@ -22,18 +42,19 @@ class ProjectListDetailed extends Component {
 
   render() {
     return (
-      <div>
+      <div className="scroll-container">
         {/* TODO: Create List here */}
         <table>
           <thead>
             <tr>
+              <th></th>
               <th>ID</th>
               <th>Name</th>
-              <th>Open Bugs</th>
-              <th>Overdue Bugs</th>
-              <th>Total Bugs</th>
-              <th>Project Health</th>
-              <th>Last Updated</th>
+              <th>Open</th>
+              <th>Overdue</th>
+              <th>Total</th>
+              <th>Health</th>
+              <th>Updated</th>
             </tr>
           </thead>
           <tbody>{this.renderDetailedProjectList()}</tbody>

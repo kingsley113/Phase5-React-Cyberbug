@@ -14,8 +14,6 @@ class Dashboard extends Component {
           <DailyInfoPanel />
         </div>
         <ProjectsListDetailed />
-        Create and add a detailed project list here, could we use the a prop on
-        the project list component to change mode?
       </div>
     );
   }

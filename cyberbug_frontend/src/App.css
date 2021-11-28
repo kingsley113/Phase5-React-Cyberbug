@@ -141,13 +141,13 @@ select {
 }
 
 /* Debug Styles */
-.test-border {
+/* .test-border {
   border: 2px solid red;
 }
 
 .test-border-blue {
   border: 2px solid blue;
-}
+} */
 
 /* Dashboard Styles */
 .dashboard {
@@ -260,6 +260,23 @@ textarea {
   max-width: calc(100% - 70px - 30px);
 }
 
-/* .project-summary-list {
+table {
+  position: relative;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  position: sticky;
+  top: 0px;
   max-height: 100%;
-} */
+  background-color: rgb(2, 142, 197);
+}
+
+tr {
+  height: 25px;
+}
+
+td {
+  overflow: hidden;
+}
