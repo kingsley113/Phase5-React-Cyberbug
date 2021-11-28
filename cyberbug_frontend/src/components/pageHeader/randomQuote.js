@@ -40,7 +40,8 @@ class RandomQuote extends PureComponent {
 
   componentDidMount() {
     this.fetchQuote();
-    refreshInterval = setInterval(() => this.fetchQuote(), 10000);
+    // TODO: uncomment this to enable auto refreshing quotes
+    // refreshInterval = setInterval(() => this.fetchQuote(), 8000);
   }
 
   componentWillUnmount() {
