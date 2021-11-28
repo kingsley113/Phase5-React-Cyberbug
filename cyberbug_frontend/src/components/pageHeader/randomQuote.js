@@ -1,5 +1,7 @@
 import React, { PureComponent } from "react";
 
+let refreshInterval;
+
 class RandomQuote extends PureComponent {
   state = {
     quoteText: "",
@@ -38,6 +40,11 @@ class RandomQuote extends PureComponent {
 
   componentDidMount() {
     this.fetchQuote();
+    refreshInterval = setInterval(() => this.fetchQuote(), 10000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(refreshInterval);
   }
 }
 
