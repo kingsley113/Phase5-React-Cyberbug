@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ProjectsChart from "../../components/dashboard/projectsChart";
 import PriorityTasks from "../../components/dashboard/priorityTasks";
 import DailyInfoPanel from "../../components/dashboard/dailyInfoPanel";
-import ProjectsListSummary from "../../components/dashboard/projectListSummary";
+import ProjectsListDetailed from "../../components/dashboard/projectListDetailed";
 
 class Dashboard extends Component {
   render() {
@@ -13,7 +13,7 @@ class Dashboard extends Component {
           <ProjectsChart />
           <DailyInfoPanel />
         </div>
-        {/* <ProjectsListSummary /> */}
+        <ProjectsListDetailed />
         Create and add a detailed project list here, could we use the a prop on
         the project list component to change mode?
       </div>

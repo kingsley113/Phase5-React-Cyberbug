@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { showToggle, hideToggle } from "../actions/toggleActions";
-import ProjectListSummary from "./dashboard/projectListSummary";
+import ProjectListSummary from "./pageSidebar/projectListSummary";
 
 class PageSidebar extends Component {
   render() {
