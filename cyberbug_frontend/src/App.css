@@ -141,13 +141,13 @@ select {
 }
 
 /* Debug Styles */
-/* .test-border {
+.test-border {
   border: 2px solid red;
 }
 
 .test-border-blue {
   border: 2px solid blue;
-} */
+}
 
 /* Dashboard Styles */
 .dashboard {
@@ -317,4 +317,20 @@ td {
 
 #quote-text {
   max-width: 75%;
+}
+
+/* Project Page Styles */
+
+#project-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+#project-left-column {
+  width: 55%;
+}
+
+#project-right-column {
+  width: 45%;
 }
