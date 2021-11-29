@@ -17,7 +17,7 @@ class NewBugForm extends Component {
     bugPriority: "",
     bugDueDate: "",
     bugTeamMember: "",
-    bugProjectId: "", //TODO: make this auto fill the active project ID
+    bugProjectId: "",
   };
 
   // FORM
@@ -34,13 +34,6 @@ class NewBugForm extends Component {
             <label htmlFor="bugId" className="col-sm-1 right-align-text">
               Bug ID:{" "}
             </label>
-            {/* <input
-              type="text"
-              name="bugId"
-              className="col-sm-1"
-              value={this.state.bugId}
-              onChange={this.handleOnChange}
-            /> */}
             <span name="bugId" className="col-sm-1">
               {this.state.bugId}
             </span>
