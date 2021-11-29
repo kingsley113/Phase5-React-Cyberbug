@@ -334,3 +334,11 @@ td {
 #project-right-column {
   width: 45%;
 }
+
+#project-summary-panel {
+  height: 100px;
+}
+
+/* #bug-list-panel {
+
+} */

@@ -32,10 +32,14 @@ class ProjectPage extends PureComponent {
     return (
       <div className="test-border" id="project-page">
         <div className="test-border-blue" id="project-left-column">
-          <ProjectSummary project={this.filterProject()} />
-          <ProjectStatus project={this.filterProject()} />
-          <BugList project={this.filterProject()} />
-          {/* TODO: NEW BUG ICON & LINK */}
+          <div className="test-border" id="project-summary-panel">
+            {/* TODO: NEW BUG ICON & LINK */}
+            <ProjectSummary project={this.filterProject()} />
+            <ProjectStatus project={this.filterProject()} />
+          </div>
+          <div id="bugs-list-panel">
+            <BugList project={this.filterProject()} />
+          </div>
         </div>
         <div className="test-border-blue" id="project-right-column">
           {/* TODO: This may need to be another nested route layer for the bug details? */}
