@@ -24,7 +24,11 @@ class PageContent extends Component {
           exact
           path="/projects/:id"
           render={(routerProps) => (
-            <ProjectPage {...routerProps} projects={this.props.projects} />
+            <ProjectPage
+              {...routerProps}
+              projects={this.props.projects}
+              activeProject={this.props.activeProject}
+            />
           )}
         />
         <Route exact path="/settings" component={SettingsPage} />
@@ -44,6 +48,7 @@ class PageContent extends Component {
 const mapStateToProps = (state) => {
   return {
     projects: state.projects.allProjects,
+    activeProject: state.projects.activeProject,
   };
 };
 
