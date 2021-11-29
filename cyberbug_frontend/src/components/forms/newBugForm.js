@@ -24,8 +24,11 @@ class NewBugForm extends Component {
   render() {
     return (
       <div>
-        <h2>Create a new bug:</h2>
-        {/* TODO: fill in an create form content */}
+        <h2>
+          Create a new bug for project {this.props.project.projectId} -{" "}
+          {this.props.project.projectTitle}:
+          {/* TODO:Clean this up, this is just for debugging purposes */}
+        </h2>
         <form onSubmit={this.handleOnSubmit}>
           <div className="row">
             <label htmlFor="bugId" className="col-sm-1 right-align-text">
@@ -144,6 +147,11 @@ class NewBugForm extends Component {
   // EVENTS
   handleOnSubmit = (event) => {
     event.preventDefault();
+
+    this.setState({
+      bugProjectId: this.props.project.projectId,
+    });
+
     this.props.createBug({ bug: this.state });
   };
 

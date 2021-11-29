@@ -10,6 +10,10 @@ import BugList from "../../components/project/bugList";
 import BugDetails from "../../components/project/bugDetails";
 import ProjectStatus from "../../components/project/projectStatus";
 
+import NewBugForm from "../../components/forms/newBugForm";
+import ModalWindow from "../modalWindow";
+import Toggle from "../toggle";
+
 class ProjectPage extends PureComponent {
   filterProject() {
     if (this.props.projects) {
@@ -33,6 +37,12 @@ class ProjectPage extends PureComponent {
   render() {
     return (
       <div className="test-border" id="project-page">
+        <Toggle id={"newBugFormToggle"}>
+          <ModalWindow
+            component={<NewBugForm project={this.filterProject()} />}
+          />
+        </Toggle>
+
         <div className="test-border-blue" id="project-left-column">
           <div className="test-border" id="project-summary-panel">
             <div
