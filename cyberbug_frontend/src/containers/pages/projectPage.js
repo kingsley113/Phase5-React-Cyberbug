@@ -1,7 +1,9 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
+// import { Link } from "react-router-dom";
 
-import { setActiveProject } from "../../actions/projectActions";
+// import { setActiveProject } from "../../actions/projectActions";
+import { showToggle, hideToggle } from "../../actions/toggleActions";
 
 import ProjectSummary from "../../components/project/projectSummary";
 import BugList from "../../components/project/bugList";
@@ -33,7 +35,18 @@ class ProjectPage extends PureComponent {
       <div className="test-border" id="project-page">
         <div className="test-border-blue" id="project-left-column">
           <div className="test-border" id="project-summary-panel">
-            {/* TODO: NEW BUG ICON & LINK */}
+            <div
+              className="bug-icon-container"
+              onClick={() => this.props.showToggle("newBugFormToggle")}
+            >
+              <div className="icon-background">
+                <img
+                  src="/icons/new-bug.png"
+                  alt="new bug icon"
+                  className="bug-icon"
+                />
+              </div>
+            </div>
             <ProjectSummary project={this.filterProject()} />
             <ProjectStatus project={this.filterProject()} />
           </div>
@@ -53,7 +66,9 @@ class ProjectPage extends PureComponent {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setActiveProject: (id) => dispatch(setActiveProject(id)),
+    // setActiveProject: (id) => dispatch(setActiveProject(id)),
+    showToggle: (id) => dispatch(showToggle(id)),
+    hideToggle: (id) => dispatch(hideToggle(id)),
   };
 };
 
