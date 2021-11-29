@@ -14,7 +14,8 @@ function projects(state = { projects: [] }, action) {
       return state;
     case "SET_ACTIVE_PROJECT":
       let activeProject = null;
-      // console.log(state);
+      console.log("setting active project");
+      console.log(action);
       const updatedProjects = [...state.allProjects].map((project) => {
         project.activeProject = false;
         if (project.id === parseInt(action.id)) {
