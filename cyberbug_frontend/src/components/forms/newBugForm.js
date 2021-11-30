@@ -141,11 +141,9 @@ class NewBugForm extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
 
-    this.setState({
-      bugProjectId: this.props.project.id,
-    });
-    console.log(this.props.project.id);
-    console.log(this.state);
+    // this.setState({
+    //   bugProjectId: this.props.project.id,
+    // });
     this.props.createBug({ bug: this.state });
   };
 

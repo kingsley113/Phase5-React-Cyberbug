@@ -1,4 +1,4 @@
-function bugsReducer(
+function bugs(
   state = {
     bugs: [],
   },
@@ -7,7 +7,7 @@ function bugsReducer(
   // TODO: Build this reducer
   switch (action.type) {
     case "ADD_BUG":
-      return { bugs: [...state.bugs, action.bug] };
+      return { allBugs: [...state.allBugs, action.bug] };
     case "EDIT_BUG":
       return state;
     case "DELETE_BUG":
@@ -19,4 +19,4 @@ function bugsReducer(
   }
 }
 
-export default bugsReducer;
+export default bugs;
