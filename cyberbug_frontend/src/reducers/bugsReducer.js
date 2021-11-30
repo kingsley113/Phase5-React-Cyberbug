@@ -8,12 +8,12 @@ function bugs(
   switch (action.type) {
     case "ADD_BUG":
       return { allBugs: [...state.allBugs, action.bug] };
+    case "LOAD_BUGS":
+      return { allBugs: state.bugs.concat(action.bugs) };
     case "EDIT_BUG":
       return state;
     case "DELETE_BUG":
       return state;
-    case "LOAD_BUGS":
-      return { allBugs: state.bugs.concat(action.bugs) };
     default:
       return state;
   }
