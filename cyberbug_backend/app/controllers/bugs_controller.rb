@@ -12,7 +12,7 @@ class BugsController < ApplicationController
 	end
 
 	# Read
-	def all
+	def index
 		render json: Bug.all
 	end
 	

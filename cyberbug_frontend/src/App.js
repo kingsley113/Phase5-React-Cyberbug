@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import { loadProjects } from "./actions/projectActions";
+import { loadBugs } from "./actions/bugActions";
 
 import PageHeader from "./components/pageHeader";
 import PageContent from "./containers/pageContent";
@@ -30,12 +31,14 @@ class App extends Component {
 
   componentDidMount() {
     this.props.loadProjects();
+    this.props.loadBugs();
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     loadProjects: () => dispatch(loadProjects()),
+    loadBugs: () => dispatch(loadBugs()),
   };
 };
 

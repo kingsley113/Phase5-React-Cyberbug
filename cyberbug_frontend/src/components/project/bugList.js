@@ -4,9 +4,13 @@ import BugLineItem from "./bugLineItem";
 
 class BugList extends Component {
   renderBugs = () => {
-    return this.props.bugs.bugs.map((bug, id) => {
-      return <BugLineItem key={id} bug={bug} />;
-    });
+    if (this.props.bugs.allBugs) {
+      return this.props.bugs.allBugs.map((bug, id) => {
+        return <BugLineItem key={id} bug={bug} />;
+      });
+    } else {
+      return <h3>Loading Bugs...</h3>;
+    }
   };
 
   render() {

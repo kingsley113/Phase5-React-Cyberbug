@@ -12,6 +12,8 @@ function bugsReducer(
       return state;
     case "DELETE_BUG":
       return state;
+    case "LOAD_BUGS":
+      return { allBugs: state.bugs.concat(action.bugs) };
     default:
       return state;
   }

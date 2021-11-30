@@ -25,3 +25,19 @@ export const createBug = (bugObject) => {
       });
   };
 };
+
+export const loadBugs = () => {
+  return (dispatch) => {
+    fetch("http://localhost:8000/bugs")
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        dispatch({ type: "LOAD_BUGS", bugs: json });
+      })
+      .catch((error) => {
+        alert("Error loading bugs");
+        console.log(error);
+      });
+  };
+};
