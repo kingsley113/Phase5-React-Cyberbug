@@ -2,7 +2,6 @@ class BugsController < ApplicationController
 	# Create
 	def create 
 		bug = Bug.new(bug_params)
-		# binding.pry
 
 		if bug.save
 			render json: bug
@@ -48,6 +47,6 @@ class BugsController < ApplicationController
 	end
 
 	def bug_params
-		params.require(:bug).permit(:bugId, :bugTitle, :bugDescription, :bugDetails, :bugTags, :bugTeamMember, :bugLineNo, :bugProjectId, :bugPriority, :bugDueDate, :bugCompletedDate, :bugComplete)
+		params.require(:bug).permit(:bugId, :bugTitle, :bugDescription, :bugDetails, :bugTags, :bugTeamMember, :bugLineNo, :project_id, :bugPriority, :bugDueDate, :bugCompletedDate, :bugComplete)
 	end
 end

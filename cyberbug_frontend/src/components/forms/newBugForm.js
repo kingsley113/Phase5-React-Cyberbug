@@ -17,7 +17,7 @@ class NewBugForm extends Component {
     bugPriority: "",
     bugDueDate: "",
     bugTeamMember: "",
-    bugProjectId: "",
+    project_id: this.props.project.id,
   };
 
   // FORM
@@ -142,9 +142,10 @@ class NewBugForm extends Component {
     event.preventDefault();
 
     this.setState({
-      bugProjectId: this.props.project.projectId,
+      bugProjectId: this.props.project.id,
     });
-
+    console.log(this.props.project.id);
+    console.log(this.state);
     this.props.createBug({ bug: this.state });
   };
 

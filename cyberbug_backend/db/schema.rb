@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_11_12_051734) do
     t.text "bugTags"
     t.integer "bugTeamMember"
     t.string "bugLineNo"
-    t.integer "bugProjectId"
+    t.integer "project_id"
     t.string "bugId"
     t.string "bugPriority"
     t.date "bugDueDate"
