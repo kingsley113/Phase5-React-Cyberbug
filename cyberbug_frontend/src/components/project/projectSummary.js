@@ -4,10 +4,10 @@ class ProjectSummary extends Component {
   renderProjectDetails() {
     if (this.props.project) {
       return (
-        <div>
-          <h3>{this.props.project.projectTitle}</h3>
-          <p>{this.props.project.projectId}</p>
+        <div className="centered">
           {/* TODO: fill in project summary content */}
+          <h3>Open | Overdue | Closed | Total</h3>
+          <p>13---------6---------35-------999</p>
         </div>
       );
     } else {

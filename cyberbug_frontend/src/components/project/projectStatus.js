@@ -4,7 +4,10 @@ class ProjectStatus extends Component {
   render() {
     return (
       <div>
-        --This is the project status component :)
+        ---------------------------------------
+        <br />
+        | Future home of a sweet status bar :) |<br />
+        ---------------------------------------
         {/* TODO: Fill in project status content */}
       </div>
     );

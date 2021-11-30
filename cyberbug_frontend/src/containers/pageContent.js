@@ -8,7 +8,6 @@ import ProjectPage from "./pages/projectPage";
 import SettingsPage from "./pages/settingsPage";
 import ProjectsPage from "./pages/projectsPage";
 import NewProjectForm from "../components/forms/newProjectForm";
-// import NewBugForm from "../components/forms/newBugForm";
 import ModalWindow from "./modalWindow";
 import Toggle from "./toggle";
 
@@ -36,10 +35,6 @@ class PageContent extends Component {
         <Toggle id={"newProjectFormToggle"}>
           <ModalWindow component={<NewProjectForm />} />
         </Toggle>
-
-        {/* <Toggle id={"newBugFormToggle"}>
-          <ModalWindow component={<NewBugForm />} />
-        </Toggle> */}
       </div>
     );
   }

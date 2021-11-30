@@ -337,7 +337,8 @@ td {
 
 #project-summary-panel {
   display: flex;
-  height: 100px;
+  flex-direction: column;
+  /* height: 120px; */
 }
 
 .bug-icon {
@@ -346,9 +347,10 @@ td {
 
 .bug-icon-container {
   box-sizing: border-box;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
-  height: 100%;
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin: auto;
+  height: 100px;
   width: 100px;
   /* margin-top: 15px; */
 }
@@ -363,4 +365,38 @@ td {
   background-color: crimson;
   height: 90%;
   width: 90%;
+}
+
+#summary-panel {
+  display: flex;
+}
+
+#summary-divider-panel {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: auto;
+}
+
+#project-title {
+  /* display: flex; */
+  text-align: center;
+  /* height: 80px; */
+  padding: 5px;
+}
+
+#project-title h2 {
+  height: 40px;
+  /* margin: 5px; */
+}
+
+/* #project-stats {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.centered {
+  /* display: flex; */
+  margin-left: auto;
+  margin-right: auto;
 }
