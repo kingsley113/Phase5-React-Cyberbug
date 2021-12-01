@@ -22,16 +22,31 @@ class BugList extends Component {
       if (bugList.length > 0) {
         return bugList;
       } else {
-        return <h3>No bugs! :)</h3>;
+        // return <h3>No bugs! :)</h3>;
+        return null;
       }
     } else {
-      return <h3>Loading Bugs...</h3>;
+      // return <h3>Loading Bugs...</h3>;
+      return null;
     }
   };
 
   render() {
     return (
       <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Priority</th>
+              <th>Due</th>
+              <th>Updated</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderBugs()}</tbody>
+        </table>
         --This is the bug list component :)
         {/* TODO: fill in bug list content */}
         <ul>{this.renderBugs()}</ul>

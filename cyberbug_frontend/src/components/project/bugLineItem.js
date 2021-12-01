@@ -2,15 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BugLineItem = (props) => {
-  // console.log(props);
+  const { bugId, bugTitle, bugPriority, bugDueDate, updated_at } = props.bug;
+  const url = props.url;
+  // TODO: need to add project status to front and backend
+  const updatedDate = new Date(updated_at).toLocaleDateString();
+  const dueDate = () =>
+    bugDueDate ? new Date(bugDueDate).toLocaleDateString() : "N/A";
+
   return (
-    <li>
-      {/* {console.log(props.url)} */}
-      <Link key={props.bug.bugId} to={`${props.url}/${props.bug.bugId}`}>
-        {props.bug.bugId}
-      </Link>
-      - {props.bug.bugTitle} - Project ID: {props.bug.project_id}
-    </li>
+    <tr>
+      <td>
+        <Link key={bugId} to={`${url}/${bugId}`}>
+          {bugId}
+        </Link>
+      </td>
+      <td>{bugTitle}</td>
+      <td>{bugPriority}</td>
+      <td>{dueDate()}</td>
+      <td>{updatedDate}</td>
+      <td>
+        Status
+        {/* TODO: */}
+      </td>
+    </tr>
   );
 };
 
