@@ -3,13 +3,6 @@ import { connect } from "react-redux";
 import BugLineItem from "./bugLineItem";
 
 class BugList extends Component {
-  // constructor(props) {
-  //   super();
-  //   this.project = props.project;
-  //   this.bugs = props.bugs;
-  //   this.route = props.route;
-  // }
-
   renderBugs = () => {
     if (this.props.bugs.allBugs) {
       const bugs = this.props.bugs.allBugs.filter(
@@ -53,9 +46,6 @@ class BugList extends Component {
           </thead>
           <tbody>{this.renderBugs()}</tbody>
         </table>
-        --This is the bug list component :)
-        {/* TODO: fill in bug list content */}
-        {/* <ul>{this.renderBugs()}</ul> */}
       </div>
     );
   }
