@@ -50,4 +50,32 @@ export const setActiveBug = (bug) => {
 
 export const editBug = (bug) => {
   // TODO: fill this in and connect to backend :)
+  return (dispatch) => {
+    // dispatch({ type: "ADD_BUG" }) TODO: add loading action;
+    const configurationObject = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(bugObject),
+    };
+    fetch(`http://localhost:8000/bugs/${bug.id}`, configurationObject)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+        dispatch({ type: "EDIT_BUG", bug: json });
+        dispatch(hideToggle("newBugFormToggle"));
+      })
+      .catch((response) => {
+        alert("Woops, something went wrong creating the bug");
+        console.log(response);
+      });
+  };
+};
+
+export const deleteBug = (bug) => {
+  // TODO:
 };
