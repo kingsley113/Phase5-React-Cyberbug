@@ -8,6 +8,7 @@ import NewBugForm from "../../components/forms/newBugForm";
 import ModalWindow from "../modalWindow";
 import Toggle from "../toggle";
 import ProjectHeader from "../../components/project/projectHeader";
+import { Route } from "react-router";
 
 class ProjectPage extends PureComponent {
   render() {
@@ -23,13 +24,21 @@ class ProjectPage extends PureComponent {
           <div id="project-left-column">
             <ProjectHeader project={project} />
             <div id="bugs-list-panel">
-              <BugList project={project} />
+              <BugList route={this.props.match.url} project={project} />
             </div>
           </div>
 
           <div className="test-border-blue" id="project-right-column">
             {/* TODO: This may need to be another nested route layer for the bug details? */}
-            <BugDetails />
+            <Route
+              exact
+              path={this.props.match.url}
+              render={() => <h3>Please select a Bug from the list</h3>}
+            />
+            <Route
+              path={`${this.props.match.url}/:bugId`}
+              render={(routerProps) => <BugDetails {...routerProps} />}
+            />
           </div>
           {/* TODO: Fill in the project page content */}
         </div>

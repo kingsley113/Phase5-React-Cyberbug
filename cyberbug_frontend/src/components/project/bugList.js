@@ -6,7 +6,7 @@ class BugList extends Component {
   renderBugs = () => {
     if (this.props.bugs.allBugs) {
       return this.props.bugs.allBugs.map((bug, id) => {
-        return <BugLineItem key={id} bug={bug} />;
+        return <BugLineItem key={id} bug={bug} url={this.props.route} />;
       });
     } else {
       return <h3>Loading Bugs...</h3>;

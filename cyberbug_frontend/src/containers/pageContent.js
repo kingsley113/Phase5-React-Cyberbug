@@ -20,7 +20,7 @@ class PageContent extends Component {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/projects" component={ProjectsPage} />
         <Route
-          exact
+          // exact
           path="/projects/:id"
           render={(routerProps) => (
             <ProjectPage
