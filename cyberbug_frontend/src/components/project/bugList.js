@@ -3,14 +3,21 @@ import { connect } from "react-redux";
 import BugLineItem from "./bugLineItem";
 
 class BugList extends Component {
+  constructor(props) {
+    super();
+    this.project = props.project;
+    this.bugs = props.bugs;
+    this.route = props.route;
+  }
+
   renderBugs = () => {
-    if (this.props.bugs.allBugs) {
-      const bugs = this.props.bugs.allBugs.filter(
-        (bug) => bug.project_id === this.props.project.id
+    if (this.bugs.allBugs) {
+      const bugs = this.bugs.allBugs.filter(
+        (bug) => bug.project_id === this.project.id
       );
 
       const bugList = bugs.map((bug, id) => {
-        return <BugLineItem key={id} bug={bug} url={this.props.route} />;
+        return <BugLineItem key={id} bug={bug} url={this.route} />;
       });
       if (bugList.length > 0) {
         return bugList;
