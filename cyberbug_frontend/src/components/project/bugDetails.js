@@ -37,10 +37,8 @@ class BugDetails extends Component {
   }
 
   render() {
-    const bug = this.state.bug;
     return (
       <div>
-        {console.log(bug)}
         --This is the bug details component :)
         {this.renderBugDetails()}
         {/* TODO: fill in project summary content */}
