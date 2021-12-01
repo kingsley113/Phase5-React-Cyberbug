@@ -14,6 +14,8 @@ function bugs(
       return state;
     case "DELETE_BUG":
       return state;
+    case "SET_ACTIVE_BUG":
+      return { ...state, activeBug: action.bug };
     default:
       return state;
   }

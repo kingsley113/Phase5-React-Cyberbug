@@ -41,3 +41,13 @@ export const loadBugs = () => {
       });
   };
 };
+
+export const setActiveBug = (bug) => {
+  return (dispatch) => {
+    dispatch({ type: "SET_ACTIVE_BUG", bug: bug });
+  };
+};
+
+export const editBug = (bug) => {
+  // TODO: fill this in and connect to backend :)
+};

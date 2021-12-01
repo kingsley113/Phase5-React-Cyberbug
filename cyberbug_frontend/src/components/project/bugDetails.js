@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { hideToggle, showToggle } from "../../actions/toggleActions";
+import { setActiveBug } from "../../actions/bugActions";
 
 class BugDetails extends Component {
   state = {
@@ -64,13 +66,16 @@ class BugDetails extends Component {
     );
   }
 
-  handleOnClickEdit() {
+  handleOnClickEdit = (event) => {
     console.log("Edit button clicked");
-  }
+    // TODO: Should the active project be set on details panel load?
+    this.props.setActiveBug(this.setBug());
+    this.props.showToggle("newBugFormToggle");
+  };
 
-  handleOnClickSquash() {
+  handleOnClickSquash = (event) => {
     console.log("Squash button clicked");
-  }
+  };
 }
 
 const mapStateToProps = (state) => {
@@ -79,4 +84,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(BugDetails);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setActiveBug: (bug) => dispatch(setActiveBug(bug)),
+    showToggle: (id) => dispatch(showToggle(id)),
+    hideToggle: (id) => dispatch(hideToggle(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BugDetails);

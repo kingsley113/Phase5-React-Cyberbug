@@ -126,6 +126,7 @@ class NewBugForm extends Component {
               <option value="dummy-member-3">Dummy Team Member 3</option>
               <option value="dummy-member-4">Dummy Team Member 4</option>
               <option value="dummy-member-5">Dummy Team Member 5</option>
+              {/* TODO: build out team member function */}
             </select>
           </div>
           <div className="row">
@@ -137,6 +138,23 @@ class NewBugForm extends Component {
     );
   }
 
+  // LOAD FORM DATA IF EXISTING BUG
+  componentDidMount() {
+    if (this.props.activeBug) {
+      this.loadFormData();
+    }
+  }
+
+  loadFormData() {
+    const bug = this.props.activeBug;
+
+    for (const prop in this.state) {
+      this.setState({
+        [prop]: bug[prop] ? bug[prop] : "",
+      });
+    }
+  }
+
   // EVENTS
   handleOnSubmit = (event) => {
     event.preventDefault();
@@ -144,7 +162,12 @@ class NewBugForm extends Component {
     // this.setState({
     //   bugProjectId: this.props.project.id,
     // });
-    this.props.createBug({ bug: this.state });
+    // TODO: change this to check if creating a new bug or editing a bug
+    if (this.props.activeBug) {
+      this.props.editBug({ bug: this.state });
+    } else {
+      this.props.createBug({ bug: this.state });
+    }
   };
 
   handleOnChange = (event) => {
@@ -159,6 +182,10 @@ class NewBugForm extends Component {
 }
 
 // REDUX
+const mapStateToProps = (state) => {
+  return { activeBug: state.bugs.activeBug };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createBug: (bugObject) => dispatch(createBug(bugObject)),
@@ -167,4 +194,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(NewBugForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NewBugForm);
