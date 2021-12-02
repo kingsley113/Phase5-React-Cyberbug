@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { showToggle, hideToggle } from "../actions/toggleActions";
 import ProjectListSummary from "./pageSidebar/projectListSummary";
+import { renderCleanForm } from "../actions/formActions";
 
 class PageSidebar extends Component {
   render() {
@@ -26,7 +27,7 @@ class PageSidebar extends Component {
           {/* new project button */}
           <div
             className="sidebar-icon-container"
-            onClick={() => this.props.showToggle("newProjectFormToggle")}
+            onClick={this.handleOnClickNewProject}
           >
             <img
               src="/icons/new.png"
@@ -59,12 +60,18 @@ class PageSidebar extends Component {
   logout = () => {
     // TODO: Fill in logout process here
   };
+
+  handleOnClickNewProject = (event) => {
+    this.props.renderCleanForm(true);
+    this.props.showToggle("newProjectFormToggle");
+  };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
+    renderCleanForm: (bool) => dispatch(renderCleanForm(bool)),
   };
 };
 

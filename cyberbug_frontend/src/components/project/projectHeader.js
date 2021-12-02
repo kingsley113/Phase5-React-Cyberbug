@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ProjectSummary from "./projectSummary";
 import ProjectStatus from "./projectStatus";
 import NewBugButton from "./newBugButton";
+import { connect } from "react-redux";
+import { showToggle } from "../../actions/toggleActions";
 
 class ProjectHeader extends Component {
   render() {
@@ -11,6 +13,10 @@ class ProjectHeader extends Component {
           <h2>
             {this.props.project.projectId} - {this.props.project.projectTitle}
           </h2>
+        </div>
+        <div>
+          <button onClick={this.handleOnClickEdit}>Edit Project</button>
+          <button onClick={this.handleOnClickDelete}>Delete Project</button>
         </div>
         <div id="summary-panel">
           <NewBugButton />
@@ -26,6 +32,29 @@ class ProjectHeader extends Component {
       </div>
     );
   }
+
+  handleOnClickEdit = (event) => {
+    console.log("Edit Project button Clicked");
+    this.props.showToggle("newProjectFormToggle");
+  };
+
+  handleOnClickDelete = (event) => {
+    if (window.confirm("Are you sure you want to yeet this project?")) {
+      if (
+        window.confirm(
+          "Are you really sure?? Theres no turning back after deleting..."
+        )
+      ) {
+        this.props.deleteProject(this.props.activeProject);
+      }
+    }
+  };
 }
 
-export default ProjectHeader;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    showToggle: (id) => dispatch(showToggle("newProjectFormToggle")),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ProjectHeader);

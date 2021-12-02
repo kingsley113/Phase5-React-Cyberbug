@@ -13,18 +13,19 @@ function projects(state = { projects: [] }, action) {
     case "REMOVE_BUG_FROM_PROJECT":
       return state;
     case "SET_ACTIVE_PROJECT":
-      let activeProject = null;
-      console.log("setting active project");
-      console.log(action);
-      const updatedProjects = [...state.allProjects].map((project) => {
-        project.activeProject = false;
-        if (project.id === parseInt(action.id)) {
-          project.activeProject = true;
-          activeProject = project;
-        }
-        return project;
-      });
-      return { allProjects: updatedProjects, activeProject: activeProject };
+      // let activeProject = null;
+      // console.log("setting active project");
+      // console.log(action);
+      // const updatedProjects = [...state.allProjects].map((project) => {
+      //   project.activeProject = false;
+      //   if (project.id === parseInt(action.id)) {
+      //     project.activeProject = true;
+      //     activeProject = project;
+      //   }
+      //   return project;
+      // });
+      // return { allProjects: updatedProjects, activeProject: activeProject };
+      return { ...state, activeProject: action.project };
     default:
       return state;
   }

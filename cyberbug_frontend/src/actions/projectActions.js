@@ -41,8 +41,18 @@ export const loadProjects = () => {
   };
 };
 
-export const setActiveProject = (id) => {
+export const setActiveProject = (project) => {
   return (dispatch) => {
-    dispatch({ type: "SET_ACTIVE_PROJECT", id: id });
+    dispatch({ type: "SET_ACTIVE_PROJECT", project: project });
   };
+};
+
+export const editProject = (project) => {
+  // Edit project TODO:
+  console.log("Edit project action");
+};
+
+export const deleteProject = (project) => {
+  // Delete project TODO:
+  console.log("Delete project action");
 };

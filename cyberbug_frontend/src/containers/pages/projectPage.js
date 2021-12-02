@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { showToggle, hideToggle } from "../../actions/toggleActions";
+import { setActiveProject, deleteProject } from "../../actions/projectActions";
 
 import BugList from "../../components/project/bugList";
 import BugDetails from "../../components/project/bugDetails";
@@ -13,7 +14,7 @@ import { Route } from "react-router";
 class ProjectPage extends PureComponent {
   render() {
     if (this.props.projects) {
-      const project = this.filterProject();
+      const project = this.setProject();
 
       return (
         <div id="project-page">
@@ -29,7 +30,6 @@ class ProjectPage extends PureComponent {
           </div>
 
           <div className="test-border-blue" id="project-right-column">
-            {/* TODO: This may need to be another nested route layer for the bug details? */}
             <Route
               exact
               path={this.props.match.url}
@@ -40,7 +40,6 @@ class ProjectPage extends PureComponent {
               render={(routerProps) => <BugDetails {...routerProps} />}
             />
           </div>
-          {/* TODO: Fill in the project page content */}
         </div>
       );
     } else {
@@ -48,17 +47,45 @@ class ProjectPage extends PureComponent {
     }
   }
 
-  filterProject() {
-    return this.props.projects.filter(
-      (project) => project.projectId === this.props.match.params.id
-    )[0];
+  setProject() {
+    if (this.props.projects) {
+      return this.props.projects.filter((project) => {
+        return project.projectId === this.props.match.params.id;
+      })[0];
+    } else {
+      return null;
+    }
   }
+
+  // SET ACTIVE BUG ON LOAD AND UPDATE
+  componentDidMount() {
+    this.props.setActiveProject(this.setProject());
+  }
+  componentDidUpdate() {
+    this.props.setActiveProject(this.setProject());
+  }
+
+  // EVENTS
+  // handleOnClickDelete = (event) => {
+  //   // console.log("delete button clicked");
+  //   if (window.confirm("Are you sure you want to yeet this project?")) {
+  //     if (
+  //       window.confirm(
+  //         "Are you really sure?? Theres no turning back after deleting..."
+  //       )
+  //     ) {
+  //       this.props.deleteProject(this.props.activeProject);
+  //     }
+  //   }
+  // };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
+    setActiveProject: (project) => dispatch(setActiveProject(project)),
+    deleteProject: (project) => dispatch(deleteProject(project)),
   };
 };
 

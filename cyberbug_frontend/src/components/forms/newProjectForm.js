@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createProject } from "../../actions/projectActions";
+import { createProject, editProject } from "../../actions/projectActions";
 import { showToggle, hideToggle } from "../../actions/toggleActions";
+import { renderCleanForm } from "../../actions/formActions";
 
 import RandomIdGenerator from "../../helpers/randomIdGenerator";
 
@@ -64,9 +65,34 @@ class NewProjectForm extends Component {
     );
   }
 
+  // LOAD FORM DATA IF EXISTING BUG
+  componentDidMount() {
+    if (this.props.activeProject && !this.props.cleanForm) {
+      this.loadFormData();
+    }
+    // Reset the clean form status after rendering
+    this.props.renderCleanForm(false);
+  }
+
+  loadFormData() {
+    const proj = this.props.activeProject;
+
+    this.setState({ id: proj.id });
+    for (const prop in this.state) {
+      this.setState({
+        [prop]: proj[prop] ? proj[prop] : "",
+      });
+    }
+  }
+
+  // EVENTS
   handleOnSubmit = (event) => {
     event.preventDefault();
-    this.props.createProject(this.state);
+    if (this.props.activeProject) {
+      this.props.editProject(this.state);
+    } else {
+      this.props.createProject(this.state);
+    }
   };
 
   handleOnChange = (event) => {
@@ -80,12 +106,21 @@ class NewProjectForm extends Component {
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    createProject: (projectObject) => dispatch(createProject(projectObject)),
-    showToggle: (id) => dispatch(showToggle(id)),
-    hideToggle: (id) => dispatch(hideToggle(id)),
+    activeProject: state.projects.activeProject,
+    cleanForm: state.forms.renderCleanForm,
   };
 };
 
-export default connect(null, mapDispatchToProps)(NewProjectForm);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createProject: (projectObject) => dispatch(createProject(projectObject)),
+    editProject: (project) => dispatch(editProject(project)),
+    showToggle: (id) => dispatch(showToggle(id)),
+    hideToggle: (id) => dispatch(hideToggle(id)),
+    renderCleanForm: (bool) => dispatch(renderCleanForm(bool)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewProjectForm);
