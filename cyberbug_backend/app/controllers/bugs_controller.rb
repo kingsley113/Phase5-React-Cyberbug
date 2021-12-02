@@ -27,6 +27,28 @@ class BugsController < ApplicationController
 	end
 
 	# Update TODO:
+	def update
+		bug = set_bug()
+
+		bug.bugId = params[:bug][:bugId]
+		bug.bugTitle = params[:bug][:bugTitle]
+		bug.bugDescription = params[:bug][:bugDescription]
+		bug.bugDetails = params[:bug][:bugDetails]
+		bug.bugTags = params[:bug][:bugTags]
+		bug.bugTeamMember = params[:bug][:bugTeamMember]
+		bug.bugLineNo = params[:bug][:bugLineNo]
+		bug.project_id = params[:bug][:project_id]
+		bug.bugPriority = params[:bug][:bugPriority]
+		bug.bugDueDate = params[:bug][:bugDueDate]
+		bug.bugCompletedDate = params[:bug][:bugCompletedDate]
+		bug.bugComplete = params[:bug][:bugComplete]
+
+		if bug.save?
+			render json: bug
+		else
+			render json: bug.error, status: :unprocessable_entity
+		end
+	end
 	
 	# Destroy
 	def delete
