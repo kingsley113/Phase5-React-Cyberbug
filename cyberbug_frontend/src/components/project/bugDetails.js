@@ -65,9 +65,11 @@ class BugDetails extends Component {
   }
   // SET ACTIVE BUG ON LOAD AND UPDATE
   componentDidMount() {
+    // TODO: error here on loading data, needs to trigger after data loaded
     this.props.setActiveBug(this.setBug());
   }
   componentDidUpdate() {
+    // TODO: error here on loading data, needs to trigger after data loaded
     this.props.setActiveBug(this.setBug());
   }
 
