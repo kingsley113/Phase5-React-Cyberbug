@@ -2,7 +2,6 @@ import { hideToggle } from "./toggleActions";
 
 export const createBug = (bugObject) => {
   return (dispatch) => {
-    // dispatch({ type: "ADD_BUG" }) TODO: add loading action;
     const configurationObject = {
       method: "POST",
       headers: {
@@ -49,9 +48,7 @@ export const setActiveBug = (bug) => {
 };
 
 export const editBug = (bug, id) => {
-  // TODO: fill this in and connect to backend :)
   return (dispatch) => {
-    // dispatch({ type: "ADD_BUG" }) TODO: add loading action;
     const configurationObject = {
       method: "PATCH",
       headers: {
@@ -60,7 +57,7 @@ export const editBug = (bug, id) => {
       },
       body: JSON.stringify(bug),
     };
-    console.log(bug.bug.id);
+    console.log(bug.bug);
     fetch(`http://localhost:8000/bugs/${bug.bug.id}`, configurationObject)
       .then((response) => {
         return response.json();
@@ -75,6 +72,12 @@ export const editBug = (bug, id) => {
         console.log(response);
       });
   };
+};
+
+export const completeBug = (bug) => {
+  const completedBug = bug;
+  completedBug.bugStatus = "Complete";
+  completedBug.complete = true;
 };
 
 export const deleteBug = (bug) => {

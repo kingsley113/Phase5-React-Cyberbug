@@ -42,6 +42,7 @@ class BugsController < ApplicationController
 		bug.bugDueDate = params[:bug][:bugDueDate]
 		bug.bugCompletedDate = params[:bug][:bugCompletedDate]
 		bug.bugComplete = params[:bug][:bugComplete]
+		bug.bugStatus = params[:bug][:bugStatus]
 
 		if bug.save
 			render json: bug

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { hideToggle, showToggle } from "../../actions/toggleActions";
-import { setActiveBug } from "../../actions/bugActions";
+import { setActiveBug, editBug } from "../../actions/bugActions";
 
 class BugDetails extends Component {
   state = {
@@ -63,7 +63,7 @@ class BugDetails extends Component {
       </div>
     );
   }
-
+  // SET ACTIVE BUG ON LOAD AND UPDATE
   componentDidMount() {
     this.props.setActiveBug(this.setBug());
   }
@@ -71,25 +71,36 @@ class BugDetails extends Component {
     this.props.setActiveBug(this.setBug());
   }
 
+  // EVENTS
   handleOnClickEdit = (event) => {
     this.props.showToggle("newBugFormToggle");
   };
 
   handleOnClickSquash = (event) => {
     console.log("Squash button clicked");
+    const bug = this.props.activeBug;
+    bug.bugStatus = "Complete";
+    bug.bugComplete = true;
+
+    console.log(bug);
+    this.props.editBug({ bug: bug });
     // dispatch action to set status to complete
+    // this.props.completeBug(this.props.activeBug);
   };
 }
 
 const mapStateToProps = (state) => {
   return {
     bugs: state.bugs.allBugs,
+    activeBug: state.bugs.activeBug,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setActiveBug: (bug) => dispatch(setActiveBug(bug)),
+    editBug: (bug) => dispatch(editBug(bug)),
+    // completeBug: (bug) => dispatch(completeBug(bug)),
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
   };
