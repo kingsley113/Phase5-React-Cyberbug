@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { hideToggle, showToggle } from "../../actions/toggleActions";
-import { setActiveBug, editBug } from "../../actions/bugActions";
+import { setActiveBug, editBug, deleteBug } from "../../actions/bugActions";
 
 class BugDetails extends Component {
   state = {
@@ -35,6 +35,7 @@ class BugDetails extends Component {
           <p>Priority: {bug.bugPriority}</p>
           <p>Created: {bug.created_at}</p>
           <p>Updated: {bug.updated_at}</p>
+          <button onClick={this.handleOnClickDelete}>Delete</button>
         </div>
       );
     } else {
@@ -89,6 +90,11 @@ class BugDetails extends Component {
     // dispatch action to set status to complete
     // this.props.completeBug(this.props.activeBug);
   };
+
+  handleOnClickDelete = (event) => {
+    console.log("delete button clicked");
+    this.props.deleteBug({ bug: this.props.activeBug });
+  };
 }
 
 const mapStateToProps = (state) => {
@@ -102,6 +108,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setActiveBug: (bug) => dispatch(setActiveBug(bug)),
     editBug: (bug) => dispatch(editBug(bug)),
+    deleteBug: (bug) => dispatch(deleteBug(bug)),
     // completeBug: (bug) => dispatch(completeBug(bug)),
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
