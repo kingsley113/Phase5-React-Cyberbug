@@ -23,6 +23,7 @@ class BugDetails extends Component {
           <div className="centered-flex" id="details-title">
             <h3>{bug.bugTitle}</h3>
           </div>
+          <p>Status: {bug.bugStatus}</p>
           <p>Description:</p>
           <div className="test-border">{bug.bugDescription}</div>
           <p>Details:</p>

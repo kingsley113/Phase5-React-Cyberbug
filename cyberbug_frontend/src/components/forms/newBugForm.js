@@ -17,6 +17,7 @@ class NewBugForm extends Component {
     bugPriority: "",
     bugDueDate: "",
     bugTeamMember: "",
+    bugStatus: "",
     project_id: this.props.project.id,
   };
 
@@ -115,8 +116,8 @@ class NewBugForm extends Component {
               value={this.state.bugDueDate}
               onChange={this.handleOnChange}
             />
-            <label htmlFor="bugTeamMember">Assign Team Member:</label>
-            <select
+            {/* <label htmlFor="bugTeamMember">Assign Team Member:</label> */}
+            {/* <select
               name="bugTeamMember"
               value={this.state.bugTeamMember}
               onChange={this.handleOnChange}
@@ -126,8 +127,19 @@ class NewBugForm extends Component {
               <option value="dummy-member-3">Dummy Team Member 3</option>
               <option value="dummy-member-4">Dummy Team Member 4</option>
               <option value="dummy-member-5">Dummy Team Member 5</option>
-              {/* TODO: build out team member function */}
-            </select>
+            </select> */}
+            <div>
+              <label htmlFor="bugStatus">Status:</label>
+              <select
+                name="bugStatus"
+                value={this.state.bugStatus}
+                onChange={this.handleOnChange}
+              >
+                <option value="Not Started">Not Started</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Complete">Complete</option>
+              </select>
+            </div>
           </div>
           <div className="row">
             <input type="submit" value="Ew, bugs! (Save)" />
