@@ -13,6 +13,7 @@ class CreateBugs < ActiveRecord::Migration[6.1]
       t.date :bugDueDate
       t.date :bugCompletedDate
       t.boolean :bugComplete
+			t.string :bugStatus
 
       t.timestamps
     end
