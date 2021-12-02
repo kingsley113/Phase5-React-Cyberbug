@@ -20,11 +20,8 @@ class BugDetails extends Component {
   }
 
   renderBugDetails() {
-    console.log(this.props.match.url.slice(0, -7));
-
     if (this.props.bugs) {
       const bug = this.setBug();
-      // console.log(bug);
       if (bug) {
         return (
           <div>
