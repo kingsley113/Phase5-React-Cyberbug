@@ -59,22 +59,24 @@ class BugDetails extends Component {
           </div>
         </div>
         {this.renderBugDetails()}
-        {/* TODO: fill in project summary content */}
-        {/* <h3>{this.props.match.params.bugId}</h3> */}
-        {/* {console.log(this.props.match.params.bugId)} */}
       </div>
     );
   }
 
-  handleOnClickEdit = (event) => {
-    console.log("Edit button clicked");
-    // TODO: Should the active project be set on details panel load?
+  componentDidMount() {
     this.props.setActiveBug(this.setBug());
+  }
+  componentDidUpdate() {
+    this.props.setActiveBug(this.setBug());
+  }
+
+  handleOnClickEdit = (event) => {
     this.props.showToggle("newBugFormToggle");
   };
 
   handleOnClickSquash = (event) => {
     console.log("Squash button clicked");
+    // dispatch action to set status to complete
   };
 }
 
