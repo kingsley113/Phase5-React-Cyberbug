@@ -26,11 +26,9 @@ class BugsController < ApplicationController
 		end
 	end
 
-	# Update TODO:
 	def update
 		bug = set_bug()
 
-		# binding.pry
 
 		bug.bugId = params[:bug][:bugId]
 		bug.bugTitle = params[:bug][:bugTitle]

@@ -102,11 +102,11 @@ class NewBugForm extends Component {
               value={this.state.bugPriority}
               onChange={this.handleOnChange}
             >
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-              <option value="critical">Critical</option>
-              <option value="roadblock">Roadblock</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+              <option value="Critical">Critical</option>
+              <option value="Roadblock">Roadblock</option>
             </select>
             <label htmlFor="bugDueDate">Due Date: </label>
             <input
@@ -159,11 +159,6 @@ class NewBugForm extends Component {
   // EVENTS
   handleOnSubmit = (event) => {
     event.preventDefault();
-
-    // this.setState({
-    //   bugProjectId: this.props.project.id,
-    // });
-    // TODO: change this to check if creating a new bug or editing a bug
     if (this.props.activeBug) {
       this.props.editBug({ bug: this.state });
     } else {
