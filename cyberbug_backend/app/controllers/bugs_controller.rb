@@ -30,6 +30,8 @@ class BugsController < ApplicationController
 	def update
 		bug = set_bug()
 
+		# binding.pry
+
 		bug.bugId = params[:bug][:bugId]
 		bug.bugTitle = params[:bug][:bugTitle]
 		bug.bugDescription = params[:bug][:bugDescription]
@@ -43,7 +45,7 @@ class BugsController < ApplicationController
 		bug.bugCompletedDate = params[:bug][:bugCompletedDate]
 		bug.bugComplete = params[:bug][:bugComplete]
 
-		if bug.save?
+		if bug.save
 			render json: bug
 		else
 			render json: bug.error, status: :unprocessable_entity
@@ -69,6 +71,6 @@ class BugsController < ApplicationController
 	end
 
 	def bug_params
-		params.require(:bug).permit(:bugId, :bugTitle, :bugDescription, :bugDetails, :bugTags, :bugTeamMember, :bugLineNo, :project_id, :bugPriority, :bugDueDate, :bugCompletedDate, :bugComplete)
+		params.require(:bug).permit(:id, :bugId, :bugTitle, :bugDescription, :bugDetails, :bugTags, :bugTeamMember, :bugLineNo, :project_id, :bugPriority, :bugDueDate, :bugCompletedDate, :bugComplete)
 	end
 end

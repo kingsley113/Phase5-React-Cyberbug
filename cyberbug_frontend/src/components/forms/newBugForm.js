@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { createBug } from "../../actions/bugActions";
+import { createBug, editBug } from "../../actions/bugActions";
 import { connect } from "react-redux";
 
 import RandomIdGenerator from "../../helpers/randomIdGenerator";
@@ -148,6 +148,7 @@ class NewBugForm extends Component {
   loadFormData() {
     const bug = this.props.activeBug;
 
+    this.setState({ id: bug.id });
     for (const prop in this.state) {
       this.setState({
         [prop]: bug[prop] ? bug[prop] : "",
@@ -189,6 +190,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createBug: (bugObject) => dispatch(createBug(bugObject)),
+    editBug: (bugObject) => dispatch(editBug(bugObject)),
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
   };
