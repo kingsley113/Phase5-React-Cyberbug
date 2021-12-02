@@ -93,7 +93,7 @@ class BugDetails extends Component {
 
   handleOnClickDelete = (event) => {
     console.log("delete button clicked");
-    this.props.deleteBug({ bug: this.props.activeBug });
+    this.props.deleteBug(this.props.activeBug);
   };
 }
 

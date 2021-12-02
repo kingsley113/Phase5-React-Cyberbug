@@ -82,4 +82,8 @@ export const completeBug = (bug) => {
 
 export const deleteBug = (bug) => {
   // TODO:
+  console.log("bug delete action");
+  return (dispatch) => {
+    dispatch({ type: "DELETE_BUG", bug: bug });
+  };
 };
