@@ -5,7 +5,6 @@ class BugsController < ApplicationController
 
 		if bug.save
 			render json: bug
-			# TODO: this definitely needs a serializer
 		else
 			render text: "error", status: :unprocessable_entity
 		end
@@ -52,14 +51,14 @@ class BugsController < ApplicationController
 	end
 	
 	# Destroy
-	def delete
+	def destroy
 		bug = set_bug()
 
 		if bug
 			bug.delete()
-			render text: "Bug successfully deleted"
+			render json: {message: "Bug successfully deleted"}
 		else
-			render text: "Bug not found"
+			render json: {message: "Bug not found"}
 		end
 	end
 

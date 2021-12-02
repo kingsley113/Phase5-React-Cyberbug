@@ -16,7 +16,9 @@ function bugs(
       });
       return { ...state, allBugs: updatedBugs };
     case "DELETE_BUG":
-      return state;
+      return {
+        allBugs: state.allBugs.filter((bug) => bug.bugId !== action.bug.bugId),
+      };
     case "SET_ACTIVE_BUG":
       return { ...state, activeBug: action.bug };
     default:

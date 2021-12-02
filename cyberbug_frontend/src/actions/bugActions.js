@@ -57,13 +57,11 @@ export const editBug = (bug, id) => {
       },
       body: JSON.stringify(bug),
     };
-    console.log(bug.bug);
     fetch(`http://localhost:8000/bugs/${bug.bug.id}`, configurationObject)
       .then((response) => {
         return response.json();
       })
       .then((json) => {
-        // console.log(json);
         dispatch({ type: "EDIT_BUG", bug: json });
         dispatch(hideToggle("newBugFormToggle"));
       })
@@ -81,9 +79,25 @@ export const completeBug = (bug) => {
 };
 
 export const deleteBug = (bug) => {
-  // TODO:
-  console.log("bug delete action");
   return (dispatch) => {
-    dispatch({ type: "DELETE_BUG", bug: bug });
+    const configurationObject = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(bug),
+    };
+    fetch(`http://localhost:8000/bugs/${bug.bugId}`, configurationObject)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        dispatch({ type: "DELETE_BUG", bug: bug });
+      })
+      .catch((response) => {
+        alert("Woops, something went wrong deleting the bug");
+        console.log(response);
+      });
   };
 };
