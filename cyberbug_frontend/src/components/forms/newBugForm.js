@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import RandomIdGenerator from "../../helpers/randomIdGenerator";
 
 import { showToggle, hideToggle } from "../../actions/toggleActions";
+import { renderCleanForm } from "../../actions/formActions";
 
 class NewBugForm extends Component {
   state = {
@@ -152,9 +153,11 @@ class NewBugForm extends Component {
 
   // LOAD FORM DATA IF EXISTING BUG
   componentDidMount() {
-    if (this.props.activeBug) {
+    if (this.props.activeBug && !this.props.cleanForm) {
       this.loadFormData();
     }
+    // Reset the clean form status after rendering
+    this.props.renderCleanForm(false);
   }
 
   loadFormData() {
@@ -191,13 +194,17 @@ class NewBugForm extends Component {
 
 // REDUX
 const mapStateToProps = (state) => {
-  return { activeBug: state.bugs.activeBug };
+  return {
+    activeBug: state.bugs.activeBug,
+    cleanForm: state.forms.renderCleanForm,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     createBug: (bugObject) => dispatch(createBug(bugObject)),
     editBug: (bugObject) => dispatch(editBug(bugObject)),
+    renderCleanForm: (bool) => dispatch(renderCleanForm(bool)),
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
   };
