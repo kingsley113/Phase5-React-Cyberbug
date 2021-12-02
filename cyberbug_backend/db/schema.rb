@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_11_12_051734) do
     t.date "bugDueDate"
     t.date "bugCompletedDate"
     t.boolean "bugComplete"
+    t.string "bugStatus"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
