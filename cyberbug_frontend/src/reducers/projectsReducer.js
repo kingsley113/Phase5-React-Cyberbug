@@ -14,9 +14,10 @@ function projects(state = { projects: [] }, action) {
       console.log("updatedProjects:", updatedProjects);
       return { ...state, allProjects: updatedProjects };
     case "DELETE_PROJECT":
+      console.log("Delete project reducer");
       return {
         allProjects: state.allProjects.filter(
-          (project) => project.projectID !== action.project.projectId
+          (project) => project.projectId !== action.project.projectId
         ),
       };
     case "ADD_BUG_TO_PROJECT":

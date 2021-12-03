@@ -9,39 +9,44 @@ import NewBugForm from "../../components/forms/newBugForm";
 import ModalWindow from "../modalWindow";
 import Toggle from "../toggle";
 import ProjectHeader from "../../components/project/projectHeader";
-import { Route } from "react-router";
+import { Redirect, Route } from "react-router";
 
 class ProjectPage extends PureComponent {
   render() {
     if (this.props.projects) {
       const project = this.setProject();
 
-      return (
-        <div id="project-page">
-          <Toggle id={"newBugFormToggle"}>
-            <ModalWindow component={<NewBugForm project={project} />} />
-          </Toggle>
+      if (project) {
+        return (
+          <div id="project-page">
+            <Toggle id={"newBugFormToggle"}>
+              <ModalWindow component={<NewBugForm project={project} />} />
+            </Toggle>
 
-          <div id="project-left-column">
-            <ProjectHeader project={project} />
-            <div id="bugs-list-panel">
-              <BugList route={this.props.match.url} project={project} />
+            <div id="project-left-column">
+              <ProjectHeader project={project} />
+              <div id="bugs-list-panel">
+                <BugList route={this.props.match.url} project={project} />
+              </div>
+            </div>
+
+            <div className="test-border-blue" id="project-right-column">
+              <Route
+                exact
+                path={this.props.match.url}
+                render={() => <h3>Please select a Bug from the list</h3>}
+              />
+              <Route
+                path={`${this.props.match.url}/:bugId`}
+                render={(routerProps) => <BugDetails {...routerProps} />}
+              />
             </div>
           </div>
-
-          <div className="test-border-blue" id="project-right-column">
-            <Route
-              exact
-              path={this.props.match.url}
-              render={() => <h3>Please select a Bug from the list</h3>}
-            />
-            <Route
-              path={`${this.props.match.url}/:bugId`}
-              render={(routerProps) => <BugDetails {...routerProps} />}
-            />
-          </div>
-        </div>
-      );
+        );
+      } else {
+        console.log(this.props.match.url);
+        return <Redirect to={this.props.match.url.slice(0, -7)} />;
+      }
     } else {
       return <h3>Loading...</h3>;
     }

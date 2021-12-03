@@ -89,10 +89,7 @@ export const deleteProject = (project) => {
       },
       body: JSON.stringify(project),
     };
-    fetch(
-      `http://localhost:8000/projects/${project.projectId}`,
-      configurationObject
-    )
+    fetch(`http://localhost:8000/projects/${project.id}`, configurationObject)
       .then((response) => {
         return response.json();
       })

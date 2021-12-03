@@ -4,6 +4,7 @@ import ProjectStatus from "./projectStatus";
 import NewBugButton from "./newBugButton";
 import { connect } from "react-redux";
 import { showToggle } from "../../actions/toggleActions";
+import { deleteProject } from "../../actions/projectActions";
 
 class ProjectHeader extends Component {
   render() {
@@ -55,10 +56,17 @@ class ProjectHeader extends Component {
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    showToggle: (id) => dispatch(showToggle("newProjectFormToggle")),
+    activeProject: state.projects.activeProject,
   };
 };
 
-export default connect(null, mapDispatchToProps)(ProjectHeader);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    showToggle: (id) => dispatch(showToggle("newProjectFormToggle")),
+    deleteProject: (project) => dispatch(deleteProject(project)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectHeader);

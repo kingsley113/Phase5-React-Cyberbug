@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ProjectListDetailed from "../../components/dashboard/projectListDetailed";
-import BugList from "../../components/project/bugList";
+// import BugList from "../../components/project/bugList";
 
 import { setActiveProject } from "../../actions/projectActions";
 
@@ -10,7 +10,7 @@ class ProjectsPage extends Component {
     return (
       <div>
         <ProjectListDetailed />
-        <BugList />
+        {/* <BugList /> */}
       </div>
     );
   }
