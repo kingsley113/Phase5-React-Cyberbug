@@ -15,10 +15,10 @@ class NewBugForm extends Component {
     bugTags: "",
     bugDetails: "",
     bugLineNo: "",
-    bugPriority: "",
+    bugPriority: "Low",
     bugDueDate: "",
     bugTeamMember: "",
-    bugStatus: "",
+    bugStatus: "Not Started",
     project_id: this.props.project.id,
   };
 
