@@ -47,7 +47,7 @@ export const setActiveBug = (bug) => {
   };
 };
 
-export const editBug = (bug, id) => {
+export const editBug = (bug) => {
   return (dispatch) => {
     const configurationObject = {
       method: "PATCH",

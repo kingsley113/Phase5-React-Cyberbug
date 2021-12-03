@@ -157,7 +157,7 @@ class NewBugForm extends Component {
       this.loadFormData();
     }
     // Reset the clean form status after rendering
-    this.props.renderCleanForm(false);
+    // this.props.renderCleanForm(false);
   }
 
   loadFormData() {
@@ -177,7 +177,7 @@ class NewBugForm extends Component {
     // if (this.props.activeBug) {
     //   this.props.editBug({ bug: this.state });
     // } else {
-    this.props.createBug({ bug: this.state });
+    // this.props.createBug({ bug: this.state });
     // }
     if (this.props.cleanForm) {
       this.props.renderCleanForm(false);
