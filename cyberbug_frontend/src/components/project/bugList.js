@@ -4,7 +4,7 @@ import BugLineItem from "./bugLineItem";
 
 class BugList extends Component {
   renderBugs = () => {
-    if (this.props.bugs.allBugs) {
+    if (this.props.bugs.allBugs && this.props.project) {
       const bugs = this.props.bugs.allBugs.filter(
         (bug) => bug.project_id === this.props.project.id
       );

@@ -5,7 +5,14 @@ function projects(state = { projects: [] }, action) {
     case "LOAD_PROJECTS":
       return { allProjects: state.projects.concat(action.projects) };
     case "EDIT_PROJECT":
-      return state;
+      // console.log("Action project:", action.project);
+      const updatedProjects = state.allProjects.map((proj) => {
+        return proj.projectId === action.project.projectId
+          ? action.project
+          : proj;
+      });
+      console.log("updatedProjects:", updatedProjects);
+      return { ...state, allProjects: updatedProjects };
     case "DELETE_PROJECT":
       return state;
     case "ADD_BUG_TO_PROJECT":

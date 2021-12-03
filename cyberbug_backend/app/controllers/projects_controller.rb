@@ -35,6 +35,16 @@ class ProjectsController < ApplicationController
 	def update
 		project = set_project()
 	# TODO: fill in update method
+		# binding.pry
+
+		project.projectTitle = params[:project][:projectTitle]
+		project.projectDescription = params[:project][:projectDescription]
+
+		if project.save
+			render json: project
+		else
+			render text: "error", status: :unprocessable_entity
+		end
 	end
 	
 	# Destroy
@@ -56,10 +66,10 @@ class ProjectsController < ApplicationController
 	end
 
 	def set_project
-		Project.find_by(project_id: project_params[:project_id])
+		Project.find_by(projectId: project_params[:projectId])
 	end
 
 	def project_params
-		params.require(:project).permit(:projectId, :projectTitle, :projectDescription)
+		params.require(:project).permit(:id, :projectId, :projectTitle, :projectDescription)
 	end
 end

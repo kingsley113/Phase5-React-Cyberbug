@@ -7,30 +7,34 @@ import { showToggle } from "../../actions/toggleActions";
 
 class ProjectHeader extends Component {
   render() {
-    return (
-      <div id="project-summary-panel">
-        <div id="project-title">
-          <h2>
-            {this.props.project.projectId} - {this.props.project.projectTitle}
-          </h2>
-        </div>
-        <div>
-          <button onClick={this.handleOnClickEdit}>Edit Project</button>
-          <button onClick={this.handleOnClickDelete}>Delete Project</button>
-        </div>
-        <div id="summary-panel">
-          <NewBugButton />
-          <div id="summary-divider-panel">
-            <div className="centered" id="project-stats">
-              <ProjectSummary project={this.props.project} />
-            </div>
-            <div className="centered" id="project-status">
-              <ProjectStatus project={this.props.project} />
+    if (this.props.project) {
+      return (
+        <div id="project-summary-panel">
+          <div id="project-title">
+            <h2>
+              {this.props.project.projectId} - {this.props.project.projectTitle}
+            </h2>
+          </div>
+          <div>
+            <button onClick={this.handleOnClickEdit}>Edit Project</button>
+            <button onClick={this.handleOnClickDelete}>Delete Project</button>
+          </div>
+          <div id="summary-panel">
+            <NewBugButton />
+            <div id="summary-divider-panel">
+              <div className="centered" id="project-stats">
+                <ProjectSummary project={this.props.project} />
+              </div>
+              <div className="centered" id="project-status">
+                <ProjectStatus project={this.props.project} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <h2>Loading</h2>;
+    }
   }
 
   handleOnClickEdit = (event) => {

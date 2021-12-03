@@ -50,6 +50,30 @@ export const setActiveProject = (project) => {
 export const editProject = (project) => {
   // Edit project TODO:
   console.log("Edit project action");
+
+  return (dispatch) => {
+    const configurationObject = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ project: project }),
+    };
+    fetch(`http://localhost:8000/projects/${project.id}`, configurationObject)
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        console.log("Response Json: ", json);
+        dispatch({ type: "EDIT_PROJECT", project: json });
+        dispatch(hideToggle("newProjectFormToggle"));
+      })
+      .catch((error) => {
+        alert("Error occured editing project");
+        console.log(error);
+      });
+  };
 };
 
 export const deleteProject = (project) => {
