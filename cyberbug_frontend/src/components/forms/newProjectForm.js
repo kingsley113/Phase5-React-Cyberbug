@@ -71,7 +71,7 @@ class NewProjectForm extends Component {
       this.loadFormData();
     }
     // Reset the clean form status after rendering
-    this.props.renderCleanForm(false);
+    // this.props.renderCleanForm(false);
   }
 
   loadFormData() {
@@ -88,10 +88,17 @@ class NewProjectForm extends Component {
   // EVENTS
   handleOnSubmit = (event) => {
     event.preventDefault();
-    if (this.props.activeProject) {
-      this.props.editProject(this.state);
-    } else {
+    // if (this.props.activeProject) {
+    //   this.props.editProject(this.state);
+    // 	// TODO:
+    // } else {
+    //   this.props.createProject(this.state);
+    // }
+    if (this.props.cleanForm) {
+      this.props.renderCleanForm(false);
       this.props.createProject(this.state);
+    } else {
+      this.props.editProject(this.state);
     }
   };
 

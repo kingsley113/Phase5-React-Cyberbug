@@ -50,12 +50,12 @@ class ProjectsController < ApplicationController
 	# Destroy
 	def destroy
 		project = set_project()
+
 		if project
 			project.delete()
+			render json: {message: "project successfully deleted"}
 		else
-			# render text: "Project not found"
-			render_error()
-			# TODO: verify this is the correct handling here to render error
+			render json: {message: "Project not found"}
 		end
 	end
 

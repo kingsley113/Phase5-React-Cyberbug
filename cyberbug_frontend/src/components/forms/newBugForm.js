@@ -174,10 +174,16 @@ class NewBugForm extends Component {
   // EVENTS
   handleOnSubmit = (event) => {
     event.preventDefault();
-    if (this.props.activeBug) {
-      this.props.editBug({ bug: this.state });
-    } else {
+    // if (this.props.activeBug) {
+    //   this.props.editBug({ bug: this.state });
+    // } else {
+    this.props.createBug({ bug: this.state });
+    // }
+    if (this.props.cleanForm) {
+      this.props.renderCleanForm(false);
       this.props.createBug({ bug: this.state });
+    } else {
+      this.props.editBug({ bug: this.state });
     }
   };
 

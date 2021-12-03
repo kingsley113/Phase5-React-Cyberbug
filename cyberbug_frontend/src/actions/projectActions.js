@@ -79,4 +79,29 @@ export const editProject = (project) => {
 export const deleteProject = (project) => {
   // Delete project TODO:
   console.log("Delete project action");
+
+  return (dispatch) => {
+    const configurationObject = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(project),
+    };
+    fetch(
+      `http://localhost:8000/projects/${project.projectId}`,
+      configurationObject
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        dispatch({ type: "DELETE_PROJECT", project: project });
+      })
+      .catch((response) => {
+        alert("Woops, something went wrong deleting the project");
+        console.log(response);
+      });
+  };
 };
