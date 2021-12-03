@@ -48,9 +48,6 @@ export const setActiveProject = (project) => {
 };
 
 export const editProject = (project) => {
-  // Edit project TODO:
-  console.log("Edit project action");
-
   return (dispatch) => {
     const configurationObject = {
       method: "PATCH",
@@ -77,9 +74,6 @@ export const editProject = (project) => {
 };
 
 export const deleteProject = (project) => {
-  // Delete project TODO:
-  console.log("Delete project action");
-
   return (dispatch) => {
     const configurationObject = {
       method: "DELETE",

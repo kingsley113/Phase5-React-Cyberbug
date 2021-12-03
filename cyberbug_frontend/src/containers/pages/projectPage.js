@@ -44,7 +44,6 @@ class ProjectPage extends PureComponent {
           </div>
         );
       } else {
-        console.log(this.props.match.url);
         return <Redirect to={this.props.match.url.slice(0, -7)} />;
       }
     } else {

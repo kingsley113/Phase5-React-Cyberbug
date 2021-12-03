@@ -22,13 +22,6 @@ class NewProjectForm extends Component {
             <label htmlFor="projectId" className="col-sm-1 right-align-text">
               Project ID:
             </label>
-            {/* <input
-              type="text"
-              name="projectId"
-              className="col-sm-1"
-              value={this.state.projectId}
-              onChange={this.handleOnChange}
-            /> */}
             <span name="projectId" className="col-sm-1">
               {this.state.projectId}
             </span>
@@ -65,13 +58,11 @@ class NewProjectForm extends Component {
     );
   }
 
-  // LOAD FORM DATA IF EXISTING BUG
+  // LOAD BUG DATA IF EXISTING BUG IS LOADED
   componentDidMount() {
     if (this.props.activeProject && !this.props.cleanForm) {
       this.loadFormData();
     }
-    // Reset the clean form status after rendering
-    // this.props.renderCleanForm(false);
   }
 
   loadFormData() {
@@ -88,13 +79,8 @@ class NewProjectForm extends Component {
   // EVENTS
   handleOnSubmit = (event) => {
     event.preventDefault();
-    // if (this.props.activeProject) {
-    //   this.props.editProject(this.state);
-    // 	// TODO:
-    // } else {
-    //   this.props.createProject(this.state);
-    // }
     if (this.props.cleanForm) {
+      // Reset the clean form status after submitting
       this.props.renderCleanForm(false);
       this.props.createProject(this.state);
     } else {

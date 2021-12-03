@@ -6,7 +6,6 @@ class ProjectListSummary extends Component {
   renderProjects() {
     if (this.props.projects) {
       return this.props.projects.map((project) => {
-        // console.log(project);
         return (
           <li key={project.id} className={"summary-item"}>
             <div className="id-container">

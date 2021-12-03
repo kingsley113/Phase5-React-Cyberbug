@@ -75,11 +75,9 @@ class BugDetails extends Component {
   }
   // SET ACTIVE BUG ON LOAD AND UPDATE
   componentDidMount() {
-    // TODO: error here on loading data, needs to trigger after data loaded
     this.props.setActiveBug(this.setBug());
   }
   componentDidUpdate() {
-    // TODO: error here on loading data, needs to trigger after data loaded
     this.props.setActiveBug(this.setBug());
   }
 
@@ -89,19 +87,14 @@ class BugDetails extends Component {
   };
 
   handleOnClickSquash = (event) => {
-    // console.log("Squash button clicked");
     const bug = this.props.activeBug;
     bug.bugStatus = "Complete";
     bug.bugComplete = true;
 
-    // console.log(bug);
     this.props.editBug({ bug: bug });
-    // dispatch action to set status to complete
-    // this.props.completeBug(this.props.activeBug);
   };
 
   handleOnClickDelete = (event) => {
-    // console.log("delete button clicked");
     if (window.confirm("Are you sure you want to yeet this bug?")) {
       this.props.deleteBug(this.props.activeBug);
     }
@@ -120,7 +113,6 @@ const mapDispatchToProps = (dispatch) => {
     setActiveBug: (bug) => dispatch(setActiveBug(bug)),
     editBug: (bug) => dispatch(editBug(bug)),
     deleteBug: (bug) => dispatch(deleteBug(bug)),
-    // completeBug: (bug) => dispatch(completeBug(bug)),
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
   };

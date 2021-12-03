@@ -29,7 +29,6 @@ class NewBugForm extends Component {
         <h2>
           Create a new bug for project {this.props.project.projectId} -{" "}
           {this.props.project.projectTitle}:
-          {/* TODO:Clean this up, this is just for debugging purposes */}
         </h2>
         <form onSubmit={this.handleOnSubmit}>
           <div className="row">
@@ -117,18 +116,6 @@ class NewBugForm extends Component {
               value={this.state.bugDueDate}
               onChange={this.handleOnChange}
             />
-            {/* <label htmlFor="bugTeamMember">Assign Team Member:</label> */}
-            {/* <select
-              name="bugTeamMember"
-              value={this.state.bugTeamMember}
-              onChange={this.handleOnChange}
-            >
-              <option value="dummy-member-1">Dummy Team Member 1</option>
-              <option value="dummy-member-2">Dummy Team Member 2</option>
-              <option value="dummy-member-3">Dummy Team Member 3</option>
-              <option value="dummy-member-4">Dummy Team Member 4</option>
-              <option value="dummy-member-5">Dummy Team Member 5</option>
-            </select> */}
             <div>
               <label htmlFor="bugStatus">Status:</label>
               <select
@@ -156,8 +143,6 @@ class NewBugForm extends Component {
     if (this.props.activeBug && !this.props.cleanForm) {
       this.loadFormData();
     }
-    // Reset the clean form status after rendering
-    // this.props.renderCleanForm(false);
   }
 
   loadFormData() {
@@ -174,12 +159,8 @@ class NewBugForm extends Component {
   // EVENTS
   handleOnSubmit = (event) => {
     event.preventDefault();
-    // if (this.props.activeBug) {
-    //   this.props.editBug({ bug: this.state });
-    // } else {
-    // this.props.createBug({ bug: this.state });
-    // }
     if (this.props.cleanForm) {
+      // Reset the clean form status after submitting
       this.props.renderCleanForm(false);
       this.props.createBug({ bug: this.state });
     } else {

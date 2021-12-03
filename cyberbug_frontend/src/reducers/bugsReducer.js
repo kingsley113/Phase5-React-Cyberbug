@@ -4,7 +4,6 @@ function bugs(
   },
   action
 ) {
-  // TODO: Build this reducer
   switch (action.type) {
     case "ADD_BUG":
       return { allBugs: [...state.allBugs, action.bug] };
