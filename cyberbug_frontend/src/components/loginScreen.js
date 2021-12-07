@@ -1,27 +1,29 @@
 import React, { Component } from "react";
+import LoginForm from "./forms/loginForm";
 // import PageSidebar from "./pageSidebar";
 
-class SplashScreen extends Component {
-  state = {
-    username: "",
-    password: "",
-  };
+class LoginScreen extends Component {
+  // state = {
+  //   username: "",
+  //   password: "",
+  // };
 
-  handleOnSubmit = (event) => {
-    event.preventDefault();
-    console.log("Inside handleOnSubmit function, Form would be submitted");
-  };
+  // handleOnSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log("Inside handleOnSubmit function, Form would be submitted");
+  // };
 
-  handleOnChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
+  // handleOnChange = (event) => {
+  //   this.setState({
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
 
   render() {
     return (
       <div>
-        <form id="login-form" onSubmit={this.handleOnSubmit}>
+        <LoginForm />
+        {/* <form id="login-form" onSubmit={this.handleOnSubmit}>
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -39,12 +41,12 @@ class SplashScreen extends Component {
             value={this.state.password}
           />
           <input type="submit" />
-        </form>
+        </form> */}
         <button id="create-account">Create Account</button>
       </div>
     );
   }
 }
 
-export default SplashScreen;
+export default LoginScreen;
 // TODO: Add styling
