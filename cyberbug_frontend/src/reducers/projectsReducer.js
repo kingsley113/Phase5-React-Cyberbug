@@ -3,7 +3,7 @@ function projects(state = { projects: [] }, action) {
     case "ADD_PROJECT":
       return { allProjects: [...state.allProjects, action.project] };
     case "LOAD_PROJECTS":
-      return { allProjects: state.projects.concat(action.projects) };
+      return { allProjects: action.projects };
     case "EDIT_PROJECT":
       const updatedProjects = state.allProjects.map((proj) => {
         return proj.projectId === action.project.projectId

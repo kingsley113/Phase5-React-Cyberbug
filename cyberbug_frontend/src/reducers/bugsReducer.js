@@ -8,7 +8,7 @@ function bugs(
     case "ADD_BUG":
       return { allBugs: [...state.allBugs, action.bug] };
     case "LOAD_BUGS":
-      return { allBugs: state.bugs.concat(action.bugs) };
+      return { allBugs: action.bugs };
     case "EDIT_BUG":
       const updatedBugs = state.allBugs.map((bug) => {
         return bug.bugId === action.bug.bugId ? action.bug : bug;
