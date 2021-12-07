@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageContent from "./containers/pageContent";
 import LoginPage from "./containers/pages/loginPage";
 import NewUserPage from "./containers/pages/newUserPage";
+import PageNotFound from "./containers/pages/pageNotFound";
 
 class App extends Component {
   render() {
@@ -13,12 +14,7 @@ class App extends Component {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={NewUserPage} />
           <Route path="/" component={PageContent} />
-          {/* TODO: if localstorage JWT present, redirect to dashbaord, if not, redirect to login */}
-          {/* TODO: implement this as a protected route? */}
-          <Route>
-            {/* TODO: Not found component/page */}
-            <h2>Page Not Found</h2>
-          </Route>
+          <Route component={PageNotFound} />
         </Switch>
       </Router>
     );

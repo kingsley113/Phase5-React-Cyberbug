@@ -420,3 +420,27 @@ td {
   justify-content: center;
   align-items: center;
 }
+
+/* 404 page not found styles */
+.full-page {
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  background-color: seagreen;
+  color: seashell;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.centered-flex-vert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

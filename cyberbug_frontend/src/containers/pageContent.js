@@ -15,6 +15,7 @@ import { loadProjects } from "../actions/projectActions";
 import { loadBugs } from "../actions/bugActions";
 import ProtectedRoute from "../components/auth/protectedRoute";
 import RedirectIfLoggedIn from "../components/auth/redirectIfLoggedIn";
+import PageNotFound from "./pages/pageNotFound";
 
 class PageContent extends Component {
   render() {
@@ -41,10 +42,7 @@ class PageContent extends Component {
                 )}
               />
               <Route exact path="/settings" component={SettingsPage} />
-              <Route>
-                {/* TODO: Not found component/page */}
-                <h2>Page Not Found</h2>
-              </Route>
+              <Route component={PageNotFound} />
             </Switch>
 
             <Toggle id={"newProjectFormToggle"}>
