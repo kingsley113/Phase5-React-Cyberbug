@@ -19,6 +19,7 @@ class BugsController < ApplicationController
 		bug = set_bug()
 
 		if bug
+			# TODO: Serializers???
 			render json: bug
 		else 
 			render text: "Bug not found"
