@@ -12,7 +12,11 @@ function auth(
         redirectToDashboard: true,
       };
     case "LOGOUT":
-      return { currentUser: null, userLoggedIn: false };
+      return {
+        currentUser: null,
+        redirectToDashboard: false,
+        redirectToLogin: true,
+      };
     default:
       return state;
   }

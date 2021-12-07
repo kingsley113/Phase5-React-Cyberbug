@@ -39,3 +39,10 @@ export const createUser = (userData) => {
       .catch((error) => console.log(error));
   };
 };
+
+export const logout = () => {
+  return (dispatch) => {
+    localStorage.removeItem("jwt");
+    dispatch({ type: "LOGOUT" });
+  };
+};

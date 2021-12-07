@@ -13,37 +13,40 @@ import PageHeader from "../components/pageHeader";
 import PageSidebar from "../components/pageSidebar";
 import { loadProjects } from "../actions/projectActions";
 import { loadBugs } from "../actions/bugActions";
+import ProtectedRoute from "../components/auth/protectedRoute";
 
 class PageContent extends Component {
   render() {
     return (
-      <div>
+      <ProtectedRoute>
         <div>
-          <PageHeader />
-        </div>
-        <div className="page-main">
-          <PageSidebar />
-          <div className="full-width">
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/projects" component={ProjectsPage} />
-            <Route
-              path="/projects/:id"
-              render={(routerProps) => (
-                <ProjectPage
-                  {...routerProps}
-                  projects={this.props.projects}
-                  activeProject={this.props.activeProject}
-                />
-              )}
-            />
-            <Route exact path="/settings" component={SettingsPage} />
+          <div>
+            <PageHeader />
+          </div>
+          <div className="page-main">
+            <PageSidebar />
+            <div className="full-width">
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/projects" component={ProjectsPage} />
+              <Route
+                path="/projects/:id"
+                render={(routerProps) => (
+                  <ProjectPage
+                    {...routerProps}
+                    projects={this.props.projects}
+                    activeProject={this.props.activeProject}
+                  />
+                )}
+              />
+              <Route exact path="/settings" component={SettingsPage} />
 
-            <Toggle id={"newProjectFormToggle"}>
-              <ModalWindow component={<NewProjectForm />} />
-            </Toggle>
+              <Toggle id={"newProjectFormToggle"}>
+                <ModalWindow component={<NewProjectForm />} />
+              </Toggle>
+            </div>
           </div>
         </div>
-      </div>
+      </ProtectedRoute>
     );
   }
 

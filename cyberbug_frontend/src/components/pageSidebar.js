@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { showToggle, hideToggle } from "../actions/toggleActions";
 import ProjectListSummary from "./pageSidebar/projectListSummary";
 import { renderCleanForm } from "../actions/formActions";
+import { logout } from "../actions/authActions";
 
 class PageSidebar extends Component {
   render() {
@@ -59,6 +60,7 @@ class PageSidebar extends Component {
 
   logout = () => {
     // TODO: Fill in logout process here
+    this.props.logout();
   };
 
   handleOnClickNewProject = (event) => {
@@ -72,6 +74,7 @@ const mapDispatchToProps = (dispatch) => {
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
     renderCleanForm: (bool) => dispatch(renderCleanForm(bool)),
+    logout: () => dispatch(logout()),
   };
 };
 
