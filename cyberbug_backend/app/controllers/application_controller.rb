@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
 
 	def encode_token(payload)
 		# TODO: store this secret in an env variable
-		JWT.encode(payload, "squish_all_of_the_bugs!")
+		JWT.encode(payload, 'squish_all_of_the_bugs!')
 	end
 
 	def auth_header
@@ -14,8 +14,8 @@ class ApplicationController < ActionController::API
 		if auth_header
 			token = auth_header.split(' ')[1]
 			begin
-				JWT.decode(token, "squish_all_of_the_bugs!")[0]
-			rescue => JWT::DecodeError
+				JWT.decode(token, 'squish_all_of_the_bugs!')[0]
+			rescue JWT::DecodeError
 				nil
 			end
 		end
