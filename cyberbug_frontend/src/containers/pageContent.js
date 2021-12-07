@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Dashboard from "./pages/dashboard";
@@ -14,18 +14,20 @@ import PageSidebar from "../components/pageSidebar";
 import { loadProjects } from "../actions/projectActions";
 import { loadBugs } from "../actions/bugActions";
 import ProtectedRoute from "../components/auth/protectedRoute";
+import RedirectIfLoggedIn from "../components/auth/redirectIfLoggedIn";
 
 class PageContent extends Component {
   render() {
     return (
       <ProtectedRoute>
         <div>
-          <div>
-            <PageHeader />
-          </div>
-          <div className="page-main">
-            <PageSidebar />
-            <div className="full-width">
+          <PageHeader />
+        </div>
+        <div className="page-main">
+          <PageSidebar />
+          <div className="full-width">
+            <Switch>
+              <Route exact path="/" render={() => <RedirectIfLoggedIn />} />
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/projects" component={ProjectsPage} />
               <Route
@@ -39,11 +41,15 @@ class PageContent extends Component {
                 )}
               />
               <Route exact path="/settings" component={SettingsPage} />
+              <Route>
+                {/* TODO: Not found component/page */}
+                <h2>Page Not Found</h2>
+              </Route>
+            </Switch>
 
-              <Toggle id={"newProjectFormToggle"}>
-                <ModalWindow component={<NewProjectForm />} />
-              </Toggle>
-            </div>
+            <Toggle id={"newProjectFormToggle"}>
+              <ModalWindow component={<NewProjectForm />} />
+            </Toggle>
           </div>
         </div>
       </ProtectedRoute>

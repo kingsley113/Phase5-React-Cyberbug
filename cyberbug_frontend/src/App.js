@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/login" component={LoginPage} />
-          <Route path="/signup" component={NewUserPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/signup" component={NewUserPage} />
           <Route path="/" component={PageContent} />
           {/* TODO: if localstorage JWT present, redirect to dashbaord, if not, redirect to login */}
           {/* TODO: implement this as a protected route? */}
