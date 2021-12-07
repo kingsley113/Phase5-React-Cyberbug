@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 	# Create
 	def create
 		project = Project.new(project_params)
-		# binding.pry
+		# TODO: assign project to current user, consider switching project model to 'belongs_to'
 
 		if project.save
 			render json: project
@@ -26,16 +26,13 @@ class ProjectsController < ApplicationController
 			render json: project
 		else
 			# render text: "Project not found"
-			render_error()
-			# TODO: verify this is correct and render plain text message or error satus
+			render json: {error: "error loading project"}, status: :unprocessable_entity
 		end
 	end
 
 	# Update
 	def update
 		project = set_project()
-	# TODO: fill in update method
-		# binding.pry
 
 		project.projectTitle = params[:project][:projectTitle]
 		project.projectDescription = params[:project][:projectDescription]
@@ -43,7 +40,7 @@ class ProjectsController < ApplicationController
 		if project.save
 			render json: project
 		else
-			render text: "error", status: :unprocessable_entity
+			render json: {error: "error updating project"}, status: :unprocessable_entity
 		end
 	end
 	
