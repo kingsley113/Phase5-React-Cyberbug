@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import NewUserForm from "../../components/forms/newUserForm";
 
 class NewUserPage extends Component {
   render() {
-    return <h3>New User Form To Go Here</h3>;
+    return <NewUserForm />;
   }
 }
 
