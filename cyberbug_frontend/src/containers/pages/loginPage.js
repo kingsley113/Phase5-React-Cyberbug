@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 import LoginForm from "../../components/forms/loginForm";
 // import PageSidebar from "./pageSidebar";
 
@@ -42,7 +44,9 @@ class LoginPage extends Component {
           />
           <input type="submit" />
         </form> */}
-        <button id="create-account">Create Account</button>
+        <Link to="/signup">
+          <button id="create-account">Create Account</button>
+        </Link>
       </div>
     );
   }
