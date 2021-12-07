@@ -13,6 +13,9 @@ class Api::UsersController < ApplicationController
 		end
 	end
 	# Read
+	def profile
+		render json: {user: UserSerializer.new(current_user)}, status: :accepted
+	end
 	# Update
 	# Destroy
 
