@@ -12,10 +12,8 @@ export const userLogin = (userData) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         localStorage.setItem("jwt", data.jwt);
-        // setUser(data.user);
-        // TODO: set the user in auth reducer
+        dispatch({ type: "SET_USER", user: data.user });
       })
       .catch((error) => console.log(error));
   };
@@ -35,10 +33,8 @@ export const createUser = (userData) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         localStorage.setItem("jwt", data.jwt);
-        // setUser(data.user);
-        // TODO: set the user in auth reducer
+        dispatch({ type: "SET_USER", user: data.user });
       })
       .catch((error) => console.log(error));
   };
