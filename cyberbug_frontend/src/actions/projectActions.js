@@ -27,7 +27,12 @@ export const createProject = (projectObject) => {
 
 export const loadProjects = () => {
   return (dispatch) => {
-    fetch("http://localhost:8000/projects")
+    fetch("http://localhost:8000/projects", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+    })
       .then((response) => {
         return response.json();
       })

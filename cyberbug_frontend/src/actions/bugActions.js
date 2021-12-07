@@ -27,7 +27,12 @@ export const createBug = (bugObject) => {
 
 export const loadBugs = () => {
   return (dispatch) => {
-    fetch("http://localhost:8000/bugs")
+    fetch("http://localhost:8000/bugs", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+    })
       .then((response) => {
         return response.json();
       })
