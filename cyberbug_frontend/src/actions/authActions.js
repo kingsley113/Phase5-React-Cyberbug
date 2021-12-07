@@ -12,8 +12,13 @@ export const userLogin = (userData) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        localStorage.setItem("jwt", data.jwt);
-        dispatch({ type: "SET_USER", user: data.user });
+        console.log("RESPONSE DATA: ", data);
+        if (data.jwt && data.user) {
+          localStorage.setItem("jwt", data.jwt);
+          // TODO: save user info to local storage? use json.stringify
+          dispatch({ type: "SET_USER", user: data.user });
+        }
+        // TODO: add dispatch for error flash message here
       })
       .catch((error) => console.log(error));
   };
@@ -33,8 +38,11 @@ export const createUser = (userData) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        localStorage.setItem("jwt", data.jwt);
-        dispatch({ type: "SET_USER", user: data.user });
+        if (data.jwt && data.user) {
+          localStorage.setItem("jwt", data.jwt);
+          dispatch({ type: "SET_USER", user: data.user });
+        }
+        // TODO: Add dispatch for error flash message here
       })
       .catch((error) => console.log(error));
   };
