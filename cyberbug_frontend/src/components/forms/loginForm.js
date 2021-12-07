@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router";
 import { userLogin } from "../../actions/authActions";
 
 class LoginForm extends Component {
@@ -10,33 +9,29 @@ class LoginForm extends Component {
   };
 
   render() {
-    if (localStorage.getItem("jwt")) {
-      return <Redirect to="/dashboard" />;
-    } else {
-      return (
-        <div>
-          <form id="login-form" onSubmit={this.handleOnSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              onChange={this.handleOnChange}
-              value={this.state.username}
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              onChange={this.handleOnChange}
-              value={this.state.password}
-            />
-            <input type="submit" />
-          </form>
-        </div>
-      );
-    }
+    return (
+      <div>
+        <form id="login-form" onSubmit={this.handleOnSubmit}>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            onChange={this.handleOnChange}
+            value={this.state.username}
+          />
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={this.handleOnChange}
+            value={this.state.password}
+          />
+          <input type="submit" />
+        </form>
+      </div>
+    );
   }
 
   handleOnSubmit = (event) => {

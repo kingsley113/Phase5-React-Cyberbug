@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import RedirectIfLoggedIn from "../../components/auth/redirectIfLoggedIn";
 import LoginForm from "../../components/forms/loginForm";
 
 class LoginPage extends Component {
   render() {
     return (
-      <div>
-        <LoginForm />
-        <Link to="/signup">
-          <button id="create-account">Create Account</button>
-        </Link>
-      </div>
+      <RedirectIfLoggedIn>
+        <div>
+          <LoginForm />
+          <Link to="/signup">
+            <button id="create-account">Create Account</button>
+          </Link>
+        </div>
+      </RedirectIfLoggedIn>
     );
   }
 }

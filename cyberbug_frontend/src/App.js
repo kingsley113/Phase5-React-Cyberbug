@@ -8,12 +8,10 @@ import NewUserPage from "./containers/pages/newUserPage";
 class App extends Component {
   render() {
     return (
-      // <div>
       <Router>
         <Switch>
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={NewUserPage} />
-          {/* TODO: Rename splash screen to login screen */}
           <Route path="/" component={PageContent} />
           {/* TODO: if localstorage JWT present, redirect to dashbaord, if not, redirect to login */}
           {/* TODO: implement this as a protected route? */}
@@ -23,7 +21,6 @@ class App extends Component {
           </Route>
         </Switch>
       </Router>
-      // TODO: Add logic to determine if user is logged in or not and show splash screen if not
     );
   }
 }
