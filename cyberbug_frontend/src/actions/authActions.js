@@ -15,6 +15,7 @@ export const userLogin = (userData) => {
         console.log("RESPONSE DATA: ", data);
         if (data.jwt && data.user) {
           localStorage.setItem("jwt", data.jwt);
+          localStorage.setItem("current_user", JSON.stringify(data.user));
           // TODO: save user info to local storage? use json.stringify
           dispatch({ type: "SET_USER", user: data.user });
         }
@@ -40,6 +41,7 @@ export const createUser = (userData) => {
       .then((data) => {
         if (data.jwt && data.user) {
           localStorage.setItem("jwt", data.jwt);
+          localStorage.setItem("current_user", JSON.stringify(data.user));
           dispatch({ type: "SET_USER", user: data.user });
         }
         // TODO: Add dispatch for error flash message here
@@ -51,6 +53,7 @@ export const createUser = (userData) => {
 export const logout = () => {
   return (dispatch) => {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("current_user");
     dispatch({ type: "LOGOUT" });
   };
 };
