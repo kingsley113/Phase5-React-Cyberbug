@@ -6,10 +6,13 @@ function auth(
 ) {
   switch (action.type) {
     case "SET_USER":
-      console.log({ current_user: action.user });
-      return { current_user: action.user };
+      // console.log({ currentUser: action.user });
+      return {
+        currentUser: action.user,
+        redirectToDashboard: true,
+      };
     case "LOGOUT":
-      return { current_user: null };
+      return { currentUser: null, userLoggedIn: false };
     default:
       return state;
   }
