@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import LoginForm from "./forms/loginForm";
+import LoginForm from "../../components/forms/loginForm";
 // import PageSidebar from "./pageSidebar";
 
-class LoginScreen extends Component {
+class LoginPage extends Component {
   // state = {
   //   username: "",
   //   password: "",
@@ -48,5 +48,5 @@ class LoginScreen extends Component {
   }
 }
 
-export default LoginScreen;
+export default LoginPage;
 // TODO: Add styling

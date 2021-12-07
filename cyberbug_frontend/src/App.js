@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageContent from "./containers/pageContent";
-import LoginScreen from "./components/loginScreen";
+import LoginPage from "./containers/pages/loginPage";
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
       // <div>
       <Router>
         <Switch>
-          <Route exact path="/login" component={LoginScreen} />
+          <Route exact path="/login" component={LoginPage} />
           {/* TODO: Rename splash screen to login screen */}
           <Route path="/" component={PageContent} />
           {/* TODO: if localstorage JWT present, redirect to dashbaord, if not, redirect to login */}
