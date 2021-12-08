@@ -448,3 +448,12 @@ td {
 .error_text {
   color: red;
 }
+
+/* Dashboard Panels */
+#priority-tasks-panel {
+  width: 65%;
+}
+
+#project-summary-chart {
+  width: 35%;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ProjectsChart from "../../components/dashboard/projectsChart";
 import PriorityTasks from "../../components/dashboard/priorityTasks";
-import DailyInfoPanel from "../../components/dashboard/dailyInfoPanel";
+// import DailyInfoPanel from "../../components/dashboard/dailyInfoPanel";
 import ProjectsListDetailed from "../../components/dashboard/projectListDetailed";
 
 class Dashboard extends Component {
@@ -11,7 +11,7 @@ class Dashboard extends Component {
         <div className="test-border-blue dashboard-stats-container">
           <PriorityTasks />
           <ProjectsChart />
-          <DailyInfoPanel />
+          {/* <DailyInfoPanel /> */}
         </div>
         <ProjectsListDetailed />
       </div>
