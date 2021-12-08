@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { openBugCount } from "../../helpers/projectHelpers";
 
 class ProjectListSummary extends Component {
   renderProjects() {
@@ -18,14 +19,13 @@ class ProjectListSummary extends Component {
             </div>
             <div className="project-title">{project.projectTitle}</div>
             <div className="Open-Bug-Count">
-              13
-              {/* TODO: Add this open bug count function */}
+              {openBugCount(project, this.props.bugs)}
             </div>
           </li>
         );
       });
     } else {
-      return <h3>Loading...</h3>; //TODO: Make this more exciting?
+      return <h3>Loading...</h3>;
     }
   }
 
@@ -50,6 +50,7 @@ const mapStateToProps = (state) => {
   return {
     projects: state.projects.allProjects,
     activeProject: state.projects.activeProject,
+    bugs: state.bugs.allBugs,
   };
 };
 
