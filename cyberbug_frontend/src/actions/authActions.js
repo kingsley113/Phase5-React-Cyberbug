@@ -1,6 +1,6 @@
 export const userLogin = (userData) => {
   return (dispatch) => {
-    console.log("User Data: ", userData);
+    // console.log("User Data: ", userData);
 
     fetch("http://localhost:8000/api/login", {
       method: "POST",
@@ -12,7 +12,7 @@ export const userLogin = (userData) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("RESPONSE DATA: ", data);
+        // console.log("RESPONSE DATA: ", data);
         if (data.jwt && data.user) {
           localStorage.setItem("jwt", data.jwt);
           localStorage.setItem("current_user", JSON.stringify(data.user));
@@ -27,7 +27,7 @@ export const userLogin = (userData) => {
 
 export const createUser = (userData) => {
   return (dispatch) => {
-    console.log("User Data: ", userData);
+    // console.log("User Data: ", userData);
 
     fetch("http://localhost:8000/api/users", {
       method: "POST",
