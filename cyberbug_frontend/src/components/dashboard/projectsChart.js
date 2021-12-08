@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { generatePieChartData } from "../../helpers/projectHelpers";
 
 class ProjectsChart extends Component {
@@ -27,11 +26,4 @@ class ProjectsChart extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    projects: state.projects.allProjects,
-    bugs: state.bugs.allBugs,
-  };
-};
-
-export default connect(mapStateToProps)(ProjectsChart);
+export default ProjectsChart;
