@@ -7,6 +7,7 @@ export const createBug = (bugObject) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify(bugObject),
     };
@@ -59,6 +60,7 @@ export const editBug = (bug) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify(bug),
     };
@@ -90,6 +92,7 @@ export const deleteBug = (bug) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify(bug),
     };

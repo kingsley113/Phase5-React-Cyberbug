@@ -7,6 +7,7 @@ export const createProject = (projectObject) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({ project: projectObject }),
     };
@@ -59,6 +60,7 @@ export const editProject = (project) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({ project: project }),
     };
@@ -85,6 +87,7 @@ export const deleteProject = (project) => {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify(project),
     };
