@@ -6,6 +6,7 @@ class LoginForm extends Component {
   state = {
     username: "",
     password: "",
+    errors: {},
   };
 
   render() {
@@ -28,6 +29,7 @@ class LoginForm extends Component {
             onChange={this.handleOnChange}
             value={this.state.password}
           />
+          <div>{this.renderErrors()}</div>
           <input type="submit" />
         </form>
       </div>
@@ -36,13 +38,52 @@ class LoginForm extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    this.props.userLogin({ user: this.state });
+    const { username, password } = this.state;
+    if (this.validate()) {
+      this.props.userLogin({
+        user: { username: username, password: password },
+      });
+    }
   };
 
   handleOnChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
+  };
+
+  validate() {
+    let isValid = true;
+    let errors = {};
+
+    // Check username
+    if (this.state.username === "") {
+      isValid = false;
+      errors["username"] = "Please enter a username";
+    }
+    // Check password
+    if (this.state.password === "") {
+      isValid = false;
+      errors["password"] = "Please enter a password";
+    }
+
+    this.setState({ errors: errors });
+    return isValid;
+  }
+
+  renderErrors = () => {
+    let errorElements = [];
+    if (this.state.errors !== {}) {
+      for (const property in this.state.errors) {
+        errorElements.push(
+          <h3 className="error_text" key={property}>
+            {this.state.errors[property]}
+          </h3>
+        );
+      }
+    }
+
+    return errorElements;
   };
 }
 

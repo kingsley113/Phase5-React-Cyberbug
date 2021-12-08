@@ -15,7 +15,6 @@ class NewUserForm extends Component {
   render() {
     return (
       <div>
-        <div>{this.renderErrors()}</div>
         <form onSubmit={this.handleOnSubmit}>
           <label htmlFor="username">Username: </label>
           <input
@@ -57,7 +56,7 @@ class NewUserForm extends Component {
             value={this.state.password_confirmation}
             onChange={this.handleOnChange}
           />
-          {/* <p>{this.state.errors}</p> */}
+          <div>{this.renderErrors()}</div>
           <input type="submit" value="Create User" />
         </form>
       </div>
@@ -67,8 +66,6 @@ class NewUserForm extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     const { username, first_name, last_name, password } = this.state;
-    // console.log(username, first_name, last_name, password);
-    // console.log(this.validate());
     if (this.validate()) {
       this.props.createUser({
         user: {
@@ -84,10 +81,7 @@ class NewUserForm extends Component {
   validate() {
     let isValid = true;
     let errors = {};
-    // let errors = this.state.errors
-    this.setState({
-      errors: [],
-    });
+
     // Check username
     if (this.state.username === "") {
       isValid = false;
