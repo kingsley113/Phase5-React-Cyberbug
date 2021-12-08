@@ -12,14 +12,25 @@ class ProjectSummary extends Component {
     if (this.props.project) {
       return (
         <div className="centered">
-          {/* TODO: make this a table or some better way to present it... */}
-          <h3>Open | Overdue | Closed | Total</h3>
-          <p>
-            {openBugCount(this.props.project, this.props.bugs)}---------
-            {overdueBugCount(this.props.project, this.props.bugs)}
-            ---------{closedBugCount(this.props.project, this.props.bugs)}
-            -------{totalBugCount(this.props.project, this.props.bugs)}
-          </p>
+          {/* TODO: table styling */}
+          <table>
+            <thead>
+              <tr>
+                <th>Open</th>
+                <th>Overdue</th>
+                <th>Closed</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{openBugCount(this.props.project, this.props.bugs)}</td>
+                <td>{overdueBugCount(this.props.project, this.props.bugs)}</td>
+                <td>{closedBugCount(this.props.project, this.props.bugs)}</td>
+                <td>{totalBugCount(this.props.project, this.props.bugs)}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       );
     } else {
