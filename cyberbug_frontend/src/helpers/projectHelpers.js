@@ -57,3 +57,15 @@ export const totalBugCount = (project, bugs) => {
   }
   return bugCount;
 };
+
+export const generatePieChartData = (projects, bugs) => {
+  // Return an array of objects, object for each project, i.e.: {project_id: no_of_open_bugs}
+  let data = {};
+  if (projects) {
+    for (const project of projects) {
+      data[project.projectId] = openBugCount(project, bugs);
+    }
+  }
+
+  return data;
+};
