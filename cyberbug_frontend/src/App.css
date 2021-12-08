@@ -444,3 +444,7 @@ td {
   align-items: center;
   flex-direction: column;
 }
+
+.error_text {
+  color: red;
+}

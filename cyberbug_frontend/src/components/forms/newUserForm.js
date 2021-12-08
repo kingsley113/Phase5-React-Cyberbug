@@ -6,15 +6,16 @@ class NewUserForm extends Component {
   state = {
     username: "",
     password: "",
-    // password_confirmation: "",
     first_name: "",
     last_name: "",
-    // errors: "",
+    password_confirmation: "",
+    errors: {},
   };
 
   render() {
     return (
       <div>
+        <div>{this.renderErrors()}</div>
         <form onSubmit={this.handleOnSubmit}>
           <label htmlFor="username">Username: </label>
           <input
@@ -48,15 +49,15 @@ class NewUserForm extends Component {
             value={this.state.password}
             onChange={this.handleOnChange}
           />
-          {/* <label htmlFor="password_confirmation">Confirm Password: </label>
+          <label htmlFor="password_confirmation">Confirm Password: </label>
           <input
             type="password"
             id="password_confirmation"
             name="password_confirmation"
             value={this.state.password_confirmation}
             onChange={this.handleOnChange}
-          /> */}
-          <p>{this.state.errors}</p>
+          />
+          {/* <p>{this.state.errors}</p> */}
           <input type="submit" value="Create User" />
         </form>
       </div>
@@ -65,30 +66,77 @@ class NewUserForm extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log("New user form Submitted!");
-    // if (this.validate()) {
-    //   //TODO: Submit to dispatch action
-    // } else {
-    //   alert("Passwords must match");
-    // }
-    this.props.createUser({ user: this.state });
+    const { username, first_name, last_name, password } = this.state;
+    // console.log(username, first_name, last_name, password);
+    // console.log(this.validate());
+    if (this.validate()) {
+      this.props.createUser({
+        user: {
+          username: username,
+          first_name: first_name,
+          last_name: last_name,
+          password: password,
+        },
+      });
+    }
   };
 
   validate() {
-    // check fields TODO:
-    if (this.state.password !== this.state.password_confirmation) {
-      this.setState({ errors: { password: "Passwords do not match." } });
-      return false;
-    } else {
-      this.setState({ errors: "" });
-      return true;
+    let isValid = true;
+    let errors = {};
+    // let errors = this.state.errors
+    this.setState({
+      errors: [],
+    });
+    // Check username
+    if (this.state.username === "") {
+      isValid = false;
+      errors["username"] = "Please enter a username";
     }
+    // Check first name
+    if (this.state.first_name === "") {
+      isValid = false;
+      errors["first_name"] = "Please enter your first name";
+    }
+    // Check last name
+    if (this.state.last_name === "") {
+      isValid = false;
+      errors["last_name"] = "Please enter your last name";
+    }
+    // Check password
+    if (this.state.password === "") {
+      isValid = false;
+      errors["password"] = "Please enter a password";
+    }
+    // Check password confirmation
+    if (this.state.password_confirmation !== this.state.password) {
+      isValid = false;
+      errors["password_confirmation"] = "Passwords do not match";
+    }
+
+    this.setState({ errors: errors });
+    return isValid;
   }
 
   handleOnChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
+  };
+
+  renderErrors = () => {
+    let errorElements = [];
+    if (this.state.errors !== {}) {
+      for (const property in this.state.errors) {
+        errorElements.push(
+          <h3 className="error_text" key={property}>
+            {this.state.errors[property]}
+          </h3>
+        );
+      }
+    }
+
+    return errorElements;
   };
 }
 
