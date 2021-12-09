@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
 	# index
 	def index
-		projects = Project.all
-		render json: projects
+		users_projects = Project.select { |proj| proj.user == current_user}
+		render json: users_projects
 	end
 	
 	# Create
@@ -67,6 +67,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def project_params
-		params.require(:project).permit(:id, :projectId, :projectTitle, :projectDescription)
+		params.require(:project).permit(:id, :projectId, :projectTitle, :projectDescription, :user_id)
 	end
 end
