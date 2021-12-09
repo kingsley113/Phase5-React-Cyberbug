@@ -104,8 +104,10 @@ class PriorityTasks extends Component {
   }
 
   getProjectIdCode(id) {
-    return this.props.projects.filter((project) => project.id === id)[0]
-      .projectId;
+    if (this.props.projects) {
+      return this.props.projects.filter((project) => project.id === id)[0]
+        .projectId;
+    }
   }
 }
 
