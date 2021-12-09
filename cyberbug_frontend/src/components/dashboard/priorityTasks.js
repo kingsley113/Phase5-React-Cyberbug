@@ -93,7 +93,7 @@ class PriorityTasks extends Component {
               </td>
               <td>{bug.bugTitle}</td>
               <td>{bug.bugPriority}</td>
-              <td>{bug.bugDueDate}</td>
+              <td>{new Date(bug.bugDueDate).toLocaleDateString()}</td>
               <td>{bug.bugStatus}</td>
               <td>{this.getProjectIdCode(bug.project_id)}</td>
             </tr>
