@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {
   openBugCount,
   overdueBugCount,
+  projectHealth,
   totalBugCount,
 } from "../../helpers/projectHelpers";
 // import { useTable } from "react-table";
@@ -49,8 +50,8 @@ class ProjectListDetailed extends Component {
             <td>{openBugCount(project, this.props.bugs)}</td>
             <td>{overdueBugCount(project, this.props.bugs)}</td>
             <td>{totalBugCount(project, this.props.bugs)}</td>
-            <td>proj health</td>
-            <td>updated</td>
+            <td>{projectHealth(project, this.props.bugs)}%</td>
+            <td>{new Date(project.updated_at).toLocaleDateString()}</td>
           </tr>
         );
       });
