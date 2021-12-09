@@ -72,14 +72,13 @@ export const projectHealth = (project, bugs) => {
 
 // Multiple Projects Functions
 export const generatePieChartData = (projects, bugs) => {
-  // Return an array of objects, object for each project, i.e.: {project_id: no_of_open_bugs}
   // Return an array of arrays, each sub array needs to have first value = project id and 2nd = count
-  let data = {};
+  let chartData = [["Bug", "Count"]];
   if (projects) {
     for (const project of projects) {
-      data[project.projectId] = openBugCount(project, bugs);
+      const data = [project.projectId, openBugCount(project, bugs)];
+      chartData.push(data);
     }
   }
-
-  return data;
+  return chartData;
 };
