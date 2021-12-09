@@ -4,7 +4,7 @@ export const openBugCount = (project, bugs) => {
   let bugCount = 0;
   if (bugs) {
     for (const bug of bugs) {
-      if (bug.project_id === project.id && !bug.bugComplete) {
+      if (bug.project_id === project.id && bug.bugStatus !== "Complete") {
         bugCount += 1;
       }
     }
@@ -23,7 +23,7 @@ export const overdueBugCount = (project, bugs) => {
         if (
           bug.project_id === project.id &&
           dueDate < date &&
-          bug.bugComplete === null
+          bug.bugStatus !== "Complete"
         ) {
           bugCount += 1;
         }
@@ -38,7 +38,7 @@ export const closedBugCount = (project, bugs) => {
   let bugCount = 0;
   if (bugs) {
     for (const bug of bugs) {
-      if (bug.project_id === project.id && bug.bugComplete) {
+      if (bug.project_id === project.id && bug.bugStatus === "Complete") {
         bugCount += 1;
       }
     }
