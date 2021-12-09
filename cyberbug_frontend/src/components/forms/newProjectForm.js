@@ -11,6 +11,7 @@ class NewProjectForm extends Component {
     projectId: RandomIdGenerator.createBase36(6),
     projectTitle: "",
     projectDescription: "",
+    user_id: JSON.parse(localStorage.current_user).id,
   };
 
   render() {
