@@ -30,16 +30,26 @@ class ProjectsChart extends Component {
           height={"100%"}
           chartType="PieChart"
           data={
-            [
-              ["Bug", "Count"],
-              ["Sample", 5],
-              ["Sample2", 8],
-            ]
+            // [
+            //   ["Bug", "Count"],
+            //   ["Sample", 4],
+            //   ["Sample2", 8],
+            // ]
+            data
             // TODO:
           }
           options={{
             title: "Open Bugs by Project",
-            pieHole: 0.2,
+            pieHole: 0.1,
+            animation: {
+              duration: 1000,
+              easing: "out",
+              startup: true,
+            },
+            background: "none",
+            pieSliceText: "label",
+            legend: "none",
+            // TODO: colors
           }}
         />
       );
