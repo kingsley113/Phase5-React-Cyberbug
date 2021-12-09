@@ -59,6 +59,17 @@ export const totalBugCount = (project, bugs) => {
   return bugCount;
 };
 
+// Project Health
+export const projectHealth = (project, bugs) => {
+  if (project && bugs) {
+    const openBugs = openBugCount(project, bugs);
+    const totalBugs = totalBugCount(project, bugs);
+    const score = (totalBugs - openBugs) / totalBugs;
+    const percent = Math.round(score * 100);
+    return percent;
+  }
+};
+
 // Multiple Projects Functions
 export const generatePieChartData = (projects, bugs) => {
   // Return an array of objects, object for each project, i.e.: {project_id: no_of_open_bugs}
