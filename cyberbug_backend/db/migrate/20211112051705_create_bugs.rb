@@ -5,7 +5,6 @@ class CreateBugs < ActiveRecord::Migration[6.1]
       t.text :bugDescription
       t.text :bugDetails
 			t.text :bugTags
-      t.integer :bugTeamMember
 			t.string :bugLineNo
       t.integer :project_id
       t.string :bugId
