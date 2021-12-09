@@ -39,8 +39,8 @@ class BugDetails extends Component {
             <p>Due Date: {bug.bugDueDate}</p>
             <p>Line No: {bug.bugLineNo}</p>
             <p>Priority: {bug.bugPriority}</p>
-            <p>Created: {bug.created_at}</p>
-            <p>Updated: {bug.updated_at}</p>
+            <p>Created: {new Date(bug.created_at).toLocaleString()}</p>
+            <p>Updated: {new Date(bug.updated_at).toLocaleString()}</p>
             <button onClick={this.handleOnClickDelete}>Delete</button>
           </div>
         );
