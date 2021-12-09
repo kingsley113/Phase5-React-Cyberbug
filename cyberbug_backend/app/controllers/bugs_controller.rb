@@ -35,7 +35,6 @@ class BugsController < ApplicationController
 		bug.bugDescription = params[:bug][:bugDescription]
 		bug.bugDetails = params[:bug][:bugDetails]
 		bug.bugTags = params[:bug][:bugTags]
-		bug.bugTeamMember = params[:bug][:bugTeamMember]
 		bug.bugLineNo = params[:bug][:bugLineNo]
 		bug.project_id = params[:bug][:project_id]
 		bug.bugPriority = params[:bug][:bugPriority]

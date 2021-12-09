@@ -17,7 +17,6 @@ class NewBugForm extends Component {
     bugLineNo: "",
     bugPriority: "Low",
     bugDueDate: "",
-    bugTeamMember: "",
     bugStatus: "Not Started",
     project_id: this.props.project.id,
   };
