@@ -20,7 +20,10 @@ class Dashboard extends Component {
           />
           {/* <DailyInfoPanel /> */}
         </div>
-        <ProjectsListDetailed />
+        <ProjectsListDetailed
+          projects={this.props.projects}
+          bugs={this.props.bugs}
+        />
       </div>
     );
   }

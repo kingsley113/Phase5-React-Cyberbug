@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  openBugCount,
+  overdueBugCount,
+  totalBugCount,
+} from "../../helpers/projectHelpers";
 // import { useTable } from "react-table";
 
 class ProjectListDetailed extends Component {
@@ -41,9 +46,9 @@ class ProjectListDetailed extends Component {
             </td>
             <td>{project.projectId}</td>
             <td>{project.projectTitle}</td>
-            <td>13</td>
-            <td>13</td>
-            <td>13</td>
+            <td>{openBugCount(project, this.props.bugs)}</td>
+            <td>{overdueBugCount(project, this.props.bugs)}</td>
+            <td>{totalBugCount(project, this.props.bugs)}</td>
             <td>proj health</td>
             <td>updated</td>
           </tr>
@@ -55,7 +60,6 @@ class ProjectListDetailed extends Component {
   render() {
     return (
       <div className="scroll-container">
-        {/* TODO: Create List here */}
         <table>
           <thead>
             <tr>
@@ -76,10 +80,12 @@ class ProjectListDetailed extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    projects: state.projects.allProjects,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     projects: state.projects.allProjects,
+//     bugs: state.bugs.allBugs,
+//   };
+// };
 
-export default connect(mapStateToProps)(ProjectListDetailed);
+// export default connect(mapStateToProps)(ProjectListDetailed);
+export default ProjectListDetailed;
