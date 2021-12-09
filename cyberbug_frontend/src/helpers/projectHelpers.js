@@ -1,3 +1,4 @@
+// Single Project Functions
 // Open Bugs
 export const openBugCount = (project, bugs) => {
   let bugCount = 0;
@@ -58,6 +59,7 @@ export const totalBugCount = (project, bugs) => {
   return bugCount;
 };
 
+// Multiple Projects Functions
 export const generatePieChartData = (projects, bugs) => {
   // Return an array of objects, object for each project, i.e.: {project_id: no_of_open_bugs}
   let data = {};
