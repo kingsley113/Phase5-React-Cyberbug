@@ -16,28 +16,12 @@ class ProjectsChart extends Component {
   renderPieChart() {
     const data = generatePieChartData(this.props.projects, this.props.bugs);
     if (data) {
-      console.log(data);
-      // return Object.keys(data).map((key, index) => {
-      // return (
-      //   // <p key={index}>
-      //   //   Project Id: {key}: No of bugs: {data[key]}
-      //   // </p>
-      // );
-      // });
       return (
         <Chart
           width={"100%"}
           height={"100%"}
           chartType="PieChart"
-          data={
-            // [
-            //   ["Bug", "Count"],
-            //   ["Sample", 4],
-            //   ["Sample2", 8],
-            // ]
-            data
-            // TODO:
-          }
+          data={data}
           options={{
             title: "Open Bugs by Project",
             pieHole: 0.1,
