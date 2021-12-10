@@ -41,15 +41,11 @@ class ProjectsChart extends Component {
           options={{
             title: "Open Bugs by Project",
             pieHole: 0.1,
-            animation: {
-              duration: 1000,
-              easing: "out",
-              startup: true,
-            },
-            background: "none",
+            backgroundColor: "none",
             pieSliceText: "label",
             legend: "none",
-            // TODO: colors
+            colors: ["272760", "442768", "ED1E79", "OCFFE1"],
+            is3D: true,
           }}
         />
       );
