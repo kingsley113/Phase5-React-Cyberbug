@@ -5,7 +5,7 @@ class PriorityTasks extends Component {
   render() {
     return (
       <div className="test-border" id="priority-tasks-panel">
-        --This is the priority tasks component :)
+        <h2>--Top 10 Tasks--</h2>
         {/* TODO: fill in content */}
         <table>
           <thead>
