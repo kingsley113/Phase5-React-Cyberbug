@@ -8,7 +8,10 @@ class ProjectListSummary extends Component {
     if (this.props.projects) {
       return this.props.projects.map((project) => {
         return (
-          <li key={project.id} className={"summary-item"}>
+          <li
+            key={project.id}
+            className={`summary-item ${this.renderActiveProject(project)}`}
+          >
             <div className="id-container">
               <Link
                 key={project.projectId}
@@ -29,10 +32,12 @@ class ProjectListSummary extends Component {
     }
   }
 
-  renderActiveProject() {
-    return this.props.activeProject
-      ? this.props.activeProject.projectTitle
-      : "No Project Selected";
+  renderActiveProject(project) {
+    if (this.props.activeProject) {
+      return project.projectId === this.props.activeProject.projectId
+        ? "active"
+        : null;
+    }
   }
 
   render() {
