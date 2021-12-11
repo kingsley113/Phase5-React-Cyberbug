@@ -32,7 +32,9 @@ class ProjectSummary extends Component {
               </tr>
             </tbody>
           </table>
-          <ProjectStatus project={this.props.project} />
+          <div className="status-bar-container">
+            <ProjectStatus project={this.props.project} />
+          </div>
         </div>
       );
     } else {
@@ -48,7 +50,7 @@ class ProjectSummary extends Component {
 const mapStateToProps = (state) => {
   return {
     bugs: state.bugs.allBugs,
-    project: state.projects.activeProject,
+    activeProject: state.projects.activeProject,
   };
 };
 

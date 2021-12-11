@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ProjectSummary from "./projectSummary";
-import ProjectStatus from "./projectStatus";
 import NewBugButton from "./newBugButton";
 import { connect } from "react-redux";
 import { showToggle } from "../../actions/toggleActions";
@@ -24,11 +23,8 @@ class ProjectHeader extends Component {
             <NewBugButton />
             <div id="summary-divider-panel">
               <div className="centered" id="project-stats">
-                <ProjectSummary project={this.props.project} />
+                <ProjectSummary project={this.props.activeProject} />
               </div>
-              {/* <div className="centered" id="project-status">
-                <ProjectStatus project={this.props.project} />
-              </div> */}
             </div>
           </div>
         </div>

@@ -8,28 +8,26 @@ class ProjectStatus extends Component {
   render() {
     if (this.props.project && this.props.bugs) {
       return (
-        <div className="status-bar-container">
-          <ProgressBar>
-            <ProgressBar
-              striped
-              variant="warning"
-              now={this.calcProgressChartData()[0]}
-              key={1}
-            />
-            <ProgressBar
-              striped
-              variant="danger"
-              now={this.calcProgressChartData()[1]}
-              key={2}
-            />
-            <ProgressBar
-              striped
-              variant="success"
-              now={this.calcProgressChartData()[2]}
-              key={3}
-            />
-          </ProgressBar>
-        </div>
+        <ProgressBar>
+          <ProgressBar
+            striped
+            variant="warning"
+            now={this.calcProgressChartData()[0]}
+            key={1}
+          />
+          <ProgressBar
+            striped
+            variant="danger"
+            now={this.calcProgressChartData()[1]}
+            key={2}
+          />
+          <ProgressBar
+            striped
+            variant="success"
+            now={this.calcProgressChartData()[2]}
+            key={3}
+          />
+        </ProgressBar>
       );
     } else {
       return <p>Loading Chart</p>;
@@ -42,7 +40,7 @@ class ProjectStatus extends Component {
         this.props.project,
         this.props.bugs
       );
-      console.log(data);
+      // console.log(data);
       return data;
     }
   }
@@ -50,7 +48,7 @@ class ProjectStatus extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    project: state.projects.activeProject,
+    // project: state.projects.activeProject,
     bugs: state.bugs.allBugs,
   };
 };

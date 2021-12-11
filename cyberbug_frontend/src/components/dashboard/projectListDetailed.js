@@ -7,6 +7,7 @@ import {
   projectHealth,
   totalBugCount,
 } from "../../helpers/projectHelpers";
+import ProjectStatus from "../project/projectStatus";
 // import { useTable } from "react-table";
 
 class ProjectListDetailed extends Component {
@@ -50,7 +51,10 @@ class ProjectListDetailed extends Component {
             <td>{openBugCount(project, this.props.bugs)}</td>
             <td>{overdueBugCount(project, this.props.bugs)}</td>
             <td>{totalBugCount(project, this.props.bugs)}</td>
-            <td>{projectHealth(project, this.props.bugs)}%</td>
+            <td>
+              <ProjectStatus project={project} />
+              {/* {projectHealth(project, this.props.bugs)}% */}
+            </td>
             <td>{new Date(project.updated_at).toLocaleDateString()}</td>
           </tr>
         );
