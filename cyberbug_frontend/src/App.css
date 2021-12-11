@@ -141,13 +141,13 @@ select {
 }
 
 /* Debug Styles */
-.test-border {
+/* .test-border {
   border: 2px solid red;
 }
 
 .test-border-blue {
   border: 2px solid blue;
-}
+} */
 
 /* Dashboard Styles */
 .dashboard {
