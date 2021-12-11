@@ -29,7 +29,6 @@ class ProjectsChart extends Component {
             pieSliceText: "label",
             legend: "none",
             colors: ["272760", "442768", "ED1E79", "OCFFE1"],
-            is3D: true,
           }}
         />
       );
