@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import {
   openBugCount,
   overdueBugCount,
-  projectHealth,
   totalBugCount,
 } from "../../helpers/projectHelpers";
 import ProjectStatus from "../project/projectStatus";
@@ -53,7 +52,6 @@ class ProjectListDetailed extends Component {
             <td>{totalBugCount(project, this.props.bugs)}</td>
             <td>
               <ProjectStatus project={project} />
-              {/* {projectHealth(project, this.props.bugs)}% */}
             </td>
             <td>{new Date(project.updated_at).toLocaleDateString()}</td>
           </tr>
@@ -85,12 +83,4 @@ class ProjectListDetailed extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     projects: state.projects.allProjects,
-//     bugs: state.bugs.allBugs,
-//   };
-// };
-
-// export default connect(mapStateToProps)(ProjectListDetailed);
 export default ProjectListDetailed;
