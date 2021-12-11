@@ -230,13 +230,14 @@ textarea {
 
 /* Active Project */
 .active {
-  color: red;
+  /* color: red; */
   background-color: chartreuse;
 }
 
 /* Project List Summary Styles */
 .summary-item {
   display: flex;
+  align-items: center;
   /* margin-right: 10px; */
   height: 25px;
 }
@@ -256,7 +257,7 @@ textarea {
 .project-title {
   overflow-y: hidden;
   overflow-x: hidden;
-  line-height: 25px;
+  /* line-height: 25px; */
   max-width: calc(100% - 70px - 30px);
 }
 

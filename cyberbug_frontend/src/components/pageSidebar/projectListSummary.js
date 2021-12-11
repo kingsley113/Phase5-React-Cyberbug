@@ -8,23 +8,18 @@ class ProjectListSummary extends Component {
     if (this.props.projects) {
       return this.props.projects.map((project) => {
         return (
-          <li
-            key={project.id}
-            className={`summary-item ${this.renderActiveProject(project)}`}
-          >
-            <div className="id-container">
-              <Link
-                key={project.projectId}
-                to={`/projects/${project.projectId}`}
-              >
-                {project.projectId}
-              </Link>{" "}
-            </div>
-            <div className="project-title">{project.projectTitle}</div>
-            <div className="Open-Bug-Count">
-              {openBugCount(project, this.props.bugs)}
-            </div>
-          </li>
+          <Link key={project.projectId} to={`/projects/${project.projectId}`}>
+            <li
+              key={project.id}
+              className={`summary-item ${this.renderActiveProject(project)}`}
+            >
+              <div className="id-container">{project.projectId}</div>
+              <div className="project-title">{project.projectTitle}</div>
+              <div className="Open-Bug-Count">
+                {openBugCount(project, this.props.bugs)}
+              </div>
+            </li>
+          </Link>
         );
       });
     } else {
