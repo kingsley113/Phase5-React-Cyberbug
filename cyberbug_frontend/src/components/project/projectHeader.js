@@ -26,9 +26,9 @@ class ProjectHeader extends Component {
               <div className="centered" id="project-stats">
                 <ProjectSummary project={this.props.project} />
               </div>
-              <div className="centered" id="project-status">
+              {/* <div className="centered" id="project-status">
                 <ProjectStatus project={this.props.project} />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -458,3 +458,13 @@ td {
 #project-summary-chart {
   width: 35%;
 }
+
+/* Status Bar */
+.status-bar-container {
+  /* width: 100%; */
+  margin-top: 6px;
+}
+/* 
+.progress #status-bar {
+  width: 100%;
+} */

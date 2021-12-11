@@ -6,6 +6,7 @@ import {
   closedBugCount,
   totalBugCount,
 } from "../../helpers/projectHelpers";
+import ProjectStatus from "./projectStatus";
 
 class ProjectSummary extends Component {
   renderProjectDetails() {
@@ -31,6 +32,7 @@ class ProjectSummary extends Component {
               </tr>
             </tbody>
           </table>
+          <ProjectStatus project={this.props.project} />
         </div>
       );
     } else {

@@ -70,6 +70,28 @@ export const projectHealth = (project, bugs) => {
   }
 };
 
+// Project Status Bar Percents
+export const generateProjectStatusBarData = (project, bugs) => {
+  if (project && bugs) {
+    // open bug %
+    const openCount = openBugCount(project, bugs);
+    // overdue bug %
+    const overdueCount = overdueBugCount(project, bugs);
+    // closed bug %
+    const closedCount = closedBugCount(project, bugs);
+    // these 3 need to add up to 100%
+    const totalBugsCount = totalBugCount(project, bugs);
+
+    const openPercent = Math.round(
+      ((openCount - overdueCount) / totalBugsCount) * 100
+    );
+    const overduePercent = Math.round((overdueCount / totalBugsCount) * 100);
+    const closedPercent = Math.round((closedCount / totalBugsCount) * 100);
+
+    return [openPercent, overduePercent, closedPercent];
+  }
+};
+
 // Multiple Projects Functions
 export const generatePieChartData = (projects, bugs) => {
   // Return an array of arrays, each sub array needs to have first value = project id and 2nd = count
