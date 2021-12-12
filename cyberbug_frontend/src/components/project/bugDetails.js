@@ -4,6 +4,7 @@ import { hideToggle, showToggle } from "../../actions/toggleActions";
 import { setActiveBug, editBug, deleteBug } from "../../actions/bugActions";
 import { Redirect } from "react-router";
 // import { analyzeText } from "../../actions/tagActions";
+import ReactTagInput from "@pathofdev/react-tag-input";
 
 class BugDetails extends Component {
   state = {
@@ -36,7 +37,10 @@ class BugDetails extends Component {
             <p>Details:</p>
             <div className="test-border">{bug.bugDetails}</div>
             <p>Tags:</p>
-            <div className="test-border">{bug.bugTags}</div>
+            <div className="test-border">
+              {/* {bug.bugTags} */}
+              {this.renderTags()}
+            </div>
             <p>Due Date: {bug.bugDueDate}</p>
             <p>Line No: {bug.bugLineNo}</p>
             <p>Priority: {bug.bugPriority}</p>
@@ -102,6 +106,20 @@ class BugDetails extends Component {
     }
   };
 
+  // Render tags:
+  renderTags() {
+    if (this.props.activeBug) {
+      return (
+        <ReactTagInput
+          tags={this.props.activeBug.bugTags.split(",")}
+          // onChange={(newTags) =>
+          //   this.setState({ bugTags: newTags.join() })
+          // }
+          readOnly={true}
+        />
+      );
+    }
+  }
   // Watson Test Method
   // textWatsonFetch = (event) => {
   //   this.props.analyzeText(this.props.activeBug.bugDescription);
