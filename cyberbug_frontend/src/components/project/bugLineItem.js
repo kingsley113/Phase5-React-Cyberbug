@@ -11,7 +11,7 @@ const BugLineItem = (props) => {
     bugDueDate ? new Date(bugDueDate).toLocaleDateString() : "N/A";
 
   return (
-    <tr>
+    <tr className={renderActiveHighlight(bugId, props.activeBug)}>
       <td>
         <Link key={bugId} to={`${url}/${bugId}`}>
           {bugId}
@@ -24,6 +24,12 @@ const BugLineItem = (props) => {
       <td>{bugStatus}</td>
     </tr>
   );
+};
+
+const renderActiveHighlight = (bugId, activeBug) => {
+  if (activeBug) {
+    return bugId === activeBug.bugId ? "active-bug-row" : null;
+  }
 };
 
 export default BugLineItem;

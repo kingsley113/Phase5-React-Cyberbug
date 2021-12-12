@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { hideToggle, showToggle } from "../../actions/toggleActions";
-import { setActiveBug, editBug, deleteBug } from "../../actions/bugActions";
+import {
+  setActiveBug,
+  editBug,
+  deleteBug,
+  resetActiveBug,
+} from "../../actions/bugActions";
 import { Redirect } from "react-router";
 // import { analyzeText } from "../../actions/tagActions";
 import ReactTagInput from "@pathofdev/react-tag-input";
@@ -86,6 +91,9 @@ class BugDetails extends Component {
   componentDidUpdate() {
     this.props.setActiveBug(this.setBug());
   }
+  componentWillUnmount() {
+    this.props.resetActiveBug();
+  }
 
   // EVENTS
   handleOnClickEdit = (event) => {
@@ -136,6 +144,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setActiveBug: (bug) => dispatch(setActiveBug(bug)),
+    resetActiveBug: () => dispatch(resetActiveBug()),
     editBug: (bug) => dispatch(editBug(bug)),
     deleteBug: (bug) => dispatch(deleteBug(bug)),
     showToggle: (id) => dispatch(showToggle(id)),

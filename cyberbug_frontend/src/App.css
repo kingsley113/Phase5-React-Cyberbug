@@ -234,6 +234,10 @@ textarea {
   background-color: chartreuse;
 }
 
+.active-bug-row {
+  background-color: red;
+}
+
 /* Project List Summary Styles */
 .summary-item {
   display: flex;

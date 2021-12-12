@@ -4,13 +4,20 @@ import BugLineItem from "./bugLineItem";
 
 class BugList extends Component {
   renderBugs = () => {
-    if (this.props.bugs.allBugs && this.props.project) {
-      const bugs = this.props.bugs.allBugs.filter(
+    if (this.props.bugs && this.props.project) {
+      const bugs = this.props.bugs.filter(
         (bug) => bug.project_id === this.props.project.id
       );
 
       const bugList = bugs.map((bug, id) => {
-        return <BugLineItem key={id} bug={bug} url={this.props.route} />;
+        return (
+          <BugLineItem
+            key={id}
+            bug={bug}
+            url={this.props.route}
+            activeBug={this.props.activeBug}
+          />
+        );
       });
       if (bugList.length > 0) {
         return bugList;
@@ -53,7 +60,8 @@ class BugList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    bugs: state.bugs,
+    bugs: state.bugs.allBugs,
+    activeBug: state.bugs.activeBug,
   };
 };
 

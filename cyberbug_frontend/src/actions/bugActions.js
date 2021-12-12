@@ -53,6 +53,12 @@ export const setActiveBug = (bug) => {
   };
 };
 
+export const resetActiveBug = () => {
+  return (dispatch) => {
+    dispatch({ type: "RESET_ACTIVE_BUG" });
+  };
+};
+
 export const editBug = (bug) => {
   return (dispatch) => {
     const configurationObject = {

@@ -20,6 +20,8 @@ function bugs(
       };
     case "SET_ACTIVE_BUG":
       return { ...state, activeBug: action.bug };
+    case "RESET_ACTIVE_BUG":
+      return { ...state, activeBug: null };
     default:
       return state;
   }
