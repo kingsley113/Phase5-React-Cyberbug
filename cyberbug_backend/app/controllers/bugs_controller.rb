@@ -81,7 +81,7 @@ class BugsController < ApplicationController
 	# 	binding.pry
 
 	# 	authenticator = IBMWatson:Authenticators::IamAuthenticator.new(
-	# 		apikey: "Vapp2bohczm8zOP3-Mv6Ws209uXspSC5zrl0JmtI_aTW"
+	# 		apikey: "************************"
 	# 	)
 
 	# 	natural_language_classifier = IBMWatson::NaturalLanguageClassifierV1.new(authenticator: authenticator)
