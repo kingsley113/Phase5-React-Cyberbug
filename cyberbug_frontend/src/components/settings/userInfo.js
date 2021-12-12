@@ -2,10 +2,15 @@ import React, { Component } from "react";
 
 class UserInfo extends Component {
   render() {
+    const user = JSON.parse(localStorage.current_user);
     return (
       <div>
-        --This is the user info component :)
-        {/* TODO: fill in user info content */}
+        <p>
+          <b>Username:</b> {user.username}
+        </p>
+        <p>
+          <b>Name:</b> {user.first_name} {user.last_name}
+        </p>
       </div>
     );
   }
