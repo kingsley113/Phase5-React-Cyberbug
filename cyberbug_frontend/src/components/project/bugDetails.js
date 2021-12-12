@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { hideToggle, showToggle } from "../../actions/toggleActions";
 import { setActiveBug, editBug, deleteBug } from "../../actions/bugActions";
 import { Redirect } from "react-router";
+// import { analyzeText } from "../../actions/tagActions";
 
 class BugDetails extends Component {
   state = {
@@ -42,6 +43,7 @@ class BugDetails extends Component {
             <p>Created: {new Date(bug.created_at).toLocaleString()}</p>
             <p>Updated: {new Date(bug.updated_at).toLocaleString()}</p>
             <button onClick={this.handleOnClickDelete}>Delete</button>
+            {/* <button onClick={this.textWatsonFetch}>Test Watson</button> */}
           </div>
         );
       } else {
@@ -99,6 +101,11 @@ class BugDetails extends Component {
       this.props.deleteBug(this.props.activeBug);
     }
   };
+
+  // Watson Test Method
+  // textWatsonFetch = (event) => {
+  //   this.props.analyzeText(this.props.activeBug.bugDescription);
+  // };
 }
 
 const mapStateToProps = (state) => {
@@ -115,6 +122,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteBug: (bug) => dispatch(deleteBug(bug)),
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
+    analyzeText: (text) => dispatch(analyzeText(text)),
   };
 };
 
