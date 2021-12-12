@@ -13,7 +13,7 @@ class BugForm extends Component {
     bugId: RandomIdGenerator.createBase36(6),
     bugTitle: "",
     bugDescription: "",
-    bugTags: "example tag",
+    bugTags: "bug",
     bugDetails: "",
     bugLineNo: "",
     bugPriority: "Low",
@@ -70,6 +70,7 @@ class BugForm extends Component {
             <ReactTagInput
               tags={this.state.bugTags.split(",")}
               onChange={(newTags) => this.setState({ bugTags: newTags.join() })}
+              placeholder="Type and press enter"
             />
             {/* <textarea
               name="bugTags"
