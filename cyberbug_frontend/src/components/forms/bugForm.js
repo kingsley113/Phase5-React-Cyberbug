@@ -7,7 +7,7 @@ import RandomIdGenerator from "../../helpers/randomIdGenerator";
 import { showToggle, hideToggle } from "../../actions/toggleActions";
 import { renderCleanForm } from "../../actions/formActions";
 
-class NewBugForm extends Component {
+class BugForm extends Component {
   state = {
     bugId: RandomIdGenerator.createBase36(6),
     bugTitle: "",
@@ -129,7 +129,7 @@ class NewBugForm extends Component {
             </div>
           </div>
           <div className="row">
-            <input type="submit" value="Ew, bugs! (Save)" />
+            <input type="submit" value="Save Bug (Ew!)" />
             <button onClick={this.handleOnClick}>Cancel</button>
           </div>
         </form>
@@ -196,4 +196,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewBugForm);
+export default connect(mapStateToProps, mapDispatchToProps)(BugForm);

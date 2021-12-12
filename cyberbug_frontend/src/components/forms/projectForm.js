@@ -6,7 +6,7 @@ import { renderCleanForm } from "../../actions/formActions";
 
 import RandomIdGenerator from "../../helpers/randomIdGenerator";
 
-class NewProjectForm extends Component {
+class ProjectForm extends Component {
   state = {
     projectId: RandomIdGenerator.createBase36(6),
     projectTitle: "",
@@ -51,7 +51,7 @@ class NewProjectForm extends Component {
             ></textarea>
           </div>
           <div className="row">
-            <input type="submit" value="Create Project" />
+            <input type="submit" value="Save Project" />
             <button onClick={this.handleOnClick}>Cancel</button>
           </div>
         </form>
@@ -117,4 +117,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewProjectForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectForm);

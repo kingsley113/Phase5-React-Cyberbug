@@ -6,7 +6,7 @@ import Dashboard from "./pages/dashboard";
 import ProjectPage from "./pages/projectPage";
 import SettingsPage from "./pages/settingsPage";
 import ProjectsPage from "./pages/projectsPage";
-import NewProjectForm from "../components/forms/newProjectForm";
+import ProjectForm from "../components/forms/projectForm";
 import ModalWindow from "./modalWindow";
 import Toggle from "./toggle";
 import PageHeader from "../components/pageHeader";
@@ -46,7 +46,7 @@ class PageContent extends Component {
             </Switch>
 
             <Toggle id={"newProjectFormToggle"}>
-              <ModalWindow component={<NewProjectForm />} />
+              <ModalWindow component={<ProjectForm />} />
             </Toggle>
           </div>
         </div>

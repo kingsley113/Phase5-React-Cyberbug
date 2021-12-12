@@ -5,7 +5,7 @@ import { setActiveProject, deleteProject } from "../../actions/projectActions";
 
 import BugList from "../../components/project/bugList";
 import BugDetails from "../../components/project/bugDetails";
-import NewBugForm from "../../components/forms/newBugForm";
+import BugForm from "../../components/forms/bugForm";
 import ModalWindow from "../modalWindow";
 import Toggle from "../toggle";
 import ProjectHeader from "../../components/project/projectHeader";
@@ -20,7 +20,7 @@ class ProjectPage extends PureComponent {
         return (
           <div id="project-page">
             <Toggle id={"newBugFormToggle"}>
-              <ModalWindow component={<NewBugForm project={project} />} />
+              <ModalWindow component={<BugForm project={project} />} />
             </Toggle>
 
             <div id="project-left-column">
