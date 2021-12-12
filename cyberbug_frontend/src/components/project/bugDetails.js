@@ -122,7 +122,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteBug: (bug) => dispatch(deleteBug(bug)),
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
-    analyzeText: (text) => dispatch(analyzeText(text)),
+    // analyzeText: (text) => dispatch(analyzeText(text)),
   };
 };
 

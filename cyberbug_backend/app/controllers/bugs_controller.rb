@@ -8,6 +8,7 @@ class BugsController < ApplicationController
 	# Create
 	def create 
 		bug = Bug.new(bug_params)
+		# binding.pry
 		# bug.analyzeDescription
 		if bug.save
 			render json: bug
