@@ -53,6 +53,12 @@ export const setActiveProject = (project) => {
   };
 };
 
+export const resetActiveProject = () => {
+  return (dispatch) => {
+    dispatch({ type: "RESET_ACTIVE_PROJECT" });
+  };
+};
+
 export const editProject = (project) => {
   return (dispatch) => {
     const configurationObject = {

@@ -1,7 +1,11 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { showToggle, hideToggle } from "../../actions/toggleActions";
-import { setActiveProject, deleteProject } from "../../actions/projectActions";
+import {
+  setActiveProject,
+  deleteProject,
+  resetActiveProject,
+} from "../../actions/projectActions";
 
 import BugList from "../../components/project/bugList";
 import BugDetails from "../../components/project/bugDetails";
@@ -68,6 +72,9 @@ class ProjectPage extends PureComponent {
   componentDidUpdate() {
     this.props.setActiveProject(this.setProject());
   }
+  componentWillUnmount() {
+    this.props.resetActiveProject();
+  }
 
   // EVENTS
   // handleOnClickDelete = (event) => {
@@ -89,6 +96,7 @@ const mapDispatchToProps = (dispatch) => {
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
     setActiveProject: (project) => dispatch(setActiveProject(project)),
+    resetActiveProject: (project) => dispatch(resetActiveProject()),
     deleteProject: (project) => dispatch(deleteProject(project)),
   };
 };

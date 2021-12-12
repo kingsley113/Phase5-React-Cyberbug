@@ -19,6 +19,8 @@ function projects(state = { projects: [] }, action) {
       };
     case "SET_ACTIVE_PROJECT":
       return { ...state, activeProject: action.project };
+    case "RESET_ACTIVE_PROJECT":
+      return { ...state, activeProject: null };
     default:
       return state;
   }
