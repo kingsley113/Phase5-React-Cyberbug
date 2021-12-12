@@ -6,13 +6,14 @@ import RandomIdGenerator from "../../helpers/randomIdGenerator";
 
 import { showToggle, hideToggle } from "../../actions/toggleActions";
 import { renderCleanForm } from "../../actions/formActions";
+import ReactTagInput from "@pathofdev/react-tag-input";
 
 class BugForm extends Component {
   state = {
     bugId: RandomIdGenerator.createBase36(6),
     bugTitle: "",
     bugDescription: "",
-    bugTags: "",
+    bugTags: "example tag",
     bugDetails: "",
     bugLineNo: "",
     bugPriority: "Low",
@@ -65,11 +66,16 @@ class BugForm extends Component {
             <label htmlFor="bugTags" className="col-sm-1 right-align-text">
               Tags:{" "}
             </label>
-            <textarea
+            {/* *************TAGS*************** */}
+            <ReactTagInput
+              tags={this.state.bugTags.split(",")}
+              onChange={(newTags) => this.setState({ bugTags: newTags.join() })}
+            />
+            {/* <textarea
               name="bugTags"
               value={this.state.bugTags}
               onChange={this.handleOnChange}
-            ></textarea>
+            ></textarea> */}
           </div>
           <div className="row">
             <label htmlFor="bugDetails" className="col-sm-1 right-align-text">

@@ -9,6 +9,7 @@ import rootReducer from "./reducers/index";
 import { Provider } from "react-redux";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "@pathofdev/react-tag-input/build/index.css";
 
 const composedEnhancer = compose(
   applyMiddleware(thunk),
