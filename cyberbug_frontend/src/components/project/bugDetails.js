@@ -31,27 +31,49 @@ class BugDetails extends Component {
       const bug = this.setBug();
       if (bug) {
         return (
-          <div>
+          <div id="details-panel">
             {/* TODO: This will have all of the detailed info */}
-            <div className="centered-flex" id="details-title">
+            {/* <div className="centered-flex" id="details-title">
               <h3>{bug.bugTitle}</h3>
+            </div> */}
+            <div id="stripe-separator"></div>
+            <div id="details-container">
+              <b>Description:</b>
+              <p>{bug.bugDescription}</p>
+              <b>Details:</b>
+              <p>{bug.bugDetails}</p>
+              <p>
+                <b>Tags:</b>
+              </p>
+              <div>
+                {/* {bug.bugTags} */}
+                {this.renderTags()}
+              </div>
+              <b>Line No:</b>
+              <p>{bug.bugLineNo}</p>
+              <b>Status:</b>
+              <p> {bug.bugStatus}</p>
+              <p>
+                <b>Due Date:</b> {bug.bugDueDate}
+              </p>
+              <p>
+                <b>Priority:</b> {bug.bugPriority}
+              </p>
+              <p>
+                <b>Created:</b> {new Date(bug.created_at).toLocaleString()}
+              </p>
+              <p>
+                <b>Updated:</b> {new Date(bug.updated_at).toLocaleString()}
+              </p>
+              <div id="delete-button-panel">
+                <button
+                  onClick={this.handleOnClickDelete}
+                  id="bug-delete-button"
+                >
+                  Delete Bug
+                </button>
+              </div>
             </div>
-            <p>Status: {bug.bugStatus}</p>
-            <p>Description:</p>
-            <div className="test-border">{bug.bugDescription}</div>
-            <p>Details:</p>
-            <div className="test-border">{bug.bugDetails}</div>
-            <p>Tags:</p>
-            <div className="test-border">
-              {/* {bug.bugTags} */}
-              {this.renderTags()}
-            </div>
-            <p>Due Date: {bug.bugDueDate}</p>
-            <p>Line No: {bug.bugLineNo}</p>
-            <p>Priority: {bug.bugPriority}</p>
-            <p>Created: {new Date(bug.created_at).toLocaleString()}</p>
-            <p>Updated: {new Date(bug.updated_at).toLocaleString()}</p>
-            <button onClick={this.handleOnClickDelete}>Delete</button>
             {/* <button onClick={this.textWatsonFetch}>Test Watson</button> */}
           </div>
         );
@@ -64,25 +86,30 @@ class BugDetails extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <div id="details-top-panel">
-          <div>
-            <h2>Details</h2>
+    if (this.props.activeBug) {
+      return (
+        <div id="bug-details-panel">
+          <div id="details-top-panel">
+            {/* <div>
+              <h2>Bug Details</h2>
+            </div> */}
+            <div id="bug-id-stylized">{this.props.match.params.bugId}</div>
+            <div id="bug-title-stylized">{this.props.activeBug.bugTitle}</div>
+            <div className="centered-flex">
+              <button onClick={this.handleOnClickEdit} id="bug-edit-btn">
+                Edit Bug
+              </button>
+              <button onClick={this.handleOnClickSquash} id="bug-squash-btn">
+                Squash Bug
+              </button>
+            </div>
           </div>
-          <div className="centered-flex">
-            <button onClick={this.handleOnClickEdit}>Edit</button>
-          </div>
-          <div className="centered-flex">
-            <button onClick={this.handleOnClickSquash}>Squash</button>
-          </div>
-          <div>
-            <h3>{this.props.match.params.bugId}</h3>
-          </div>
+          {this.renderBugDetails()}
         </div>
-        {this.renderBugDetails()}
-      </div>
-    );
+      );
+    } else {
+      return <h2>Loading</h2>;
+    }
   }
   // SET ACTIVE BUG ON LOAD AND UPDATE
   componentDidMount() {

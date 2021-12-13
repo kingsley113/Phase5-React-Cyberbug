@@ -34,11 +34,15 @@ class ProjectPage extends PureComponent {
               </div>
             </div>
 
-            <div className="test-border-blue" id="project-right-column">
+            <div id="project-right-column">
               <Route
                 exact
                 path={this.props.match.url}
-                render={() => <h3>Please select a Bug from the list</h3>}
+                render={() => (
+                  <div id="select-bug-placeholder">
+                    <h3>Please select a Bug from the list</h3>
+                  </div>
+                )}
               />
               <Route
                 path={`${this.props.match.url}/:bugId`}
