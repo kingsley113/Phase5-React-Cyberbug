@@ -5,18 +5,22 @@ import PageContent from "./containers/pageContent";
 import LoginPage from "./containers/pages/loginPage";
 import NewUserPage from "./containers/pages/newUserPage";
 import PageNotFound from "./containers/pages/pageNotFound";
+import PageBackground from "./components/pageBackground";
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/signup" component={NewUserPage} />
-          <Route path="/" component={PageContent} />
-          <Route component={PageNotFound} />
-        </Switch>
-      </Router>
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={NewUserPage} />
+            <Route path="/" component={PageContent} />
+            <Route component={PageNotFound} />
+          </Switch>
+        </Router>
+        <PageBackground />
+      </div>
     );
   }
 }
