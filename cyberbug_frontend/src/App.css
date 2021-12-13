@@ -590,6 +590,7 @@ td {
   filter: drop-shadow(0px 0px 4px rgb(255, 208, 0));
 }
 
+/* **********PROJECT SUMMARY STATS************* */
 #summary-panel {
   display: flex;
 }
@@ -606,15 +607,39 @@ td {
   margin: 5px;
 } */
 
-/* #project-stats {
-  margin-left: auto;
-  margin-right: auto;
-} */
+#project-summary-stats {
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+
+  --cornerClip7: 15px;
+  clip-path: polygon(
+    0% 100%,
+    0% var(--cornerClip7),
+    var(--cornerClip7) 0%,
+    100% 0%,
+    100% calc(100% - var(--cornerClip7)),
+    calc(100% - var(--cornerClip7)) 100%
+  );
+}
 
 .centered {
   /* display: flex; */
   margin-left: auto;
   margin-right: auto;
+}
+
+#project-progress-bar {
+  border-radius: 0;
+  --cornerClip8: 8px;
+  clip-path: polygon(
+    0% 100%,
+    0% var(--cornerClip8),
+    var(--cornerClip8) 0%,
+    100% 0%,
+    100% calc(100% - var(--cornerClip8)),
+    calc(100% - var(--cornerClip8)) 100%
+  );
 }
 
 /* Bug Details Panel */

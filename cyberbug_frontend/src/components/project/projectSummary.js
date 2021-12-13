@@ -14,7 +14,7 @@ class ProjectSummary extends Component {
       return (
         <div className="centered">
           {/* TODO: table styling */}
-          <table>
+          <table id="project-summary-stats">
             <thead>
               <tr>
                 <th>Open</th>
