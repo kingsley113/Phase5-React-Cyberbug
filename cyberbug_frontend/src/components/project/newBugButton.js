@@ -6,13 +6,14 @@ import { renderCleanForm } from "../../actions/formActions";
 class NewBugButton extends Component {
   render() {
     return (
-      <div className="bug-icon-container" onClick={this.handleOnClick}>
-        <div className="icon-background">
+      <div id="bug-icon-container" onClick={this.handleOnClick}>
+        <div id="bug-icon-background">
           <img
             src="/icons/new-bug.png"
             alt="new bug icon"
             className="bug-icon"
           />
+          <span id="bug-btn-text">New Bug</span>
         </div>
       </div>
     );

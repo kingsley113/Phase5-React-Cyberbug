@@ -9,15 +9,27 @@ class ProjectHeader extends Component {
   render() {
     if (this.props.project) {
       return (
-        <div id="project-summary-panel">
+        <div id="project-title-panel">
           <div id="project-title">
-            <h2>
-              {this.props.project.projectId} - {this.props.project.projectTitle}
-            </h2>
+            <div id="project-id-stylized">{this.props.project.projectId}</div>
+            <div id="project-title-stylized">
+              {this.props.project.projectTitle}
+            </div>
           </div>
-          <div>
-            <button onClick={this.handleOnClickEdit}>Edit Project</button>
-            <button onClick={this.handleOnClickDelete}>Delete Project</button>
+          <div id="project-buttons-panel">
+            <span class="button-wrap">
+              <button onClick={this.handleOnClickEdit} id="project-edit-btn">
+                Edit Project
+              </button>
+            </span>
+            <span class="button-wrap">
+              <button
+                onClick={this.handleOnClickDelete}
+                id="project-delete-btn"
+              >
+                Delete Project
+              </button>
+            </span>
           </div>
           <div id="summary-panel">
             <NewBugButton />
