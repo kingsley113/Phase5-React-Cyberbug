@@ -11,7 +11,7 @@ class PageSidebar extends Component {
     return (
       <div className="sidebar">
         <div>
-          <h3>All Projects:</h3>
+          <h3 className="right-align-text">Projects</h3>
         </div>
         <div className="scroll-container">
           <ProjectListSummary />
@@ -59,7 +59,6 @@ class PageSidebar extends Component {
   }
 
   logout = () => {
-    // TODO: Fill in logout process here
     this.props.logout();
   };
 
