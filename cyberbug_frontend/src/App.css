@@ -861,6 +861,29 @@ td {
   font-weight: 700;
 }
 
+/* *******TAG STYLES********* */
+#tag-display-wrapper .react-tag-input {
+  background: none;
+  border: none;
+}
+
+#tag-display-wrapper .react-tag-input__tag {
+  background-color: rgb(204, 0, 255);
+  border-radius: 0;
+  color: rgb(255, 218, 250);
+  font-weight: 700;
+
+  --cornerClip15: 6px;
+  clip-path: polygon(
+    0% 100%,
+    0% var(--cornerClip15),
+    var(--cornerClip15) 0%,
+    100% 0%,
+    100% calc(100% - var(--cornerClip15)),
+    calc(100% - var(--cornerClip15)) 100%
+  );
+}
+
 /* 404 page not found styles */
 .full-page {
   z-index: 5;

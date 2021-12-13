@@ -42,10 +42,8 @@ class BugDetails extends Component {
               <p>{bug.bugDescription}</p>
               <b>Details:</b>
               <p>{bug.bugDetails}</p>
-              <p>
-                <b>Tags:</b>
-              </p>
-              <div>
+              <b>Tags:</b>
+              <div id="tag-display-wrapper">
                 {/* {bug.bugTags} */}
                 {this.renderTags()}
               </div>
