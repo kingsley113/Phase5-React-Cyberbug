@@ -173,7 +173,7 @@ ul a:hover {
   height: calc(100vh - 50px);
   /* margin: auto; */
   /* flex: 1; */
-  background: rgba(2, 33, 59, 0.95);
+  background: rgba(1, 19, 34, 0.95);
   /* border: 3px solid red; */
 }
 
@@ -325,25 +325,62 @@ textarea {
 }
 
 table {
+  color: white;
+  text-decoration: none;
   position: relative;
   border-collapse: collapse;
   width: 100%;
-  background-color: rgb(1, 165, 230);
+  background-color: rgb(0, 88, 122);
+
+  --cornerClip3: 15px;
+  clip-path: polygon(
+    0% 100%,
+    0% 0%,
+    calc(100% - var(--cornerClip3)) 0%,
+    100% var(--cornerClip3),
+    100% calc(100% - var(--cornerClip3)),
+    calc(100% - var(--cornerClip3)) 100%
+  );
+  /* filter: drop-shadow(0px 0px 4px rgb(255, 208, 0)); */
+}
+
+table #bug-list {
+  table-layout: fixed;
 }
 
 th {
   position: sticky;
   top: 0px;
   max-height: 100%;
-  background-color: rgb(2, 142, 197);
+  background-color: rgb(47, 151, 137);
 }
 
 tr {
-  height: 25px;
+  height: 35px;
+  color: white;
+  text-decoration: none;
 }
 
 td {
   overflow: hidden;
+}
+
+.bug-status {
+  font-size: 0.85em;
+}
+
+#bug-status-column {
+  width: 85px;
+}
+
+.table-bug-id a {
+  color: white;
+  /* text-decoration: none; */
+}
+
+.table-bug-id a:hover {
+  color: violet;
+  /* text-decoration: none; */
 }
 
 .list-icon {
