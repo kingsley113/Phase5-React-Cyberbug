@@ -6,7 +6,8 @@
 body,
 h1,
 h2,
-h3 {
+h3,
+#root {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 500;
 }
@@ -57,14 +58,14 @@ ul {
   /* padding-inline-end: 5px; */
 }
 
-/* Header Styles */
+/* *******************HEADER STYLES**************** */
 .page-header {
   background-color: rgb(122, 3, 158);
   /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
-  height: 45px;
-  line-height: 45px;
+  height: 50px;
+  line-height: 50px;
   padding: 0px 10px 0px 10px;
   z-index: 2;
 }
@@ -88,9 +89,10 @@ select {
 #current-user-panel {
   color: white;
   font-size: 14pt;
+  font-weight: 700;
 }
 
-/* Sidebar Styles */
+/* *******************SIDEBAR STYLES**************** */
 .sidebar {
   width: 400px;
   display: flex;
@@ -168,7 +170,7 @@ ul a:hover {
 .page-main {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 45px);
+  height: calc(100vh - 50px);
   /* margin: auto; */
   /* flex: 1; */
   background: rgba(2, 33, 59, 0.95);
@@ -364,8 +366,11 @@ td {
 
 .center-align-text {
   display: flex;
+  /* flex-direction: column; */
   align-items: center;
+  /* align-content: center; */
   overflow: hidden;
+  padding-top: 5px;
 }
 
 .quote-author-text {
