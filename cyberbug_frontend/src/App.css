@@ -1,4 +1,15 @@
-/* General Styles: */
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&display=swap");
+
+/* GENERAL STYLES: */
+
+body,
+h1,
+h2,
+h3 {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 500;
+}
 
 body,
 html {
@@ -84,10 +95,11 @@ select {
   width: 400px;
   display: flex;
   margin-left: 20px;
+  /* margin-right: -20px; */
   flex-direction: column;
   /* background: rgba(255, 0, 234, 0.5); */
   height: 100%;
-  box-shadow: 10px 10px 50px 10px rgb(255, 0, 179);
+  box-shadow: 10px 10px 20px 5px rgba(0, 110, 255, 0.527);
   background-image: linear-gradient(
     rgba(255, 0, 234, 0.5),
     rgba(153, 0, 255, 0.719)
@@ -118,6 +130,9 @@ select {
 
 .sidebar-icon {
   width: 45px;
+
+  /* -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5)); */
+  filter: drop-shadow(0px 0px 4px rgb(255, 208, 0));
 }
 
 .sidebar-icon:hover {
@@ -132,6 +147,23 @@ select {
 .separator-icon {
   margin-top: auto;
 }
+
+/* LINK STYLES */
+ul a {
+  text-decoration: none;
+  color: white;
+}
+
+ul a:hover {
+  color: violet;
+}
+
+/* FONT STYLES */
+.sidebar h3 {
+  color: white;
+  font-weight: 700;
+}
+
 /* Page Content Styles */
 .page-main {
   display: flex;
@@ -242,12 +274,14 @@ textarea {
 
 /* Active Project */
 .active {
+  /* padding-right: -20px; */
   --cornerClipSize: 10px;
   /* color: red; */
   background-color: rgb(255, 0, 255);
   clip-path: polygon(
     0% 100%,
-    0% 0%,
+    0% var(--cornerClipSize),
+    var(--cornerClipSize) 0%,
     100% 0%,
     100% calc(100% - var(--cornerClipSize)),
     calc(100% - var(--cornerClipSize)) 100%
@@ -262,15 +296,18 @@ textarea {
 .summary-item {
   display: flex;
   align-items: center;
-  /* margin-right: 10px; */
-  height: 25px;
+  margin-right: 5px;
+  height: 40px;
+  margin-left: -20px;
+  /* margin-right: -20px; */
+  /* z-index: 5; */
 }
 
 .Open-Bug-Count {
   margin-left: auto;
   width: 25px;
   text-align: center;
-  padding-right: 5px;
+  padding-right: 25px;
 }
 
 .id-container {
