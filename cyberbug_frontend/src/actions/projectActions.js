@@ -16,7 +16,7 @@ export const createProject = (projectObject) => {
         return response.json();
       })
       .then((json) => {
-        dispatch({ type: "ADD_PROJECT", project: json });
+        dispatch({ type: "ADD_PROJECT", project: json.project });
         dispatch(hideToggle("newProjectFormToggle"));
       })
       .catch((error) => {
@@ -76,7 +76,7 @@ export const editProject = (project) => {
       })
       .then((json) => {
         console.log("Response Json: ", json);
-        dispatch({ type: "EDIT_PROJECT", project: json });
+        dispatch({ type: "EDIT_PROJECT", project: json.project });
         dispatch(hideToggle("newProjectFormToggle"));
       })
       .catch((error) => {

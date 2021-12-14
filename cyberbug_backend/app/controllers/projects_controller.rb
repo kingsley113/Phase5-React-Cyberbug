@@ -8,24 +8,20 @@ class ProjectsController < ApplicationController
 	# Create
 	def create
 		project = Project.new(project_params)
-		# TODO: assign project to current user, consider switching project model to 'belongs_to'
 
 		if project.save
-			render json: project
-			# TODO: create serializer 
+			render json: {project: ProjectSerializer.new(project)}
 		else
 			render text: "error", status: :unprocessable_entity
 		end
 	end
 	# Read
 	def show
-		# project = Project.find_by(project_id: project_params[:project_id])
 		project = set_project()
 
 		if project
-			render json: project
+			render json: {project: ProjectSerializer.new(project)}
 		else
-			# render text: "Project not found"
 			render json: {error: "error loading project"}, status: :unprocessable_entity
 		end
 	end
@@ -38,7 +34,7 @@ class ProjectsController < ApplicationController
 		project.projectDescription = params[:project][:projectDescription]
 
 		if project.save
-			render json: project
+			render json: {project: ProjectSerializer.new(project)}
 		else
 			render json: {error: "error updating project"}, status: :unprocessable_entity
 		end
