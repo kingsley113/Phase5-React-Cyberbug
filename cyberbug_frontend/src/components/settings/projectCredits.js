@@ -17,7 +17,7 @@ const ProjectCredits = () => {
         <li>Edit Icon: Project by The Icon Z from NounProject.com</li>
         <li>
           Cyberbug Logo:{" "}
-          <a src="https://todasgamers.com/tests/que-bug-de-cyberpunk-2077-eres/">
+          <a href="https://todasgamers.com/tests/que-bug-de-cyberpunk-2077-eres/">
             https://todasgamers.com
           </a>
         </li>
