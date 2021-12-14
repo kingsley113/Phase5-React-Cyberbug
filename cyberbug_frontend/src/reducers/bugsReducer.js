@@ -6,6 +6,7 @@ function bugs(
 ) {
   switch (action.type) {
     case "ADD_BUG":
+      console.log(action.bug);
       return { allBugs: [...state.allBugs, action.bug] };
     case "LOAD_BUGS":
       return { allBugs: action.bugs };

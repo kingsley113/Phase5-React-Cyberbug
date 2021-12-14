@@ -16,7 +16,8 @@ export const createBug = (bugObject) => {
         return response.json();
       })
       .then((json) => {
-        dispatch({ type: "ADD_BUG", bug: json });
+        console.log(json);
+        dispatch({ type: "ADD_BUG", bug: json.bug });
         dispatch(hideToggle("newBugFormToggle"));
       })
       .catch((response) => {
@@ -75,7 +76,7 @@ export const editBug = (bug) => {
         return response.json();
       })
       .then((json) => {
-        dispatch({ type: "EDIT_BUG", bug: json });
+        dispatch({ type: "EDIT_BUG", bug: json.bug });
         dispatch(hideToggle("newBugFormToggle"));
       })
       .catch((response) => {

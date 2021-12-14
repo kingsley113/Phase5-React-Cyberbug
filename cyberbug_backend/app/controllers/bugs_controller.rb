@@ -11,7 +11,7 @@ class BugsController < ApplicationController
 		# binding.pry
 		# bug.analyzeDescription
 		if bug.save
-			render json: bug
+			render json: {bug: BugSerializer.new(bug)}
 		else
 			render text: "error", status: :unprocessable_entity
 		end
@@ -26,8 +26,7 @@ class BugsController < ApplicationController
 		bug = set_bug()
 
 		if bug
-			# TODO: Serializers???
-			render json: bug
+			render json: {bug: BugSerializer.new(bug)}
 		else 
 			render text: "Bug not found"
 		end
@@ -53,7 +52,7 @@ class BugsController < ApplicationController
 		# bug.analyzeDescription
 
 		if bug.save
-			render json: bug
+			render json: {bug: BugSerializer.new(bug)}
 		else
 			render json: bug.error, status: :unprocessable_entity
 		end
