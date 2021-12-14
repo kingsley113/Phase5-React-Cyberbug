@@ -12,7 +12,7 @@ const BugLineItem = (props) => {
 
   return (
     <tr className={renderActiveHighlight(bugId, props.activeBug)}>
-      <td class="table-bug-id">
+      <td className="table-bug-id">
         <Link key={bugId} to={`${url}/${bugId}`}>
           {bugId}
         </Link>
