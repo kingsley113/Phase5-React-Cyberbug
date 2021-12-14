@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 
 const RedirectIfLoggedIn = (props) => {
-  console.log("Redirect Component");
   if (localStorage.getItem("jwt") || props.loggedIn) {
     return <Redirect to="/dashboard" />;
   } else {

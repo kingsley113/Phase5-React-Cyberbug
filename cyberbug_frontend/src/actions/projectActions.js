@@ -20,7 +20,7 @@ export const createProject = (projectObject) => {
         dispatch(hideToggle("newProjectFormToggle"));
       })
       .catch((error) => {
-        alert("Error occured creating project");
+        // alert("Error occured creating project");
         console.log(error);
       });
   };
@@ -41,7 +41,7 @@ export const loadProjects = () => {
         dispatch({ type: "LOAD_PROJECTS", projects: json });
       })
       .catch((error) => {
-        alert("Error loading projects");
+        // alert("Error loading projects");
         console.log(error);
       });
   };
@@ -78,12 +78,11 @@ export const editProject = (project) => {
         return response.json();
       })
       .then((json) => {
-        console.log("Response Json: ", json);
         dispatch({ type: "EDIT_PROJECT", project: json.project });
         dispatch(hideToggle("newProjectFormToggle"));
       })
       .catch((error) => {
-        alert("Error occured editing project");
+        // alert("Error occured editing project");
         console.log(error);
       });
   };
@@ -111,7 +110,7 @@ export const deleteProject = (project) => {
         dispatch({ type: "DELETE_PROJECT", project: project });
       })
       .catch((response) => {
-        alert("Woops, something went wrong deleting the project");
+        // alert("Woops, something went wrong deleting the project");
         console.log(response);
       });
   };

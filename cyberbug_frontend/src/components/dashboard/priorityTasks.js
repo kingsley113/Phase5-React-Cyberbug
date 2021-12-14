@@ -8,7 +8,6 @@ class PriorityTasks extends Component {
         <div className="list-title">
           <h2>Top 10 Priority Bugs</h2>
         </div>
-        {/* TODO: fill in content */}
         <table id="priority-tasks-table">
           <thead>
             <tr>

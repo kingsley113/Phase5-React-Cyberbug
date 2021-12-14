@@ -21,7 +21,7 @@ export const createBug = (bugObject) => {
         dispatch(hideToggle("newBugFormToggle"));
       })
       .catch((response) => {
-        alert("Woops, something went wrong creating the bug");
+        // alert("Woops, something went wrong creating the bug");
         console.log(response);
       });
   };
@@ -42,7 +42,7 @@ export const loadBugs = () => {
         dispatch({ type: "LOAD_BUGS", bugs: json });
       })
       .catch((error) => {
-        alert("Error loading bugs");
+        // alert("Error loading bugs");
         console.log(error);
       });
   };
@@ -80,7 +80,7 @@ export const editBug = (bug) => {
         dispatch(hideToggle("newBugFormToggle"));
       })
       .catch((response) => {
-        alert("Woops, something went wrong creating the bug");
+        // alert("Woops, something went wrong creating the bug");
         console.log(response);
       });
   };
@@ -111,7 +111,7 @@ export const deleteBug = (bug) => {
         dispatch({ type: "DELETE_BUG", bug: bug });
       })
       .catch((response) => {
-        alert("Woops, something went wrong deleting the bug");
+        // alert("Woops, something went wrong deleting the bug");
         console.log(response);
       });
   };

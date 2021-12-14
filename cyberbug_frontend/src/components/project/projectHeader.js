@@ -35,7 +35,10 @@ class ProjectHeader extends Component {
             <NewBugButton />
             <div id="summary-divider-panel">
               <div className="centered" id="project-stats">
-                <ProjectSummary project={this.props.activeProject} />
+                <ProjectSummary
+                  project={this.props.activeProject}
+                  bugs={this.props.bugs}
+                />
               </div>
             </div>
           </div>
@@ -64,15 +67,9 @@ class ProjectHeader extends Component {
   };
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     // activeProject: state.projects.activeProject,
-//   };
-// };
-
 const mapDispatchToProps = (dispatch) => {
   return {
-    showToggle: (id) => dispatch(showToggle("newProjectFormToggle")),
+    showToggle: (id) => dispatch(showToggle(id)),
     deleteProject: (project) => dispatch(deleteProject(project)),
   };
 };

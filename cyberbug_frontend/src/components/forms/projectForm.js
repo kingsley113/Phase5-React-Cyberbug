@@ -17,17 +17,9 @@ class ProjectForm extends Component {
   render() {
     return (
       <div>
-        {/* {console.log(this.state)} */}
-        {/* <h2>Create a new project:</h2> */}
         <form onSubmit={this.handleOnSubmit} id="project-form">
           <div id="project-form-id-stylized">{this.state.projectId}</div>
           <div id="project-form-title-stylized">{this.state.projectTitle}</div>
-          {/* <label htmlFor="projectId" className="col-sm-1 right-align-text">
-              Project ID:
-            </label> */}
-          {/* <span name="projectId" className="col-sm-1">
-              {this.state.projectId}
-            </span> */}
           <div className="row" id="project-title-row">
             <label htmlFor="projectTitle" className="col-sm-1 right-align-text">
               <b>Title:</b>
@@ -78,12 +70,6 @@ class ProjectForm extends Component {
       this.loadFormData();
     }
   }
-
-  // componentDidUpdate() {
-  //   if (this.props.activeProject && !this.props.cleanForm) {
-  //     this.loadFormData();
-  //   }
-  // }
 
   loadFormData() {
     const proj = this.props.activeProject;

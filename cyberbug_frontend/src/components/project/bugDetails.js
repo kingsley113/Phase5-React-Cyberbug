@@ -8,7 +8,6 @@ import {
   resetActiveBug,
 } from "../../actions/bugActions";
 import { Redirect } from "react-router";
-// import { analyzeText } from "../../actions/tagActions";
 import ReactTagInput from "@pathofdev/react-tag-input";
 
 class BugDetails extends Component {
@@ -32,10 +31,6 @@ class BugDetails extends Component {
       if (bug) {
         return (
           <div id="details-panel">
-            {/* TODO: This will have all of the detailed info */}
-            {/* <div className="centered-flex" id="details-title">
-              <h3>{bug.bugTitle}</h3>
-            </div> */}
             <div id="stripe-separator"></div>
             <div id="details-container">
               <b>Description:</b>
@@ -74,7 +69,6 @@ class BugDetails extends Component {
                 </button>
               </div>
             </div>
-            {/* <button onClick={this.textWatsonFetch}>Test Watson</button> */}
           </div>
         );
       } else {
@@ -90,9 +84,6 @@ class BugDetails extends Component {
       return (
         <div id="bug-details-panel">
           <div id="details-top-panel">
-            {/* <div>
-              <h2>Bug Details</h2>
-            </div> */}
             <div id="bug-id-stylized">{this.props.match.params.bugId}</div>
             <div id="bug-title-stylized">{this.props.activeBug.bugTitle}</div>
             <div className="centered-flex">
@@ -147,26 +138,12 @@ class BugDetails extends Component {
       return (
         <ReactTagInput
           tags={this.props.activeBug.bugTags.split(",")}
-          // onChange={(newTags) =>
-          //   this.setState({ bugTags: newTags.join() })
-          // }
           readOnly={true}
         />
       );
     }
   }
-  // Watson Test Method
-  // textWatsonFetch = (event) => {
-  //   this.props.analyzeText(this.props.activeBug.bugDescription);
-  // };
 }
-
-const mapStateToProps = (state) => {
-  return {
-    // bugs: state.bugs.allBugs,
-    // activeBug: state.bugs.activeBug,
-  };
-};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -176,8 +153,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteBug: (bug) => dispatch(deleteBug(bug)),
     showToggle: (id) => dispatch(showToggle(id)),
     hideToggle: (id) => dispatch(hideToggle(id)),
-    // analyzeText: (text) => dispatch(analyzeText(text)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BugDetails);
+export default connect(null, mapDispatchToProps)(BugDetails);

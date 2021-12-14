@@ -13,7 +13,6 @@ class ProjectSummary extends Component {
     if (this.props.project) {
       return (
         <div className="centered">
-          {/* TODO: table styling */}
           <table id="project-summary-stats">
             <thead>
               <tr>
@@ -33,7 +32,10 @@ class ProjectSummary extends Component {
             </tbody>
           </table>
           <div className="status-bar-container">
-            <ProjectStatus project={this.props.project} />
+            <ProjectStatus
+              project={this.props.project}
+              bugs={this.props.bugs}
+            />
           </div>
         </div>
       );
@@ -49,7 +51,6 @@ class ProjectSummary extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    bugs: state.bugs.allBugs,
     activeProject: state.projects.activeProject,
   };
 };

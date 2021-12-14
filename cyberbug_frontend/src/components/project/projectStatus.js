@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import { connect } from "react-redux";
 import { generateProjectStatusBarData } from "../../helpers/projectHelpers";
-// import Button from "react-bootstrap/Button";
 
 class ProjectStatus extends Component {
   render() {
@@ -43,17 +41,9 @@ class ProjectStatus extends Component {
         this.props.project,
         this.props.bugs
       );
-      // console.log(data);
       return data;
     }
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    // project: state.projects.activeProject,
-    bugs: state.bugs.allBugs,
-  };
-};
-
-export default connect(mapStateToProps)(ProjectStatus);
+export default ProjectStatus;

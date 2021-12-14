@@ -1,5 +1,3 @@
-// import backgroundVideo from "../../public//video/";
-
 const PageBackground = () => {
   const vid = document.getElementById("bg-video");
   if (vid) {

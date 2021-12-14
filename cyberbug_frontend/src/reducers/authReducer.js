@@ -6,7 +6,6 @@ function auth(
 ) {
   switch (action.type) {
     case "SET_USER":
-      // console.log({ currentUser: action.user });
       return {
         currentUser: action.user,
         redirectToDashboard: true,

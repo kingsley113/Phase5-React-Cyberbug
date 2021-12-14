@@ -1,7 +1,5 @@
 export const userLogin = (userData) => {
   return (dispatch) => {
-    // console.log("User Data: ", userData);
-
     fetch("http://localhost:8000/api/login", {
       method: "POST",
       headers: {
@@ -12,14 +10,11 @@ export const userLogin = (userData) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // console.log("RESPONSE DATA: ", data);
         if (data.jwt && data.user) {
           localStorage.setItem("jwt", data.jwt);
           localStorage.setItem("current_user", JSON.stringify(data.user));
-          // TODO: save user info to local storage? use json.stringify
           dispatch({ type: "SET_USER", user: data.user });
         }
-        // TODO: add dispatch for error flash message here
       })
       .catch((error) => console.log(error));
   };
@@ -27,8 +22,6 @@ export const userLogin = (userData) => {
 
 export const createUser = (userData) => {
   return (dispatch) => {
-    // console.log("User Data: ", userData);
-
     fetch("http://localhost:8000/api/users", {
       method: "POST",
       headers: {
@@ -44,7 +37,6 @@ export const createUser = (userData) => {
           localStorage.setItem("current_user", JSON.stringify(data.user));
           dispatch({ type: "SET_USER", user: data.user });
         }
-        // TODO: Add dispatch for error flash message here
       })
       .catch((error) => console.log(error));
   };

@@ -6,7 +6,6 @@ class NewUserPage extends Component {
   render() {
     return (
       <RedirectIfLoggedIn>
-        {/* <div> */}
         <div className="full-page centered-flex transparent-background">
           <div className="centered-flex-vert">
             <img

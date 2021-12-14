@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import BugLineItem from "./bugLineItem";
 
 class BugList extends Component {
@@ -20,12 +19,6 @@ class BugList extends Component {
         );
       });
       if (bugList.length > 0) {
-        // bugList.sort((a, b) => {
-        //   const statusA = a.bugStatus;
-        //   const statusB = b.bugStatus;
-
-        //   a.bugStatus !== "Complete";
-        // });
         return bugList;
       } else {
         return (
@@ -53,7 +46,6 @@ class BugList extends Component {
               <th>Title</th>
               <th>Priority</th>
               <th>Due</th>
-              {/* <th>Updated</th> */}
               <th id="bug-status-column">Status</th>
             </tr>
           </thead>
@@ -64,11 +56,4 @@ class BugList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    // bugs: state.bugs.allBugs,
-    // activeBug: state.bugs.activeBug,
-  };
-};
-
-export default connect(mapStateToProps)(BugList);
+export default BugList;

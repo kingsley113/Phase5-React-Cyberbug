@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   openBugCount,
@@ -7,28 +6,10 @@ import {
   totalBugCount,
 } from "../../helpers/projectHelpers";
 import ProjectStatus from "../project/projectStatus";
-// import { useTable } from "react-table";
 
 class ProjectListDetailed extends Component {
   renderDetailedProjectList() {
     if (this.props.projects) {
-      // TODO: Revisit the react-table implementation later
-      // const columns = React.useMemo(
-      //   () => [
-      //     {
-      //       Header: "Id",
-      //       accessor: "projectId",
-      //     },
-      //     { Header: "Title", accessor: "projectTitle" },
-      //     { Header: "Open Bugs", accessor: "openBugs" },
-      //     { Header: "Overdue Bugs", accessor: "overdueBugs" },
-      //     { Header: "TotalBugs", accessor: "totalOpenBugs" },
-      //     { Header: "Project Health", accessor: "projectHealth" },
-      //     { Header: "Last Updated", accessor: "updated" },
-      //   ],
-      //   []
-      // );
-
       return this.props.projects.map((project) => {
         return (
           <tr key={project.id}>

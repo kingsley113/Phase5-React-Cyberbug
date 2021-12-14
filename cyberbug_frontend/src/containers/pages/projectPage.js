@@ -31,6 +31,7 @@ class ProjectPage extends PureComponent {
               <ProjectHeader
                 project={project}
                 activeProject={this.props.activeProject}
+                bugs={this.props.bugs}
               />
               <div id="bugs-list-panel">
                 <BugList
@@ -93,20 +94,6 @@ class ProjectPage extends PureComponent {
   componentWillUnmount() {
     this.props.resetActiveProject();
   }
-
-  // EVENTS
-  // handleOnClickDelete = (event) => {
-  //   // console.log("delete button clicked");
-  //   if (window.confirm("Are you sure you want to yeet this project?")) {
-  //     if (
-  //       window.confirm(
-  //         "Are you really sure?? Theres no turning back after deleting..."
-  //       )
-  //     ) {
-  //       this.props.deleteProject(this.props.activeProject);
-  //     }
-  //   }
-  // };
 }
 
 const mapDispatchToProps = (dispatch) => {

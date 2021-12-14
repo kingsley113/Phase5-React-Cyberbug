@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import ProjectsChart from "../../components/dashboard/projectsChart";
 import PriorityTasks from "../../components/dashboard/priorityTasks";
-// import DailyInfoPanel from "../../components/dashboard/dailyInfoPanel";
 import ProjectsListDetailed from "../../components/dashboard/projectListDetailed";
-// import { connect } from "react-redux";
 
 class Dashboard extends Component {
   render() {
@@ -18,7 +16,6 @@ class Dashboard extends Component {
             projects={this.props.projects}
             bugs={this.props.bugs}
           />
-          {/* <DailyInfoPanel /> */}
         </div>
         <ProjectsListDetailed
           projects={this.props.projects}
@@ -29,13 +26,4 @@ class Dashboard extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     projects: state.projects.allProjects,
-//     bugs: state.bugs.allBugs,
-//   };
-// };
-
-// export default connect(mapStateToProps)(Dashboard);
 export default Dashboard;
-// TODO: define connect here and pass props to each component? to reduce how much we need to define connect?
