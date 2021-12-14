@@ -15,6 +15,7 @@ class Api::ProjectsController < ApplicationController
 			render text: "error", status: :unprocessable_entity
 		end
 	end
+	
 	# Read
 	def show
 		project = set_project()

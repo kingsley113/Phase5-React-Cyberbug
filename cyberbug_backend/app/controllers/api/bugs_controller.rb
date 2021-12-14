@@ -1,15 +1,8 @@
-# require "json"
-# require "ibm/watson"
-# require "ibm_watson/authenticators"
-# require "ibm_watson/natural_language_classifier_v1"
-# include IBMWatson
-
 class Api::BugsController < ApplicationController
 	# Create
 	def create 
 		bug = Bug.new(bug_params)
-		# binding.pry
-		# bug.analyzeDescription
+
 		if bug.save
 			render json: {bug: BugSerializer.new(bug)}
 		else
@@ -49,8 +42,6 @@ class Api::BugsController < ApplicationController
 		bug.bugComplete = params[:bug][:bugComplete]
 		bug.bugStatus = params[:bug][:bugStatus]
 
-		# bug.analyzeDescription
-
 		if bug.save
 			render json: {bug: BugSerializer.new(bug)}
 		else
@@ -75,35 +66,6 @@ class Api::BugsController < ApplicationController
 	def set_bug
 		Bug.find_by(id: bug_params[:id])
 	end
-
-	# def analyzeDescription
-	# 	description = self.bugDescription
-	# 	binding.pry
-
-	# 	authenticator = IBMWatson:Authenticators::IamAuthenticator.new(
-	# 		apikey: "************************"
-	# 	)
-
-	# 	natural_language_classifier = IBMWatson::NaturalLanguageClassifierV1.new(authenticator: authenticator)
-		
-	# 	natural_language_classifier.service_url = "https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/d2506413-bfa5-430c-884a-ef1e2d68ee20"
-
-	# 	classifiers = natural_language_classifier.list_classifiers.result
-		
-	# 	response = natural_language_understanding.analyze(
-	# 		text: description,
-	# 		features: {
-	# 			concepts: {
-	# 				emotion: true,
-	# 				sentiment: true,
-	# 				limit: 2
-	# 			},
-	# 		}
-	# 	)
-	# 	puts JSON.pretty_generate(response.result)
-	
-
-	# end
 
 	def bug_params
 		params.require(:bug).permit(:id, :bugId, :bugTitle, :bugDescription, :bugDetails, :bugTags, :bugLineNo, :project_id, :bugPriority, :bugDueDate, :bugCompletedDate, :bugComplete, :bugStatus)
