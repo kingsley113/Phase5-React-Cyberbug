@@ -28,9 +28,17 @@ class ProjectPage extends PureComponent {
             </Toggle>
 
             <div id="project-left-column">
-              <ProjectHeader project={project} />
+              <ProjectHeader
+                project={project}
+                activeProject={this.props.activeProject}
+              />
               <div id="bugs-list-panel">
-                <BugList route={this.props.match.url} project={project} />
+                <BugList
+                  route={this.props.match.url}
+                  project={project}
+                  bugs={this.props.bugs}
+                  activeBug={this.props.activeBug}
+                />
               </div>
             </div>
 
@@ -46,7 +54,13 @@ class ProjectPage extends PureComponent {
               />
               <Route
                 path={`${this.props.match.url}/:bugId`}
-                render={(routerProps) => <BugDetails {...routerProps} />}
+                render={(routerProps) => (
+                  <BugDetails
+                    {...routerProps}
+                    bugs={this.props.bugs}
+                    activeBug={this.props.activeBug}
+                  />
+                )}
               />
             </div>
           </div>

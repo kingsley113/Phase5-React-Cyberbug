@@ -29,8 +29,26 @@ class PageContent extends Component {
           <div className="full-width">
             <Switch>
               <Route exact path="/" render={() => <RedirectIfLoggedIn />} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/projects" component={ProjectsPage} />
+              <Route
+                exact
+                path="/dashboard"
+                render={() => (
+                  <Dashboard
+                    projects={this.props.projects}
+                    bugs={this.props.bugs}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/projects"
+                render={() => (
+                  <ProjectsPage
+                    projects={this.props.projects}
+                    bugs={this.props.bugs}
+                  />
+                )}
+              />
               <Route
                 path="/projects/:id"
                 render={(routerProps) => (
@@ -38,6 +56,8 @@ class PageContent extends Component {
                     {...routerProps}
                     projects={this.props.projects}
                     activeProject={this.props.activeProject}
+                    bugs={this.props.bugs}
+                    activeBug={this.props.activeBug}
                   />
                 )}
               />
@@ -64,6 +84,8 @@ const mapStateToProps = (state) => {
   return {
     projects: state.projects.allProjects,
     activeProject: state.projects.activeProject,
+    bugs: state.bugs.allBugs,
+    activeBug: state.bugs.activeBug,
   };
 };
 

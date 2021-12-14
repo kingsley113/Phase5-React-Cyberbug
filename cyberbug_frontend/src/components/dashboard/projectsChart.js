@@ -6,8 +6,6 @@ class ProjectsChart extends Component {
   render() {
     return (
       <div className="test-border" id="project-summary-chart">
-        {/* TODO: fill in project chart content and API */}
-        {/* Placeholder data until the pie chart is set up: */}
         {this.renderPieChart()}
       </div>
     );
@@ -28,14 +26,12 @@ class ProjectsChart extends Component {
             chartType="PieChart"
             data={data}
             options={{
-              // title: "none",
               pieHole: 0.1,
               backgroundColor: "none",
               pieSliceText: "label",
               legend: "none",
               colors: ["272760", "442768", "ED1E79", "OCFFE1"],
               chartArea: { width: "90%", height: "90%" },
-              // tooltip: { ignoreBounds: true, isHtml: true },
               height: "280",
             }}
           />

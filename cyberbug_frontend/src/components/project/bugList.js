@@ -66,8 +66,8 @@ class BugList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    bugs: state.bugs.allBugs,
-    activeBug: state.bugs.activeBug,
+    // bugs: state.bugs.allBugs,
+    // activeBug: state.bugs.activeBug,
   };
 };
 

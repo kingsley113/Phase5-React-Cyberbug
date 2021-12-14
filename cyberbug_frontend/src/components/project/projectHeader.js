@@ -64,11 +64,11 @@ class ProjectHeader extends Component {
   };
 }
 
-const mapStateToProps = (state) => {
-  return {
-    activeProject: state.projects.activeProject,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     // activeProject: state.projects.activeProject,
+//   };
+// };
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -77,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectHeader);
+export default connect(null, mapDispatchToProps)(ProjectHeader);
