@@ -5,10 +5,9 @@ import ProjectCredits from "../../components/settings/projectCredits";
 class SettingsPage extends Component {
   render() {
     return (
-      <div>
-        <h1> Project Settings & Info</h1>
-        <h2>Current User Info:</h2>
-        {/* TODO: Fill in the settings content */}
+      <div id="settings-page">
+        <div id="settings-title-stylized"> Project Settings & Info</div>
+        <h1 id="current-user-title">Current User:</h1>
         <UserInfo />
         <ProjectCredits />
       </div>

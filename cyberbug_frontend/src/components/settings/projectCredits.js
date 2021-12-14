@@ -1,11 +1,20 @@
 const ProjectCredits = () => {
   return (
-    <div>
+    <div id="project-credits">
       <h2>Credits & Attributions</h2>
-      <p>Fill in all of the credits and stuff for images here</p>
-      <a href="https://www.vecteezy.com/video/1792664-abstract-jelly-glass-background">
-        Abstract jelly glass background Stock Videos by Vecteezy
-      </a>
+      <ul id="credits-list">
+        <li>
+          Background Animation:{" "}
+          <a href="https://www.vecteezy.com/video/1792664-abstract-jelly-glass-background">
+            Abstract jelly glass background Stock Videos by Vecteezy
+          </a>
+        </li>
+        <li>Home Icon: TODO:</li>
+        <li>Plus Icon: TODO:</li>
+        <li>Gear Icon: TODO:</li>
+        <li>Logout Icon: TODO:</li>
+        <li>Cyberbug Logo: TODO:</li>
+      </ul>
     </div>
   );
 };

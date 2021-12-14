@@ -5,12 +5,12 @@ class UserInfo extends Component {
     const user = JSON.parse(localStorage.current_user);
     return (
       <div>
-        <p>
+        <h3>
           <b>Username:</b> {user.username}
-        </p>
-        <p>
+        </h3>
+        <h3>
           <b>Name:</b> {user.first_name} {user.last_name}
-        </p>
+        </h3>
       </div>
     );
   }
