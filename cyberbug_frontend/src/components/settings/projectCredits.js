@@ -9,11 +9,18 @@ const ProjectCredits = () => {
             Abstract jelly glass background Stock Videos by Vecteezy
           </a>
         </li>
-        <li>Home Icon: TODO:</li>
-        <li>Plus Icon: TODO:</li>
-        <li>Gear Icon: TODO:</li>
-        <li>Logout Icon: TODO:</li>
-        <li>Cyberbug Logo: TODO:</li>
+        <li>Home Icon: Home by Royyan Wijaya from NounProject.com</li>
+        <li>Plus Icon: New by Alice Design from NounProject.com</li>
+        <li>Gear Icon: Project by Yusuf Solihudin from NounProject.com</li>
+        <li>Logout Icon: Logout by praveen patchu from NounProject.com</li>
+        <li>Bug Icon: Bug by Royyan Wijaya from NounProject.com</li>
+        <li>Edit Icon: Project by The Icon Z from NounProject.com</li>
+        <li>
+          Cyberbug Logo:{" "}
+          <a src="https://todasgamers.com/tests/que-bug-de-cyberpunk-2077-eres/">
+            https://todasgamers.com
+          </a>
+        </li>
       </ul>
     </div>
   );
