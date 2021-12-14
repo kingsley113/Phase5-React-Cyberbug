@@ -4,7 +4,7 @@
 # require "ibm_watson/natural_language_classifier_v1"
 # include IBMWatson
 
-class BugsController < ApplicationController
+class Api::BugsController < ApplicationController
 	# Create
 	def create 
 		bug = Bug.new(bug_params)

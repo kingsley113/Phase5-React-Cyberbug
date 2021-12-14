@@ -11,7 +11,7 @@ export const createProject = (projectObject) => {
       },
       body: JSON.stringify({ project: projectObject }),
     };
-    fetch("http://localhost:8000/projects", configurationObject)
+    fetch("http://localhost:8000/api/projects", configurationObject)
       .then((response) => {
         return response.json();
       })
@@ -28,7 +28,7 @@ export const createProject = (projectObject) => {
 
 export const loadProjects = () => {
   return (dispatch) => {
-    fetch("http://localhost:8000/projects", {
+    fetch("http://localhost:8000/api/projects", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -70,7 +70,10 @@ export const editProject = (project) => {
       },
       body: JSON.stringify({ project: project }),
     };
-    fetch(`http://localhost:8000/projects/${project.id}`, configurationObject)
+    fetch(
+      `http://localhost:8000/api/projects/${project.id}`,
+      configurationObject
+    )
       .then((response) => {
         return response.json();
       })
@@ -97,7 +100,10 @@ export const deleteProject = (project) => {
       },
       body: JSON.stringify(project),
     };
-    fetch(`http://localhost:8000/projects/${project.id}`, configurationObject)
+    fetch(
+      `http://localhost:8000/api/projects/${project.id}`,
+      configurationObject
+    )
       .then((response) => {
         return response.json();
       })
