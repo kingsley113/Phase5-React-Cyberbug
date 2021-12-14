@@ -1184,7 +1184,7 @@ td {
 
 /* ***********FORM ERROR TEST************* */
 .error_text {
-  color: red;
+  color: rgb(255, 0, 98);
 }
 
 /* Dashboard Panels */
@@ -1286,11 +1286,53 @@ td {
   font-size: 18pt;
 }
 
-#login-form {
+#login-form,
+#new-user-form {
   display: flex;
   flex-direction: column;
 }
 
 .med-logo {
   width: 700px;
+}
+
+/* *********NEW USER FORM************ */
+#create-user-btn {
+  --cornerClip22: 15px;
+  clip-path: polygon(
+    0% 100%,
+    0% var(--cornerClip22),
+    var(--cornerClip22) 0%,
+    100% 0%,
+    100% calc(100% - var(--cornerClip22)),
+    calc(100% - var(--cornerClip22)) 100%
+  );
+
+  /* margin-left: 5px; */
+  margin: 10px;
+  width: 280px;
+
+  background-color: #ff07f3; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#new-user-form input[type="text"],
+#new-user-form input[type="password"] {
+  /* width: 100%; */
+
+  background: none;
+  border: none;
+  border-bottom: 2px solid white;
+  /* width: 300px; */
+  width: 100%;
+  /* margin-top: 20px; */
+  color: white;
+  font-size: 18pt;
 }

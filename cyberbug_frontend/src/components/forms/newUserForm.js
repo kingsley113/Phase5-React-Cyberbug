@@ -15,8 +15,7 @@ class NewUserForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleOnSubmit}>
-          <label htmlFor="username">Username: </label>
+        <form onSubmit={this.handleOnSubmit} id="new-user-form">
           <input
             type="text"
             id="username"
@@ -24,7 +23,7 @@ class NewUserForm extends Component {
             value={this.state.username}
             onChange={this.handleOnChange}
           />
-          <label htmlFor="first_name">First Name: </label>
+          <label htmlFor="username">Username </label>
           <input
             type="text"
             id="first_name"
@@ -32,7 +31,7 @@ class NewUserForm extends Component {
             value={this.state.first_name}
             onChange={this.handleOnChange}
           />
-          <label htmlFor="last_name">Last Name: </label>
+          <label htmlFor="first_name">First Name </label>
           <input
             type="text"
             id="last_name"
@@ -40,7 +39,7 @@ class NewUserForm extends Component {
             value={this.state.last_name}
             onChange={this.handleOnChange}
           />
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="last_name">Last Name </label>
           <input
             type="password"
             id="password"
@@ -48,7 +47,7 @@ class NewUserForm extends Component {
             value={this.state.password}
             onChange={this.handleOnChange}
           />
-          <label htmlFor="password_confirmation">Confirm Password: </label>
+          <label htmlFor="password">Password </label>
           <input
             type="password"
             id="password_confirmation"
@@ -56,8 +55,11 @@ class NewUserForm extends Component {
             value={this.state.password_confirmation}
             onChange={this.handleOnChange}
           />
+          <label htmlFor="password_confirmation">Confirm Password </label>
+          <div className="centered-flex">
+            <input type="submit" value="Create User" id="create-user-btn" />
+          </div>
           <div>{this.renderErrors()}</div>
-          <input type="submit" value="Create User" />
         </form>
       </div>
     );
