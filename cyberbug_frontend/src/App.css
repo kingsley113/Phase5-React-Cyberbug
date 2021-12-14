@@ -813,7 +813,7 @@ td {
   flex-direction: column;
   justify-content: space-between;
   padding: 30px 10px 10px 10px;
-  background-color: rgba(255, 252, 60, 0.76);
+  background-color: rgba(166, 255, 0, 0.815);
 
   --cornerClip12: 40px;
   clip-path: polygon(
@@ -845,15 +845,15 @@ td {
 }
 
 #details-title {
-  background-color: rgba(255, 252, 60, 0.76);
+  background-color: rgba(166, 255, 0, 0.815);
 }
 
 #stripe-separator {
   height: 20px;
   background: repeating-linear-gradient(
     45deg,
-    rgba(255, 252, 60, 0.76),
-    rgba(255, 252, 60, 0.76) 10px,
+    rgba(166, 255, 0, 0.815),
+    rgba(166, 255, 0, 0.815) 10px,
     rgba(255, 252, 60, 0) 10px,
     rgba(255, 252, 60, 0) 20px
   );
@@ -867,8 +867,8 @@ td {
   flex-direction: column;
   padding-left: 10px;
   background-image: linear-gradient(
-    rgba(255, 252, 60, 0.76),
-    rgba(12, 212, 247, 0.76)
+    rgba(166, 255, 0, 0.815),
+    rgba(0, 255, 200, 0.76)
   );
 
   --cornerClip14: 30px;
