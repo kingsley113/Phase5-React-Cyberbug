@@ -207,6 +207,7 @@ class BugForm extends Component {
   };
 
   handleOnClick = (event) => {
+    this.props.renderCleanForm(false);
     this.props.hideToggle("newBugFormToggle");
   };
 }

@@ -71,16 +71,22 @@ class ProjectForm extends Component {
     );
   }
 
-  // LOAD BUG DATA IF EXISTING BUG IS LOADED
+  // LOAD PROJECT DATA IF EXISTING PROJECT IS LOADED
   componentDidMount() {
+    console.log("Project Form mounted!");
     if (this.props.activeProject && !this.props.cleanForm) {
       this.loadFormData();
     }
   }
 
+  // componentDidUpdate() {
+  //   if (this.props.activeProject && !this.props.cleanForm) {
+  //     this.loadFormData();
+  //   }
+  // }
+
   loadFormData() {
     const proj = this.props.activeProject;
-    // console.log(proj);
 
     this.setState({ id: proj.id });
     for (const prop in this.state) {
@@ -109,6 +115,7 @@ class ProjectForm extends Component {
   };
 
   handleOnClick = (event) => {
+    this.props.renderCleanForm(false);
     this.props.hideToggle("newProjectFormToggle");
   };
 }
