@@ -17,17 +17,20 @@ class ProjectForm extends Component {
   render() {
     return (
       <div>
-        <h2>Create a new project:</h2>
-        <form onSubmit={this.handleOnSubmit}>
-          <div className="row">
-            <label htmlFor="projectId" className="col-sm-1 right-align-text">
+        {/* {console.log(this.state)} */}
+        {/* <h2>Create a new project:</h2> */}
+        <form onSubmit={this.handleOnSubmit} id="project-form">
+          <div id="project-form-id-stylized">{this.state.projectId}</div>
+          <div id="project-form-title-stylized">{this.state.projectTitle}</div>
+          {/* <label htmlFor="projectId" className="col-sm-1 right-align-text">
               Project ID:
-            </label>
-            <span name="projectId" className="col-sm-1">
+            </label> */}
+          {/* <span name="projectId" className="col-sm-1">
               {this.state.projectId}
-            </span>
+            </span> */}
+          <div className="row" id="project-title-row">
             <label htmlFor="projectTitle" className="col-sm-1 right-align-text">
-              Title:
+              <b>Title:</b>
             </label>
             <input
               type="text"
@@ -35,6 +38,8 @@ class ProjectForm extends Component {
               className="col-lg-3"
               value={this.state.projectTitle}
               onChange={this.handleOnChange}
+              required
+              placeholder="Project title (required)"
             />
           </div>
           <div className="row">
@@ -42,17 +47,24 @@ class ProjectForm extends Component {
               htmlFor="projectDescription"
               className="col-sm-1 right-align-text"
             >
-              Description:
+              <b>Description:</b>
             </label>
             <textarea
               name="projectDescription"
               value={this.state.projectDescription}
               onChange={this.handleOnChange}
+              placeholder="Enter project description"
             ></textarea>
           </div>
-          <div className="row">
-            <input type="submit" value="Save Project" />
-            <button onClick={this.handleOnClick}>Cancel</button>
+          <div className="row form-btn-row">
+            <input
+              type="submit"
+              value="Save Project"
+              className="form-save-btn"
+            />
+            <button onClick={this.handleOnClick} className="form-cancel-btn">
+              Cancel
+            </button>
           </div>
         </form>
       </div>
@@ -68,6 +80,7 @@ class ProjectForm extends Component {
 
   loadFormData() {
     const proj = this.props.activeProject;
+    // console.log(proj);
 
     this.setState({ id: proj.id });
     for (const prop in this.state) {

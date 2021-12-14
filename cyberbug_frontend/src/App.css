@@ -378,17 +378,20 @@ ul a:hover {
 }
 
 #tags-row,
-#title-row {
+#bug-title-row,
+#project-title-row {
   display: flex;
   align-items: center;
 }
 
 /* **************FORM STYLES************* */
-#bug-form {
+#bug-form,
+#project-form {
   margin-top: 60px;
 }
 
-#bug-form-id-stylized {
+#bug-form-id-stylized,
+#project-form-id-stylized {
   position: absolute;
   top: 10px;
   left: 25px;
@@ -397,7 +400,8 @@ ul a:hover {
   color: rgb(75, 83, 0);
 }
 
-#bug-form-title-stylized {
+#bug-form-title-stylized,
+#project-form-title-stylized {
   position: absolute;
   top: 10px;
   right: 25px;
@@ -437,7 +441,7 @@ ul a:hover {
 }
 
 /* ****************MODAL BUTTONS**************** */
-#bug-save-btn {
+.form-btn-row .form-save-btn {
   --cornerClip17: 15px;
   clip-path: polygon(
     0% 120%,
@@ -464,7 +468,7 @@ ul a:hover {
   /* filter: drop-shadow(0px 0px 4px rgb(255, 208, 0)); */
 }
 
-#bug-cancel-btn {
+.form-btn-row .form-cancel-btn {
   --cornerClip18: 15px;
   clip-path: polygon(
     0% 100%,

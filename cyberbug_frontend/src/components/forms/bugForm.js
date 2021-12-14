@@ -38,7 +38,7 @@ class BugForm extends Component {
           {/* <label htmlFor="bugId" className="col-sm-1 right-align-text">
               Bug ID:{" "}
             </label> */}
-          <div className="row" id="title-row">
+          <div className="row" id="bug-title-row">
             <label htmlFor="bugTitle" className="col-sm-1 right-align-text">
               <b>Title:</b>
             </label>
@@ -49,6 +49,7 @@ class BugForm extends Component {
               value={this.state.bugTitle}
               onChange={this.handleOnChange}
               required
+              placeholder="Project title (required)"
             />
           </div>
           <div className="row">
@@ -155,8 +156,12 @@ class BugForm extends Component {
           {/* **************************** */}
           {/* BUTTONS */}
           <div className="row form-btn-row">
-            <input type="submit" value="Save Bug (Ew!)" id="bug-save-btn" />
-            <button onClick={this.handleOnClick} id="bug-cancel-btn">
+            <input
+              type="submit"
+              value="Save Bug (Ew!)"
+              className="form-save-btn"
+            />
+            <button onClick={this.handleOnClick} className="form-cancel-btn">
               Cancel
             </button>
           </div>
