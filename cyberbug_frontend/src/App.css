@@ -101,7 +101,7 @@ select {
   flex-direction: column;
   /* background: rgba(255, 0, 234, 0.5); */
   height: 100%;
-  box-shadow: 10px 10px 20px 5px rgba(0, 110, 255, 0.527);
+  box-shadow: 10px 10px 20px 0px rgba(0, 110, 255, 0.527);
   background-image: linear-gradient(
     rgba(255, 0, 234, 0.5),
     rgba(153, 0, 255, 0.719)
@@ -115,6 +115,12 @@ select {
     150% 0%,
     150% 100%
   );
+}
+
+#sidebar-header {
+  display: flex;
+  justify-content: end;
+  padding-right: 10pt;
 }
 
 .sidebar-button-container {
@@ -660,11 +666,12 @@ td {
 #project-left-column {
   width: 55%;
 }
-
+/* TODO: */
 #project-right-column {
   width: 45%;
   position: relative;
   overflow-x: hidden;
+  filter: drop-shadow(0px 0px 5px rgba(252, 5, 198, 0.932));
 }
 
 #project-title-panel {

@@ -10,7 +10,7 @@ class PageSidebar extends Component {
   render() {
     return (
       <div className="sidebar">
-        <div>
+        <div id="sidebar-header">
           <h3 className="right-align-text">Projects</h3>
         </div>
         <div className="scroll-container">
