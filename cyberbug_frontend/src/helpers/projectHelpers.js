@@ -86,7 +86,7 @@ export const generateProjectStatusBarData = (project, bugs) => {
       ((openCount - overdueCount) / totalBugsCount) * 100
     );
     const overduePercent = Math.round((overdueCount / totalBugsCount) * 100);
-    const closedPercent = Math.round((closedCount / totalBugsCount) * 100);
+    const closedPercent = Math.ceil((closedCount / totalBugsCount) * 100);
 
     return [openPercent, overduePercent, closedPercent];
   }

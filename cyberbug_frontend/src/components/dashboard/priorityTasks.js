@@ -5,9 +5,11 @@ class PriorityTasks extends Component {
   render() {
     return (
       <div className="test-border" id="priority-tasks-panel">
-        <h2>--Top 10 Tasks--</h2>
+        <div className="list-title">
+          <h2>Top 10 Priority Bugs</h2>
+        </div>
         {/* TODO: fill in content */}
-        <table>
+        <table id="priority-tasks-table">
           <thead>
             <tr>
               <th>Bug Id</th>

@@ -90,6 +90,7 @@ select {
   color: white;
   font-size: 14pt;
   font-weight: 700;
+  text-decoration: none;
 }
 
 /* *******************SIDEBAR STYLES**************** */
@@ -563,6 +564,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   background-color: rgb(0, 88, 122);
+  text-align: center;
 
   --cornerClip3: 15px;
   clip-path: polygon(
@@ -578,10 +580,12 @@ table {
 
 #bugs-list-panel {
   /* margin-left: 10px; */
+  /* padding-left: 10px; */
 }
 #bug-list {
   /* table-layout: fixed; */
   /* margin-left: 10px; */
+  padding-left: 10px;
   text-align: center;
 }
 
@@ -672,7 +676,7 @@ td {
 #project-left-column {
   width: 55%;
 }
-/* TODO: */
+
 #project-right-column {
   width: 45%;
   position: relative;
@@ -1156,7 +1160,7 @@ td {
   align-items: center;
   flex-direction: column;
 }
-/* TODO: */
+
 #page-back-btn {
   margin-left: 5px;
   width: 180px;
@@ -1186,14 +1190,36 @@ td {
 .error_text {
   color: rgb(255, 0, 98);
 }
-
+/* TODO: */
 /* Dashboard Panels */
 #priority-tasks-panel {
   width: 65%;
+  margin-bottom: 10px;
+}
+
+#priority-tasks-panel a {
+  /* text-decoration: none; */
+  color: inherit;
+}
+
+/* #priority-tasks-panel {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.726);
+} */
+
+.list-title {
+  margin: 10px 0 10px 10px;
+  color: rgba(255, 255, 255, 0.884);
+  /* font-weight: 700; */
 }
 
 #project-summary-chart {
   width: 35%;
+  color: white;
+}
+
+#project-list-detailed {
+  margin-right: 10px;
 }
 
 /* Status Bar */

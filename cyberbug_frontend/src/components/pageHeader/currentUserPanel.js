@@ -7,8 +7,8 @@ class CurrentUserPanel extends Component {
     if (currentUser) {
       const { first_name, last_name } = currentUser();
       return (
-        <Link to="/settings">
-          <div id="current-user-panel">
+        <Link to="/settings" id="current-user-panel">
+          <div>
             Hi, {first_name} {last_name}
           </div>
         </Link>

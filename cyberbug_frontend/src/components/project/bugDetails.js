@@ -47,10 +47,12 @@ class BugDetails extends Component {
                 {/* {bug.bugTags} */}
                 {this.renderTags()}
               </div>
-              <b>Line No:</b>
-              <p>{bug.bugLineNo}</p>
-              <b>Status:</b>
-              <p> {bug.bugStatus}</p>
+              <p>
+                <b>Line No:</b> {bug.bugLineNo}
+              </p>
+              <p>
+                <b>Status:</b> {bug.bugStatus}
+              </p>
               <p>
                 <b>Due Date:</b> {bug.bugDueDate}
               </p>
