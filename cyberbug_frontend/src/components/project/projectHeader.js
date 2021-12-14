@@ -17,12 +17,12 @@ class ProjectHeader extends Component {
             </div>
           </div>
           <div id="project-buttons-panel">
-            <span class="button-wrap">
+            <span className="button-wrap">
               <button onClick={this.handleOnClickEdit} id="project-edit-btn">
                 Edit Project
               </button>
             </span>
-            <span class="button-wrap">
+            <span className="button-wrap">
               <button
                 onClick={this.handleOnClickDelete}
                 id="project-delete-btn"
