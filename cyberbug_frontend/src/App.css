@@ -1127,14 +1127,15 @@ td {
 
 /* 404 page not found styles */
 .full-page {
-  z-index: 5;
+  z-index: 50;
   width: 100vw;
   height: 100vh;
   /* display: flex;
   justify-content: center;
   align-items: center; */
 
-  background-color: seagreen;
+  /* background-color: rgba(247, 0, 255, 0.808); */
+  background-image: linear-gradient(rgb(255, 0, 200), rgb(60, 0, 128));
   color: seashell;
 
   position: absolute;
@@ -1148,7 +1149,33 @@ td {
   align-items: center;
   flex-direction: column;
 }
+/* TODO: */
+#page-back-btn {
+  margin-left: 5px;
+  width: 180px;
 
+  background-color: #ff00ff;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+
+  --cornerClip19: 15px;
+  clip-path: polygon(
+    0% 100%,
+    0% var(--cornerClip19),
+    var(--cornerClip19) 0%,
+    100% 0%,
+    100% calc(100% - var(--cornerClip19)),
+    calc(100% - var(--cornerClip19)) 100%
+  );
+}
+
+/* ***********FORM ERROR TEST************* */
 .error_text {
   color: red;
 }
