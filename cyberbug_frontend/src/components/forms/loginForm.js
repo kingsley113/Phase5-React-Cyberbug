@@ -34,9 +34,7 @@ class LoginForm extends Component {
           <div className="centered-flex">
             <input type="submit" id="login-btn" value="Log In" />
             <Link to="/signup">
-              <button id="create-account" id="create-account-btn">
-                Create Account
-              </button>
+              <button id="create-account-btn">Create Account</button>
             </Link>
           </div>
         </form>

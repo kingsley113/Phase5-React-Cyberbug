@@ -2,11 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BugLineItem = (props) => {
-  const { bugId, bugTitle, bugPriority, bugDueDate, updated_at, bugStatus } =
-    props.bug;
+  const { bugId, bugTitle, bugPriority, bugDueDate, bugStatus } = props.bug;
   const url = props.url;
-  // TODO: need to add project status to front and backend
-  const updatedDate = new Date(updated_at).toLocaleDateString();
   const dueDate = () =>
     bugDueDate ? new Date(bugDueDate).toLocaleDateString() : "N/A";
 
@@ -20,7 +17,6 @@ const BugLineItem = (props) => {
       <td>{bugTitle}</td>
       <td>{bugPriority}</td>
       <td>{dueDate()}</td>
-      {/* <td>{updatedDate}</td> */}
       <td className="bug-status">{bugStatus}</td>
     </tr>
   );

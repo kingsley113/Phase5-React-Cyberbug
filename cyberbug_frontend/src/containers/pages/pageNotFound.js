@@ -1,5 +1,4 @@
 import React from "react";
-import PageBackground from "../../components/pageBackground";
 
 const PageNotFound = () => {
   return (
@@ -13,7 +12,6 @@ const PageNotFound = () => {
           </button>
         </div>
       </div>
-      {/* <PageBackground /> */}
     </div>
   );
 };
