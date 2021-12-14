@@ -7,11 +7,27 @@ class LoginPage extends Component {
   render() {
     return (
       <RedirectIfLoggedIn>
-        <div>
-          <LoginForm />
-          <Link to="/signup">
-            <button id="create-account">Create Account</button>
-          </Link>
+        <div className="full-page centered-flex transparent-background">
+          <div className="centered-flex-vert">
+            <img
+              src="/cyberbugLogoQuick.png"
+              alt="Cyberbug Logo"
+              className="med-logo"
+            />
+            <div>
+              <LoginForm />
+              {/* <Link to="/signup">
+                <button id="create-account" id="create-account-btn">
+                  Create Account
+                </button>
+              </Link> */}
+            </div>
+
+            {/* <h1>Whoops, page not found!</h1> */}
+            {/* <button onClick={() => window.history.back()} id="page-back-btn"> */}
+            {/* Go Back to Safety! */}
+            {/* </button> */}
+          </div>
         </div>
       </RedirectIfLoggedIn>
     );

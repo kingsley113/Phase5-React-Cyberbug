@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { userLogin } from "../../actions/authActions";
 
 class LoginForm extends Component {
@@ -13,7 +14,6 @@ class LoginForm extends Component {
     return (
       <div>
         <form id="login-form" onSubmit={this.handleOnSubmit}>
-          <label htmlFor="username">Username:</label>
           <input
             type="text"
             name="username"
@@ -21,7 +21,7 @@ class LoginForm extends Component {
             onChange={this.handleOnChange}
             value={this.state.username}
           />
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="username">Username</label>
           <input
             type="password"
             name="password"
@@ -29,8 +29,16 @@ class LoginForm extends Component {
             onChange={this.handleOnChange}
             value={this.state.password}
           />
+          <label htmlFor="password">Password</label>
           <div>{this.renderErrors()}</div>
-          <input type="submit" />
+          <div className="centered-flex">
+            <input type="submit" id="login-btn" value="Log In" />
+            <Link to="/signup">
+              <button id="create-account" id="create-account-btn">
+                Create Account
+              </button>
+            </Link>
+          </div>
         </form>
       </div>
     );
