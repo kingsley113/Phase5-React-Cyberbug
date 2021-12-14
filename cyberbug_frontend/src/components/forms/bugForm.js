@@ -26,20 +26,21 @@ class BugForm extends Component {
   render() {
     return (
       <div>
-        <h2>
+        {/* <h2>
           Create a new bug for project {this.props.project.projectId} -{" "}
           {this.props.project.projectTitle}:
-        </h2>
-        <form onSubmit={this.handleOnSubmit}>
-          <div className="row">
-            <label htmlFor="bugId" className="col-sm-1 right-align-text">
+        </h2> */}
+        <form onSubmit={this.handleOnSubmit} id="bug-form">
+          <div name="bugId" className="col-sm-1" id="bug-form-id-stylized">
+            {this.state.bugId}
+          </div>
+          <div id="bug-form-title-stylized">{this.state.bugTitle}</div>
+          {/* <label htmlFor="bugId" className="col-sm-1 right-align-text">
               Bug ID:{" "}
-            </label>
-            <span name="bugId" className="col-sm-1">
-              {this.state.bugId}
-            </span>
+            </label> */}
+          <div className="row" id="title-row">
             <label htmlFor="bugTitle" className="col-sm-1 right-align-text">
-              Title:{" "}
+              <b>Title:</b>
             </label>
             <input
               type="text"
@@ -47,6 +48,7 @@ class BugForm extends Component {
               className="col-lg-3"
               value={this.state.bugTitle}
               onChange={this.handleOnChange}
+              required
             />
           </div>
           <div className="row">
@@ -54,24 +56,40 @@ class BugForm extends Component {
               htmlFor="bugDescription"
               className="col-sm-1 right-align-text"
             >
-              Description:{" "}
+              <b>Description:</b>
             </label>
             <textarea
               name="bugDescription"
               value={this.state.bugDescription}
               onChange={this.handleOnChange}
+              placeholder="Description of issue and how to replicate"
             ></textarea>
           </div>
           <div className="row">
+            <label htmlFor="bugDetails" className="col-sm-1 right-align-text">
+              <b>Details:</b>
+            </label>
+            <textarea
+              name="bugDetails"
+              value={this.state.bugDetails}
+              onChange={this.handleOnChange}
+              placeholder="OS, Browser, Versions, Error Codes, etc."
+            ></textarea>
+          </div>
+          <div className="row" id="tags-row">
             <label htmlFor="bugTags" className="col-sm-1 right-align-text">
-              Tags:{" "}
+              <b>Tags:</b>
             </label>
             {/* *************TAGS*************** */}
-            <ReactTagInput
-              tags={this.state.bugTags.split(",")}
-              onChange={(newTags) => this.setState({ bugTags: newTags.join() })}
-              placeholder="Type and press enter"
-            />
+            <div id="tag-entry-wrapper">
+              <ReactTagInput
+                tags={this.state.bugTags.split(",")}
+                onChange={(newTags) =>
+                  this.setState({ bugTags: newTags.join() })
+                }
+                placeholder="Type and press enter"
+              />
+            </div>
             {/* <textarea
               name="bugTags"
               value={this.state.bugTags}
@@ -79,18 +97,8 @@ class BugForm extends Component {
             ></textarea> */}
           </div>
           <div className="row">
-            <label htmlFor="bugDetails" className="col-sm-1 right-align-text">
-              Details:{" "}
-            </label>
-            <textarea
-              name="bugDetails"
-              value={this.state.bugDetails}
-              onChange={this.handleOnChange}
-            ></textarea>
-          </div>
-          <div className="row">
             <label htmlFor="bugLineNo" className="col-sm-1 right-align-text">
-              File/Line No:{" "}
+              <b>File/Line No:</b>
             </label>
             <input
               type="text"
@@ -98,16 +106,19 @@ class BugForm extends Component {
               className="col-lg-4"
               value={this.state.bugLineNo}
               onChange={this.handleOnChange}
+              placeholder="List the file(s) and line numbers containing the bug."
             />
           </div>
-          <div className="row">
+          {/* ******************** */}
+          <div className="row" id="selectors-panel">
             <label htmlFor="bugPriority" className="col-sm-1 right-align-text">
-              Priority:{" "}
+              <b>Priority:</b>
             </label>
             <select
               name="bugPriority"
               value={this.state.bugPriority}
               onChange={this.handleOnChange}
+              id="priority-input"
             >
               <option value="Low">Low</option>
               <option value="Medium">Medium</option>
@@ -115,29 +126,39 @@ class BugForm extends Component {
               <option value="Critical">Critical</option>
               <option value="Roadblock">Roadblock</option>
             </select>
-            <label htmlFor="bugDueDate">Due Date: </label>
+            <label htmlFor="bugDueDate" className="col-sm-1 right-align-text">
+              <b>Due Date:</b>
+            </label>
             <input
               type="date"
               name="bugDueDate"
               value={this.state.bugDueDate}
               onChange={this.handleOnChange}
+              id="due-date-input"
             />
-            <div>
-              <label htmlFor="bugStatus">Status:</label>
-              <select
-                name="bugStatus"
-                value={this.state.bugStatus}
-                onChange={this.handleOnChange}
-              >
-                <option value="Not Started">Not Started</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Complete">Complete</option>
-              </select>
-            </div>
+            {/* <div> */}
+            <label htmlFor="bugStatus" className="col-sm-1 right-align-text">
+              <b>Status:</b>
+            </label>
+            <select
+              name="bugStatus"
+              value={this.state.bugStatus}
+              onChange={this.handleOnChange}
+              id="status-input"
+            >
+              <option value="Not Started">Not Started</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Complete">Complete</option>
+            </select>
+            {/* </div> */}
           </div>
-          <div className="row">
-            <input type="submit" value="Save Bug (Ew!)" />
-            <button onClick={this.handleOnClick}>Cancel</button>
+          {/* **************************** */}
+          {/* BUTTONS */}
+          <div className="row form-btn-row">
+            <input type="submit" value="Save Bug (Ew!)" id="bug-save-btn" />
+            <button onClick={this.handleOnClick} id="bug-cancel-btn">
+              Cancel
+            </button>
           </div>
         </form>
       </div>
