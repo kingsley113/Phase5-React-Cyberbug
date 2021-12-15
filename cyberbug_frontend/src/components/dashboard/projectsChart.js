@@ -30,7 +30,17 @@ class ProjectsChart extends Component {
               backgroundColor: "none",
               pieSliceText: "label",
               legend: "none",
-              colors: ["272760", "442768", "ED1E79", "OCFFE1"],
+              colors: [
+                "272760",
+                "442768",
+                "ED1E79",
+                "0CFFE1",
+                "ff124f",
+                "ff00a0",
+                "fe75fe",
+                "7a04eb",
+                "120458",
+              ],
               chartArea: { width: "90%", height: "90%" },
               height: "280",
             }}
