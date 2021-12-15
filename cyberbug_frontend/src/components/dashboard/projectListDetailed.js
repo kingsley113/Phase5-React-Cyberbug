@@ -9,7 +9,7 @@ import ProjectStatus from "../project/projectStatus";
 
 class ProjectListDetailed extends Component {
   renderDetailedProjectList() {
-    if (this.props.projects) {
+    if (this.props.projects && this.props.projects.length > 0) {
       return this.props.projects.map((project) => {
         return (
           <tr key={project.id}>
@@ -32,12 +32,18 @@ class ProjectListDetailed extends Component {
             <td>{overdueBugCount(project, this.props.bugs)}</td>
             <td>{totalBugCount(project, this.props.bugs)}</td>
             <td>
-              <ProjectStatus project={project} />
+              <ProjectStatus project={project} bugs={this.props.bugs} />
             </td>
             <td>{new Date(project.updated_at).toLocaleDateString()}</td>
           </tr>
         );
       });
+    } else {
+      return (
+        <tr>
+          <td>No Projects!</td>
+        </tr>
+      );
     }
   }
 

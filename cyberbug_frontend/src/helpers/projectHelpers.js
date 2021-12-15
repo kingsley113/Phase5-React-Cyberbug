@@ -80,7 +80,12 @@ export const generateProjectStatusBarData = (project, bugs) => {
     // closed bug %
     const closedCount = closedBugCount(project, bugs);
     // these 3 need to add up to 100%
-    const totalBugsCount = totalBugCount(project, bugs);
+    let totalBugsCount = totalBugCount(project, bugs);
+
+    // Handle edge case of no bugs causing divide by 0
+    if (totalBugsCount === 0) {
+      totalBugsCount += 1;
+    }
 
     const openPercent = Math.round(
       ((openCount - overdueCount) / totalBugsCount) * 100

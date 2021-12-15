@@ -26,6 +26,7 @@ class PriorityTasks extends Component {
   }
 
   renderPriorityTableRows() {
+    // TODO: this needs to be refactored to only include this users bugs, or refactor backend to only serve this users bugs would be better
     if (this.props.bugs) {
       let bugArray = [];
 
@@ -79,35 +80,51 @@ class PriorityTasks extends Component {
       bugArray = bugArray.concat(lowBugs);
 
       // Generate table elements and return first 10
-      return bugArray
-        .map((bug, index) => {
-          return (
-            <tr key={index}>
-              <td>
-                <Link
-                  to={`/projects/${this.getProjectIdCode(bug.project_id)}/${
-                    bug.bugId
-                  }`}
-                >
-                  {bug.bugId}
-                </Link>
-              </td>
-              <td>{bug.bugTitle}</td>
-              <td>{bug.bugPriority}</td>
-              <td>{new Date(bug.bugDueDate).toLocaleDateString()}</td>
-              <td>{bug.bugStatus}</td>
-              <td>{this.getProjectIdCode(bug.project_id)}</td>
-            </tr>
-          );
-        })
-        .slice(0, 10);
+      // console.log("Bug Array: ", bugArray);
+      // console.log("Length: ", bugArray.length);
+      if (bugArray.length > 0) {
+        // console.log("we are in the if statement");
+        return bugArray
+          .map((bug, index) => {
+            return (
+              <tr key={index}>
+                <td>
+                  <Link
+                    to={`/projects/${this.getProjectIdCode(bug.project_id)}/${
+                      bug.bugId
+                    }`}
+                  >
+                    {bug.bugId}
+                  </Link>
+                </td>
+                <td>{bug.bugTitle}</td>
+                <td>{bug.bugPriority}</td>
+                <td>{new Date(bug.bugDueDate).toLocaleDateString()}</td>
+                <td>{bug.bugStatus}</td>
+                <td>{this.getProjectIdCode(bug.project_id)}</td>
+              </tr>
+            );
+          })
+          .slice(0, 10);
+      } else {
+        return (
+          <tr>
+            <td>No Bugs!</td>
+          </tr>
+        );
+      }
     }
   }
 
   getProjectIdCode(id) {
     if (this.props.projects) {
-      return this.props.projects.filter((project) => project.id === id)[0]
-        .projectId;
+      console.log(this.props.projects.filter((project) => project.id === id));
+      const projectList = this.props.projects.filter(
+        (project) => project.id === id
+      );
+      if (projectList.length > 0) {
+        return projectList[0].projectId;
+      }
     }
   }
 }
