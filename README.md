@@ -23,28 +23,32 @@ Log In or Create user
 Start by entering your login info or selecting 'create user' to make a new account
 
 Dashbaord:
--Upon logging in, you will be presented with the dashboard page with several panels:
--Project list, select a project from the left hand panel to view that projects page
--Top 10 priority bugs - This list will show the top 10 open bugs between all of your projects, sorted by priority and then by due date. Select the bug ID to be taken to that bug's page
--Project Details List - This list shows a detailed list of all the projects and each projects stats. Select the edit icon at left to view the project's page.
--Project Summary Chart - This pie chart shows the number of bugs open by project for an at a glance presentation of project severity.
+
+- Upon logging in, you will be presented with the dashboard page with several panels:
+- Project list, select a project from the left hand panel to view that projects page
+- Top 10 priority bugs - This list will show the top 10 open bugs between all of your projects, sorted by priority and then by due date. Select the bug ID to be taken to that bug's page
+- Project Details List - This list shows a detailed list of all the projects and each projects stats. Select the edit icon at left to view the project's page.
+- Project Summary Chart - This pie chart shows the number of bugs open by project for an at a glance presentation of project severity.
 
 There are 4 icons at the bottom of the projects list panel:
--Home Icon: this brings to back to the dashboard page
--New Project: this will bring up the new project form
--Settings: this will bring you to the settings and info page
--Logout: this will log you out and return to the login screen
+
+- Home Icon: this brings to back to the dashboard page
+- New Project: this will bring up the new project form
+- Settings: this will bring you to the settings and info page
+- Logout: this will log you out and return to the login screen
 
 Project Page:
--The project page show further detail on each of its bugs and counts
--Select from the edit or delete buttons at top to modify the project
--Select the 'New Bug' icon to bring up a from and enter all of the relavent details for that particular bug and submit.
--Select a bug from the list to be presented with the details panel for that bug on the right.
+
+- The project page show further detail on each of its bugs and counts
+- Select from the edit or delete buttons at top to modify the project
+- Select the 'New Bug' icon to bring up a from and enter all of the relavent details for that particular bug and submit.
+- Select a bug from the list to be presented with the details panel for that bug on the right.
 
 Bug Details:
--Select 'Edit Bug' to bring up the form and modify the bug details
--Select 'Squash Bug' to mark the bug as complete and remove it from the open bugs list, the bug will remain on the list for future reference
--Select 'Delete Bug' to completely remove it from the database
+
+- Select 'Edit Bug' to bring up the form and modify the bug details
+- Select 'Squash Bug' to mark the bug as complete and remove it from the open bugs list, the bug will remain on the list for future reference
+- Select 'Delete Bug' to completely remove it from the database
 
 ## License
 
