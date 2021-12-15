@@ -26,7 +26,6 @@ class PriorityTasks extends Component {
   }
 
   renderPriorityTableRows() {
-    // TODO: this needs to be refactored to only include this users bugs, or refactor backend to only serve this users bugs would be better
     if (this.props.bugs) {
       let bugArray = [];
 
@@ -80,10 +79,7 @@ class PriorityTasks extends Component {
       bugArray = bugArray.concat(lowBugs);
 
       // Generate table elements and return first 10
-      // console.log("Bug Array: ", bugArray);
-      // console.log("Length: ", bugArray.length);
       if (bugArray.length > 0) {
-        // console.log("we are in the if statement");
         return bugArray
           .map((bug, index) => {
             return (
