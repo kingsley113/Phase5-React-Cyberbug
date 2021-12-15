@@ -12,7 +12,7 @@ class Api::BugsController < ApplicationController
 
 	# Read
 	def index
-		render json: Bug.all
+		render json: current_user.bugs
 	end
 	
 	def show
