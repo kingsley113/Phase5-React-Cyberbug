@@ -16,7 +16,6 @@ export const createBug = (bugObject) => {
         return response.json();
       })
       .then((json) => {
-        console.log(json);
         dispatch({ type: "ADD_BUG", bug: json.bug });
         dispatch(hideToggle("newBugFormToggle"));
       })
