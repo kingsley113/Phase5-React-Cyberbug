@@ -1,29 +1,26 @@
 function projects(state = { projects: [] }, action) {
   switch (action.type) {
     case "ADD_PROJECT":
-      return { allProjects: state.concat(action.project) };
+      return { allProjects: [...state.allProjects, action.project] };
     case "LOAD_PROJECTS":
-      return { allProjects: state.projects.concat(action.projects) };
+      return { allProjects: action.projects };
     case "EDIT_PROJECT":
-      return state;
-    case "DELETE_PROJECT":
-      return state;
-    case "ADD_BUG_TO_PROJECT":
-      return state;
-    case "REMOVE_BUG_FROM_PROJECT":
-      return state;
-    case "SET_ACTIVE_PROJECT":
-      let activeProject = null;
-      // console.log(state);
-      const updatedProjects = [...state.allProjects].map((project) => {
-        project.activeProject = false;
-        if (project.id === parseInt(action.id)) {
-          project.activeProject = true;
-          activeProject = project;
-        }
-        return project;
+      const updatedProjects = state.allProjects.map((proj) => {
+        return proj.projectId === action.project.projectId
+          ? action.project
+          : proj;
       });
-      return { allProjects: updatedProjects, activeProject: activeProject };
+      return { ...state, allProjects: updatedProjects };
+    case "DELETE_PROJECT":
+      return {
+        allProjects: state.allProjects.filter(
+          (project) => project.projectId !== action.project.projectId
+        ),
+      };
+    case "SET_ACTIVE_PROJECT":
+      return { ...state, activeProject: action.project };
+    case "RESET_ACTIVE_PROJECT":
+      return { ...state, activeProject: null };
     default:
       return state;
   }

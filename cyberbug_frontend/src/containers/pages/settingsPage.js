@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import UserInfo from "../../components/settings/userInfo";
-import UserForm from "../../components/settings/userForm";
+import ProjectCredits from "../../components/settings/projectCredits";
 
 class SettingsPage extends Component {
   render() {
     return (
-      <div>
-        -This is the settings component :)
-        {/* TODO: Fill in the settings content */}
+      <div id="settings-page">
+        <div id="settings-title-stylized"> Project Settings & Info</div>
+        <h1 id="current-user-title">Current User:</h1>
         <UserInfo />
-        <UserForm />
+        <ProjectCredits />
       </div>
     );
   }

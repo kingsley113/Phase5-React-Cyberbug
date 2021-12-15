@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
-import bugsReducer from "./bugsReducer";
+import bugs from "./bugsReducer";
 import projects from "./projectsReducer";
-// import formsReducer from "./formsReducer";
 import toggleReducer from "./toggleReducer";
+import forms from "./formsReducer";
+import auth from "./authReducer";
 
 export default combineReducers({
-  bugs: bugsReducer,
+  bugs,
   projects,
-  // forms: formsReducer,
   toggles: toggleReducer,
+  forms,
+  auth,
 });

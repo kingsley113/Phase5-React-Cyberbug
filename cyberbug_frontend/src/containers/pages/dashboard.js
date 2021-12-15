@@ -1,36 +1,29 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-// import ProjectStatus from "../../components/project/projectStatus";
 import ProjectsChart from "../../components/dashboard/projectsChart";
 import PriorityTasks from "../../components/dashboard/priorityTasks";
-import DailyInfoPanel from "../../components/dashboard/dailyInfoPanel";
-import ProjectsList from "../../components/dashboard/projectList";
-// import PageSidebar from "../../components/pageSidebar";
+import ProjectsListDetailed from "../../components/dashboard/projectListDetailed";
 
 class Dashboard extends Component {
   render() {
     return (
       <div className="test-border dashboard">
         <div className="test-border-blue dashboard-stats-container">
-          <PriorityTasks />
-          <ProjectsChart />
-          <DailyInfoPanel />
+          <PriorityTasks
+            projects={this.props.projects}
+            bugs={this.props.bugs}
+          />
+          <ProjectsChart
+            projects={this.props.projects}
+            bugs={this.props.bugs}
+          />
         </div>
-        {/* <ProjectStatus /> */}
-        <ProjectsList
+        <ProjectsListDetailed
           projects={this.props.projects}
-          activeProject={this.props.activeProject}
+          bugs={this.props.bugs}
         />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    projects: state.projects.allProjects,
-    activeProject: state.projects.activeProject,
-  };
-};
-
-export default connect(mapStateToProps)(Dashboard);
+export default Dashboard;

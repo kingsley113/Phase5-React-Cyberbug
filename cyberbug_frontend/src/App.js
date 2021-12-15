@@ -1,28 +1,26 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router } from "react-router-dom";
-
-import PageHeader from "./components/pageHeader";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageContent from "./containers/pageContent";
-import PageSidebar from "./components/pageSidebar";
+import LoginPage from "./containers/pages/loginPage";
+import NewUserPage from "./containers/pages/newUserPage";
+import PageNotFound from "./containers/pages/pageNotFound";
+import PageBackground from "./components/pageBackground";
 
 class App extends Component {
   render() {
     return (
-      // <div>
-      <Router>
-        <div>
-          <PageHeader />
-        </div>
-        <div className="page-main">
-          {/* Sidebar */}
-          <PageSidebar />
-          {/* Content */}
-          <PageContent />
-        </div>
-        {/* </div> */}
-      </Router>
-      // TODO: Add logic to determine if user is logged in or not and show splash screen if not
+      <div>
+        <Router>
+          <Switch>
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={NewUserPage} />
+            <Route path="/" component={PageContent} />
+            <Route component={PageNotFound} />
+          </Switch>
+        </Router>
+        <PageBackground />
+      </div>
     );
   }
 }

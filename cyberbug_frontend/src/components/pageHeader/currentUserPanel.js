@@ -1,19 +1,19 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import currentUser from "../../helpers/currentUser";
 
 class CurrentUserPanel extends Component {
-  handleOnClick = (event) => {
-    console.log(
-      "Thats my name dont wear it out!... This will load the settings page"
-    );
-  };
-
   render() {
-    return (
-      <div id="current-user-panel" onClick={this.handleOnClick}>
-        {/* TODO: Fill in this content with the real user */}
-        Hi, Marty McBuggy
-      </div>
-    );
+    if (currentUser) {
+      const { first_name, last_name } = currentUser();
+      return (
+        <Link to="/settings" id="current-user-panel">
+          <div>
+            Hi, {first_name} {last_name}
+          </div>
+        </Link>
+      );
+    }
   }
 }
 

@@ -5,14 +5,14 @@ class CreateBugs < ActiveRecord::Migration[6.1]
       t.text :bugDescription
       t.text :bugDetails
 			t.text :bugTags
-      t.integer :bugTeamMember
 			t.string :bugLineNo
-      t.integer :bugProjectId
+      t.integer :project_id
       t.string :bugId
       t.string :bugPriority
       t.date :bugDueDate
       t.date :bugCompletedDate
       t.boolean :bugComplete
+			t.string :bugStatus
 
       t.timestamps
     end

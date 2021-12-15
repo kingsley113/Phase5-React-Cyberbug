@@ -1,20 +1,31 @@
-function bugsReducer(
+function bugs(
   state = {
     bugs: [],
   },
   action
 ) {
-  // TODO: Build this reducer
   switch (action.type) {
     case "ADD_BUG":
-      return { bugs: [...state.bugs, action.bug] };
+      console.log(action.bug);
+      return { allBugs: [...state.allBugs, action.bug] };
+    case "LOAD_BUGS":
+      return { allBugs: action.bugs };
     case "EDIT_BUG":
-      return state;
+      const updatedBugs = state.allBugs.map((bug) => {
+        return bug.bugId === action.bug.bugId ? action.bug : bug;
+      });
+      return { ...state, allBugs: updatedBugs };
     case "DELETE_BUG":
-      return state;
+      return {
+        allBugs: state.allBugs.filter((bug) => bug.bugId !== action.bug.bugId),
+      };
+    case "SET_ACTIVE_BUG":
+      return { ...state, activeBug: action.bug };
+    case "RESET_ACTIVE_BUG":
+      return { ...state, activeBug: null };
     default:
       return state;
   }
 }
 
-export default bugsReducer;
+export default bugs;
