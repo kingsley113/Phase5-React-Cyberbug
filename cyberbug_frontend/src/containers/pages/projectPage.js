@@ -7,8 +7,8 @@ import {
   resetActiveProject,
 } from "../../actions/projectActions";
 
-import BugList from "../../components/project/bugList";
-import BugDetails from "../../components/project/bugDetails";
+import BugList from "../../components/bugs/bugList";
+import BugDetails from "../../components/bugs/bugDetails";
 import BugForm from "../../components/forms/bugForm";
 import ModalWindow from "../modalWindow";
 import Toggle from "../toggle";

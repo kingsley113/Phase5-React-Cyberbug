@@ -114,7 +114,6 @@ class PriorityTasks extends Component {
 
   getProjectIdCode(id) {
     if (this.props.projects) {
-      console.log(this.props.projects.filter((project) => project.id === id));
       const projectList = this.props.projects.filter(
         (project) => project.id === id
       );
