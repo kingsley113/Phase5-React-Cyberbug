@@ -1,8 +1,9 @@
 class Api::ProjectsController < ApplicationController
 	# index
 	def index
-		users_projects = Project.select { |proj| proj.user == current_user}
-		render json: users_projects
+		# users_projects = Project.select { |proj| proj.user == current_user}
+		user_projects = current_user.projects
+		render json: user_projects
 	end
 	
 	# Create
