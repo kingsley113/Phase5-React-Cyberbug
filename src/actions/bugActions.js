@@ -11,7 +11,7 @@ export const createBug = (bugObject) => {
       },
       body: JSON.stringify(bugObject),
     };
-    fetch(`http://localhost:8000/api/bugs`, configurationObject)
+    fetch(`https://cyberbug-api.herokuapp.com/api/v1/bugs`, configurationObject)
       .then((response) => {
         return response.json();
       })
@@ -28,7 +28,7 @@ export const createBug = (bugObject) => {
 
 export const loadBugs = () => {
   return (dispatch) => {
-    fetch("http://localhost:8000/api/bugs", {
+    fetch("https://cyberbug-api.herokuapp.com/api/v1/bugs", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -70,7 +70,10 @@ export const editBug = (bug) => {
       },
       body: JSON.stringify(bug),
     };
-    fetch(`http://localhost:8000/api/bugs/${bug.bug.id}`, configurationObject)
+    fetch(
+      `https://cyberbug-api.herokuapp.com/api/v1/bugs/${bug.bug.id}`,
+      configurationObject
+    )
       .then((response) => {
         return response.json();
       })
@@ -102,7 +105,10 @@ export const deleteBug = (bug) => {
       },
       body: JSON.stringify(bug),
     };
-    fetch(`http://localhost:8000/api/bugs/${bug.bugId}`, configurationObject)
+    fetch(
+      `https://cyberbug-api.herokuapp.com/api/v1/bugs/${bug.bugId}`,
+      configurationObject
+    )
       .then((response) => {
         return response.json();
       })

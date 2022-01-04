@@ -11,7 +11,10 @@ export const createProject = (projectObject) => {
       },
       body: JSON.stringify({ project: projectObject }),
     };
-    fetch("http://localhost:8000/api/projects", configurationObject)
+    fetch(
+      "https://cyberbug-api.herokuapp.com/api/v1/projects",
+      configurationObject
+    )
       .then((response) => {
         return response.json();
       })
@@ -28,7 +31,7 @@ export const createProject = (projectObject) => {
 
 export const loadProjects = () => {
   return (dispatch) => {
-    fetch("http://localhost:8000/api/projects", {
+    fetch("https://cyberbug-api.herokuapp.com/api/v1/projects", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -71,7 +74,7 @@ export const editProject = (project) => {
       body: JSON.stringify({ project: project }),
     };
     fetch(
-      `http://localhost:8000/api/projects/${project.id}`,
+      `https://cyberbug-api.herokuapp.com/api/v1/projects/${project.id}`,
       configurationObject
     )
       .then((response) => {
@@ -100,7 +103,7 @@ export const deleteProject = (project) => {
       body: JSON.stringify(project),
     };
     fetch(
-      `http://localhost:8000/api/projects/${project.id}`,
+      `https://cyberbug-api.herokuapp.com/api/v1/projects/${project.id}`,
       configurationObject
     )
       .then((response) => {
