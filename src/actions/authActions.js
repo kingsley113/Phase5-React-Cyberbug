@@ -1,6 +1,6 @@
 export const userLogin = (userData) => {
   return (dispatch) => {
-    fetch("https://cyberbug-api.herokuapp.com/api/v1/login", {
+    fetch("https://cyberbug-api.herokuapp.com/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export const userLogin = (userData) => {
 
 export const createUser = (userData) => {
   return (dispatch) => {
-    fetch("https://cyberbug-api.herokuapp.com/api/v1/users", {
+    fetch("https://cyberbug-api.herokuapp.com/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

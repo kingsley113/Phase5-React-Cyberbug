@@ -71,7 +71,7 @@ export const editBug = (bug) => {
       body: JSON.stringify(bug),
     };
     fetch(
-      `https://cyberbug-api.herokuapp.com/api/v1/bugs/${bug.bug.id}`,
+      `https://cyberbug-api.herokuapp.com/api/bugs/${bug.bug.id}`,
       configurationObject
     )
       .then((response) => {
@@ -106,7 +106,7 @@ export const deleteBug = (bug) => {
       body: JSON.stringify(bug),
     };
     fetch(
-      `https://cyberbug-api.herokuapp.com/api/v1/bugs/${bug.bugId}`,
+      `https://cyberbug-api.herokuapp.com/api/bugs/${bug.bugId}`,
       configurationObject
     )
       .then((response) => {
