@@ -1,7 +1,7 @@
 import RedirectIfLoggedIn from "../../components/auth/redirectIfLoggedIn";
 import LoginForm from "../../components/forms/loginForm";
 
-import logoImage from "../../media/images/cyberbugLogoQuick.png";
+// import logoImage from "../../media/images/cyberbugLogoQuick.png";
 
 const LoginPage = () => {
   return (
@@ -10,7 +10,7 @@ const LoginPage = () => {
         <div className="centered-flex-vert">
           <img
             // src="%PUBLIC_URL%/cyberbugLogoQuick.png"
-            src={logoImage}
+            src={require("../../media/images/cyberbugLogoQuick.png")}
             alt="Cyberbug Logo"
             className="med-logo"
           />
