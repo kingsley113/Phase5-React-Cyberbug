@@ -1,6 +1,8 @@
+import { apiUrl } from "./fetchConfig";
+
 export const userLogin = (userData) => {
   return (dispatch) => {
-    fetch("https://cyberbug-api.herokuapp.com/api/login", {
+    fetch(`${apiUrl}/api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +24,7 @@ export const userLogin = (userData) => {
 
 export const createUser = (userData) => {
   return (dispatch) => {
-    fetch("https://cyberbug-api.herokuapp.com/api/users", {
+    fetch(`${apiUrl}/api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 import { hideToggle } from "./toggleActions";
+import { apiUrl } from "./fetchConfig";
 
 export const createProject = (projectObject) => {
   return (dispatch) => {
@@ -11,10 +12,7 @@ export const createProject = (projectObject) => {
       },
       body: JSON.stringify({ project: projectObject }),
     };
-    fetch(
-      "https://cyberbug-api.herokuapp.com/api/projects",
-      configurationObject
-    )
+    fetch(`${apiUrl}/api/projects`, configurationObject)
       .then((response) => {
         return response.json();
       })
@@ -31,7 +29,7 @@ export const createProject = (projectObject) => {
 
 export const loadProjects = () => {
   return (dispatch) => {
-    fetch("https://cyberbug-api.herokuapp.com/api/projects", {
+    fetch(`${apiUrl}/api/projects`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -73,10 +71,7 @@ export const editProject = (project) => {
       },
       body: JSON.stringify({ project: project }),
     };
-    fetch(
-      `https://cyberbug-api.herokuapp.com/api/projects/${project.id}`,
-      configurationObject
-    )
+    fetch(`${apiUrl}/api/projects/${project.id}`, configurationObject)
       .then((response) => {
         return response.json();
       })
@@ -102,10 +97,7 @@ export const deleteProject = (project) => {
       },
       body: JSON.stringify(project),
     };
-    fetch(
-      `https://cyberbug-api.herokuapp.com/api/projects/${project.id}`,
-      configurationObject
-    )
+    fetch(`${apiUrl}/api/projects/${project.id}`, configurationObject)
       .then((response) => {
         return response.json();
       })

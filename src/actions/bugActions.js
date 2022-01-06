@@ -1,4 +1,5 @@
 import { hideToggle } from "./toggleActions";
+import { apiUrl } from "./fetchConfig";
 
 export const createBug = (bugObject) => {
   return (dispatch) => {
@@ -11,7 +12,7 @@ export const createBug = (bugObject) => {
       },
       body: JSON.stringify(bugObject),
     };
-    fetch(`https://cyberbug-api.herokuapp.com/api/v1/bugs`, configurationObject)
+    fetch(`${apiUrl}/api/bugs`, configurationObject)
       .then((response) => {
         return response.json();
       })
@@ -28,7 +29,7 @@ export const createBug = (bugObject) => {
 
 export const loadBugs = () => {
   return (dispatch) => {
-    fetch("https://cyberbug-api.herokuapp.com/api/v1/bugs", {
+    fetch(`${apiUrl}/api/bugs`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -70,10 +71,7 @@ export const editBug = (bug) => {
       },
       body: JSON.stringify(bug),
     };
-    fetch(
-      `https://cyberbug-api.herokuapp.com/api/bugs/${bug.bug.id}`,
-      configurationObject
-    )
+    fetch(`${apiUrl}/api/bugs/${bug.bug.id}`, configurationObject)
       .then((response) => {
         return response.json();
       })
@@ -105,10 +103,7 @@ export const deleteBug = (bug) => {
       },
       body: JSON.stringify(bug),
     };
-    fetch(
-      `https://cyberbug-api.herokuapp.com/api/bugs/${bug.bugId}`,
-      configurationObject
-    )
+    fetch(`${apiUrl}/api/bugs/${bug.bugId}`, configurationObject)
       .then((response) => {
         return response.json();
       })
