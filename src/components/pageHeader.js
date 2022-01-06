@@ -8,7 +8,7 @@ class PageHeader extends Component {
     return (
       <div className="page-header">
         <img
-          src="/cyberbugLogoQuick.png"
+          src="/images/cyberbugLogoQuick.png"
           alt="Cyberbug Logo"
           className="logo"
         />
