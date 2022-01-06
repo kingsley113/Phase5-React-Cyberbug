@@ -1,13 +1,16 @@
 import RedirectIfLoggedIn from "../../components/auth/redirectIfLoggedIn";
 import LoginForm from "../../components/forms/loginForm";
 
+import logoImage from "./cyberbugLogoQuick.png";
+
 const LoginPage = () => {
   return (
     <RedirectIfLoggedIn>
       <div className="full-page centered-flex transparent-background">
         <div className="centered-flex-vert">
           <img
-            src="%PUBLIC_URL%/cyberbugLogoQuick.png"
+            // src="%PUBLIC_URL%/cyberbugLogoQuick.png"
+            src={logoImage}
             alt="Cyberbug Logo"
             className="med-logo"
           />
