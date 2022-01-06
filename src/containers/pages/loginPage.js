@@ -10,7 +10,7 @@ const LoginPage = () => {
         <div className="centered-flex-vert">
           <img
             // src="%PUBLIC_URL%/cyberbugLogoQuick.png"
-            src={require("%PUBLIC_URL%/cyberbugLogoQuick.png")}
+            src={`${process.env.PUBLIC_URL}/assets/cyberbugLogoQuick.png`}
             alt="Cyberbug Logo"
             className="med-logo"
           />
