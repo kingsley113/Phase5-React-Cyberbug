@@ -1,7 +1,7 @@
 import RedirectIfLoggedIn from "../../components/auth/redirectIfLoggedIn";
 import LoginForm from "../../components/forms/loginForm";
 
-import logoImage from "./cyberbugLogoQuick.png";
+import logoImage from "../../media/images/cyberbugLogoQuick.png";
 
 const LoginPage = () => {
   return (
