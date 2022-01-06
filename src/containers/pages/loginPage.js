@@ -7,7 +7,8 @@ const LoginPage = () => {
       <div className="full-page centered-flex transparent-background">
         <div className="centered-flex-vert">
           <img
-            src="/images/cyberbugLogoQuick.png"
+            // src="/images/cyberbugLogoQuick.png"
+            src="/icons/new.png"
             alt="Cyberbug Logo"
             className="med-logo"
           />
