@@ -5,7 +5,7 @@ const ProtectedRoute = (props) => {
     return props.children;
   } else {
     console.log("======Redirecting Due to not logged in=======");
-    alert("You must be logged in to continue");
+    // alert("You must be logged in to continue");
     return <Redirect to="/login" />;
   }
 };
